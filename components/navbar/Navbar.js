@@ -21,7 +21,7 @@ const Navbar = () => (
         <li className="hidden lg:block">
           <Link
             href="https://github.com/hsyntes"
-            className="text-gray-500 hover:text-dark hover:dark:text-white transition"
+            className="text-gray-500 dark:text-gray-400 hover:text-dark hover:dark:text-white transition"
             target="_blank"
           >
             <FontAwesomeIcon icon={faGithub} size="xl" />
@@ -31,18 +31,14 @@ const Navbar = () => (
           <Link
             href="https://linkedin.com/in/hsyntes"
             target="_blank"
-            className="text-gray-500 hover:text-dark hover:dark:text-white transition"
+            className="text-gray-500 dark:text-gray-400 hover:text-dark hover:dark:text-white transition"
           >
             <FontAwesomeIcon icon={faLinkedin} size="xl" />
           </Link>
         </li>
         <li>
           <Link href="/authentication">
-            <Button
-              type="button"
-              variant="primary"
-              // onClick={() => router.push("/authentication")}
-            >
+            <Button type="button" variant="primary">
               Sign up
             </Button>
           </Link>

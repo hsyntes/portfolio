@@ -34,7 +34,7 @@ module.exports = {
       },
 
       transitionDuration: {
-        DEFAULT: ".2s",
+        DEFAULT: ".3s",
       },
 
       transitionTimingFunction: {

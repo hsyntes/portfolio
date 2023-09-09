@@ -76,9 +76,9 @@ const Jumbotron = ({ s3Bucket }) => {
           <motion.span
             animate={{ opacity: [0, 1] }}
             transition={{
-              ease: "easeOut",
+              ease: "easeInOut",
               delay: 1.9,
-              duration: 0.25,
+              duration: 0.5,
             }}
             className="block font-bold text-5xl lg:text-6xl xl:text-8xl"
           >
@@ -123,7 +123,7 @@ const Jumbotron = ({ s3Bucket }) => {
           <Button
             type="button"
             variant="link"
-            className="group relative block lg:inline-block !text-lg mx-auto lg:mx-0 lg:ms-4"
+            className="group relative block lg:inline-block !text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
           >
             <FontAwesomeIcon icon={faProjectDiagram} className="text-primary" />
             <span className="ms-2">Go to the projects</span>
