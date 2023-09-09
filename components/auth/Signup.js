@@ -4,6 +4,7 @@ import useInput from "@/hooks/useInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Button from "../ui/Button";
+import Link from "next/link";
 
 const Signup = () => {
   const {
@@ -174,7 +175,7 @@ const Signup = () => {
           )}
         </div>
       </Card.Body>
-      <Card.Footer>
+      <Card.Footer className="text-center">
         <Button
           type="submit"
           variant="primary"
@@ -182,7 +183,12 @@ const Signup = () => {
         >
           Signup
         </Button>
-        <p className="text-gray-500">Have you an account?</p>
+        <p className="text-gray-500 my-6">Have you an account?</p>
+        <Link href="/authentication?auth=login">
+          <Button type="button" variant="link" className="!text-lg">
+            Login
+          </Button>
+        </Link>
       </Card.Footer>
     </form>
   );

@@ -66,8 +66,7 @@ const reducer = (state, action) => {
             ...state,
             isError: !state.isValid,
             message:
-              !state.isValid &&
-              "The @username must be between 3 and 12 characters",
+              !state.isValid && "@username must be between 3 and 12 characters",
           };
 
         case "email":
