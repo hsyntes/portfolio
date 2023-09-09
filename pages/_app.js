@@ -3,16 +3,22 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { useRouter } from "next/router";
 
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const { pathname } = router;
+
+  if (pathname === "/authentication") return <Component {...pageProps} />;
+
   return (
-    <Layout>
+    <>
       <Head>
         <meta
           name="description"
-          content="Huseyin Ates @hsyntes | Full Stack MERN Developer with proficient in using React & Next.js to create interactive user interfaces and skilled in handling server-side development using Node.js, Express.js, WebSocket with MVC architecture, handling database operations including data models and advanced schema design using MongoDB, implementing Amazon Web Servides (AWS) & Cloud Computing."
+          content="Huseyin Ates @hsyntes | Full Stack MERN Developer with proficiency in using React & Next.js to create interactive user interfaces and skilled in handling server-side development using Node.js, Express.js, WebSocket with MVC architecture, handling database operations including data models and advanced schema design using MongoDB, implementing Amazon Web Services (AWS) & Cloud Computing."
         />
         <meta
           name="keywords"
@@ -22,7 +28,9 @@ export default function App({ Component, pageProps }) {
           Huseyin Ates - Software Engineer | Full Stack MERN Developer
         </title>
       </Head>
-      <Component {...pageProps} />
-    </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }

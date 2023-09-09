@@ -1,4 +1,4 @@
-const Input = ({ type, name, placeholder }) => (
+const Input = ({ type, name, placeholder, value, onChange, onBlur }) => (
   <div className="relative">
     <input
       type={type}
@@ -6,6 +6,9 @@ const Input = ({ type, name, placeholder }) => (
       name={name}
       placeholder={placeholder}
       className="form-input peer w-full bg-light lg:bg-white dark:bg-black lg:dark:bg-dark border-0 border-b-2 focus:border-b-primary placeholder:text-light placeholder:lg:text-white placeholder:lg:dark:text-dark placeholder:dark:text-black focus:ring-0 ps-0"
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
     />
     <label
       htmlFor={name}

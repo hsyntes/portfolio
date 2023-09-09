@@ -20,7 +20,8 @@
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "validator": "^13.11.0"
   },
   "description": "Huseyin Ates - Full Stack MERN Developer with proficient in using React & Next.js to create interactive user interfaces and skilled in handling server-side development using Node.js, Express.js, WebSocket with MVC architecture, handling database operations including data models and advanced schema design using MongoDB, implementing Amazon Web Services & Cloud Computing.",
   "main": "next.config.js",
