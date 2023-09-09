@@ -27,7 +27,7 @@ const Projects = ({ projects }) => (
           whileInView={{ opacity: [0, 1], y: [100, 0] }}
           transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
-          className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker p-3 my-16 lg:my-24 transition"
+          className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker p-3 my-12 lg:my-24 transition"
           key={project._id}
         >
           <Image

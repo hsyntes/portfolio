@@ -7,7 +7,7 @@ export default function Home({ s3Bucket, projects }) {
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
         <Jumbotron s3Bucket={s3Bucket} />
       </header>
-      <section className="text-gray-500 text-justify my-24 lg:my-32">
+      <section className="text-gray-500 text-justify my-12 lg:my-24">
         <h2>
           <strong>Full Stack MERN</strong> Developer with proficient in using
           React & Next.js, TailwindCSS & Bootstrap to create interactive user
@@ -17,7 +17,7 @@ export default function Home({ s3Bucket, projects }) {
           using MongoDB, implementing Amazon Web Services & Cloud Computing.
         </h2>
       </section>
-      <section className="my-24 lg:my-32">
+      <section className="my-12 lg:my-24">
         <Projects projects={projects} />
       </section>
     </>
