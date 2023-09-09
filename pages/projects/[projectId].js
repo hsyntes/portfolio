@@ -9,7 +9,7 @@ export async function getServerSideProps({ params }) {
     `${process.env.REACT_APP_BACKEND_API}/hsyntes/projects/${projectId}`
   );
 
-  const { data } = response.json();
+  const { data } = await response.json();
 
   return {
     props: {
