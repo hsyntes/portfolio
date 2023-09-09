@@ -116,14 +116,18 @@ const Jumbotron = ({ s3Bucket }) => {
           </ul>
         </div>
         <section className="flex flex-col lg:flex-row items-center justify-center lg:justify-start">
-          <Button type="button" variant="primary" className="mb-4 lg:mb-0">
+          <Button
+            type="button"
+            variant="primary"
+            className="flex items-center mb-4 lg:mb-0 !px-6 !py-3"
+          >
             <FontAwesomeIcon icon={faFile} className="text-white !text-lg" />
             <span className="ms-2">See the articles</span>
           </Button>
           <Button
             type="button"
             variant="link"
-            className="group relative block lg:inline-block !text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
+            className="group relative flex items-center !text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
           >
             <FontAwesomeIcon icon={faProjectDiagram} className="text-primary" />
             <span className="ms-2">Go to the projects</span>

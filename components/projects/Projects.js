@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Button from "../ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faCodeFork } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faCode,
+  faCodeFork,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -20,10 +24,10 @@ const Projects = ({ projects }) => (
     <ul className="lg:mx-auto">
       {projects?.map((project) => (
         <motion.li
-          whileInView={{ opacity: [0, 1], y: [150, 0] }}
+          whileInView={{ opacity: [0, 1], y: [100, 0] }}
           transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
-          className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 my-16 lg:my-24"
+          className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker p-3 my-16 lg:my-24 transition"
           key={project._id}
         >
           <Image
@@ -38,7 +42,7 @@ const Projects = ({ projects }) => (
             <h1 className="font-bold text-2xl mb-2">
               <Link href={`/projects/${project._id}`}>{project.name}</Link>
             </h1>
-            <p className="mb-8">
+            <p className="text-gray-500 dark:text-gray-400 mb-8">
               <Link href={`/projects/${project._id}`}>
                 {project.description}
               </Link>
@@ -46,7 +50,8 @@ const Projects = ({ projects }) => (
             <div className="flex flex-col lg:flex-row lg:items-center">
               <Link href={project.link} target="_blank">
                 <Button type="button" variant="primary">
-                  Go to the project
+                  <span className="me-2">Go to the project</span>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 </Button>
               </Link>
               <Link

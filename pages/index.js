@@ -24,7 +24,7 @@ export default function Home({ s3Bucket, projects }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const s3Bucket = process.env.REACT_APP_AWS_S3_BUCKET;
 
   const response = await fetch(
