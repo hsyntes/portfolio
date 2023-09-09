@@ -37,7 +37,7 @@ const Navbar = () => (
           </Link>
         </li>
         <li>
-          <Link href="/authentication">
+          <Link href="/authentication?auth=signup">
             <Button type="button" variant="primary">
               Sign up
             </Button>
