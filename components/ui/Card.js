@@ -1,5 +1,5 @@
 const Card = ({ className, children }) => {
-  const classes = `card rounded shadow p-8 ${className}`;
+  const classes = `card rounded shadow bg-white dark:bg-dark p-12 mx-auto ${className}`;
   return <div className={classes}>{children}</div>;
 };
 
@@ -15,7 +15,7 @@ const CardBody = ({ className, children }) => {
 
 const CardFooter = ({ className, children }) => {
   const classes = `card-footer flex items-center ${className}`;
-  return <div className={className}>{children}</div>;
+  return <div className={classes}>{children}</div>;
 };
 
 Card.Header = CardHeader;
