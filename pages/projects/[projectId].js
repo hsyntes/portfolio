@@ -2,20 +2,23 @@ import Head from "next/head";
 
 const ProjectDetailPage = ({ project }) => {
   console.log(project);
+
+  const { documentation } = project;
+
   return (
     <>
       <Head>
-        <meta name="description" content={project.description} />
-        <meta
-          name="keywords"
-          content={project.documentation.keywords.join(", ")}
-        />
+        <meta name="description" content={documentation.description} />
+        <meta name="keywords" content={documentation.keywords.join(", ")} />
         <title>
-          {project.documentation.title} - {project.description}
+          {documentation.title} - {documentation.description}
         </title>
       </Head>
       <section>
-        <h1 className="font-bold text-4xl">{project.documentation.title}</h1>
+        <h1 className="font-bold text-4xl mb-4">{documentation.title}</h1>
+        <p className="text-gray-500 dark:text-gray-400">
+          {documentation.description}
+        </p>
       </section>
     </>
   );
