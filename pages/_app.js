@@ -2,8 +2,11 @@ import "@/styles/globals.css";
 import Head from "next/head";
 import Layout from "@/components/layout";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { useRouter } from "next/router";
+
+const queryClient = new QueryClient();
 
 config.autoAddCss = false;
 
@@ -11,7 +14,12 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
 
-  if (pathname === "/authentication") return <Component {...pageProps} />;
+  if (pathname === "/authentication")
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />;
+      </QueryClientProvider>
+    );
 
   return (
     <>
@@ -29,7 +37,9 @@ export default function App({ Component, pageProps }) {
         </title>
       </Head>
       <Layout>
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </Layout>
     </>
   );
