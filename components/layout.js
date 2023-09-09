@@ -3,7 +3,7 @@ import Container from "./container/Container";
 
 const Layout = ({ children }) => (
   <>
-    <header className="my-8">
+    <header className="backdrop-blur bg-opacity-0 sticky top-0 py-8">
       <Navbar />
     </header>
     <main className="my-24 lg:my-32">

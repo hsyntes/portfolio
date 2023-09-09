@@ -15,13 +15,17 @@ const Projects = ({ projects }) => (
           src={project.logo}
           width={72}
           height={72}
-          className="col-span-2 lg:col-span-1 hover:scale-110 hover:rotate-12 transition-all"
+          className="col-span-2 lg:col-span-1 hover:scale-110 hover:rotate-12 cursor-pointer transition-all"
           alt="Project"
           onClick={() => window.open(`${project.link}`, "_blank")}
         />
         <div className="col-span-10 lg:col-span-11">
-          <h1 className="font-bold text-2xl mb-2">{project.name}</h1>
-          <p className="mb-8">{project.description}</p>
+          <h1 className="font-bold text-2xl mb-2">
+            <Link href={`/projects/${project._id}`}>{project.name}</Link>
+          </h1>
+          <p className="mb-8">
+            <Link href={`/projects/${project._id}`}>{project.description}</Link>
+          </p>
           <div className="flex flex-col  lg:flex-row lg:items-center">
             <Link href={project.link} target="_blank">
               <Button type="button" variant="primary">
