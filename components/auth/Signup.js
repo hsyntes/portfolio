@@ -182,6 +182,7 @@ const Signup = () => {
         >
           Signup
         </Button>
+        <p className="text-gray-500">Have you an account?</p>
       </Card.Footer>
     </form>
   );

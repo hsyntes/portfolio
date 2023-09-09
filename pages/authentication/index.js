@@ -19,7 +19,7 @@ const AuthenticationPage = () => {
         justifyContent: "center",
       }}
     >
-      <Card className="dark:!bg-black lg:dark:!bg-dark !shadow-none lg:shadow w-5/6 lg:w-3/4 xl:w-2/4 !p-0 lg:!p-12">
+      <Card className="dark:!bg-black lg:dark:!bg-dark !shadow-none lg:shadow w-5/6 lg:w-3/4 xl:w-2/4 !p-0 lg:!px-16 lg:!py-24">
         <Card.Header>
           <Link href="/">
             <Image src="/logo.svg" width={32} height={32} alt="App" />

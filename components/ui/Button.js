@@ -9,7 +9,7 @@ const Button = ({ type, variant, className, onClick, children }) => {
     classes += "bg-gradient-to-r from-secondary to-primary text-white";
 
   if (variant === "dark") classes += "bg-dark hover:bg-black text-white";
-  0;
+
   if (variant === "light") classes += "bg-light hover:bg-white text-dark";
 
   if (variant === "link")

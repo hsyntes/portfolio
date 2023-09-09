@@ -14,7 +14,7 @@ const CardBody = ({ className, children }) => {
 };
 
 const CardFooter = ({ className, children }) => {
-  const classes = `card-footer flex items-center ${className}`;
+  const classes = `card-footer ${className}`;
   return <div className={classes}>{children}</div>;
 };
 
