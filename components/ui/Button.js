@@ -1,5 +1,5 @@
 const Button = ({ type, variant, className, onClick, children }) => {
-  let classes = `rounded shadow font-semibold text-sm px-5 py-2 ${className} transition-all `;
+  let classes = `rounded shadow font-semibold text-sm px-4 py-2 ${className} transition-all `;
 
   if (variant === "primary")
     classes +=

@@ -9,12 +9,13 @@ export default function Home({ s3Bucket, projects }) {
       </header>
       <section className="text-gray-500 text-justify my-12 lg:my-24">
         <h2>
-          <strong>Full Stack MERN</strong> Developer with proficient in using
-          React & Next.js, TailwindCSS & Bootstrap to create interactive user
-          interfaces and skilled in handling server-side development using
-          Node.js, Express.js, WebSocket with MVC architecture, handling
-          database operations including data models and advanced schema design
-          using MongoDB, implementing Amazon Web Services & Cloud Computing.
+          <strong className="text-dark dark:text-white">Full Stack MERN</strong>{" "}
+          Developer with proficient in using React & Next.js, TailwindCSS &
+          Bootstrap to create interactive user interfaces and skilled in
+          handling server-side development using Node.js, Express.js, WebSocket
+          with MVC architecture, handling database operations including data
+          models and advanced schema design using MongoDB, implementing Amazon
+          Web Services & Cloud Computing.
         </h2>
       </section>
       <section className="my-12 lg:my-24">
