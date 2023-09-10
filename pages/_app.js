@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
+import { Provider } from "react-redux";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Head from "next/head";
 import Layout from "@/components/layout";
 import "@/styles/globals.css";
-import { QueryClient, QueryClientProvider } from "react-query";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { Provider } from "react-redux";
 import store from "@/store";
 
 const queryClient = new QueryClient();

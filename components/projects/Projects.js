@@ -10,7 +10,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Projects = ({ projects }) => (
-  <>
+  <section id="projects">
     <h1 className="font-bold text-2xl lg:text-4xl text-center">
       You can see the full code of my projects and contribute them on&nbsp;
       <Link
@@ -39,14 +39,20 @@ const Projects = ({ projects }) => (
             onClick={() => window.open(`${project.link}`, "_blank")}
           />
           <div className="col-span-10 lg:col-span-11">
-            <h1 className="font-bold text-2xl mb-2">
+            {/* <h1 className="font-bold text-2xl mb-2">
               <Link href={`/projects/${project._id}`}>{project.name}</Link>
             </h1>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
               <Link href={`/projects/${project._id}`}>
                 {project.description}
               </Link>
-            </p>
+            </p> */}
+            <Link href={`/projects/${project._id}`}>
+              <h1 className="font-bold text-2xl mb-2">{project.name}</h1>
+              <p className="text-gray-500 dark:text-gray-400 lg:text-base mb-8">
+                {project.description}
+              </p>
+            </Link>
             <div className="flex flex-col lg:flex-row lg:items-center">
               <Link href={project.link} target="_blank">
                 <Button type="button" variant="primary">
@@ -72,7 +78,7 @@ const Projects = ({ projects }) => (
         </motion.li>
       ))}
     </ul>
-  </>
+  </section>
 );
 
 export default Projects;

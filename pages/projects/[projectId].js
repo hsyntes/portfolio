@@ -1,12 +1,10 @@
-import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectDetailPage = ({ project }) => {
-  console.log(project);
-
   const { documentation } = project;
   const { headings } = documentation;
 
@@ -55,9 +53,30 @@ const ProjectDetailPage = ({ project }) => {
                     {heading.paragraph}
                   </p>
                 )}
-                {/* {heading.image && (
-                <Image src={heading.image} width={96} height={96} />
-              )} */}
+                {heading.link && (
+                  <Link
+                    href={Object.values(heading.link).join("")}
+                    target="_blank"
+                    className="text-blue-500 hover:text-blue-700 transition"
+                  >
+                    {Object.keys(heading.link).join("")}
+                  </Link>
+                )}
+                {heading.images && (
+                  <div className="flex items-center flex-wrap">
+                    {heading.images.map((image, index) => (
+                      <Image
+                        src={image}
+                        width={1920}
+                        height={1080}
+                        className="w-96 lg:w-auto rounded mb-6 last:mb-0 first:lg:me-6"
+                        alt={`Project Documentation Image ${index}`}
+                        key={index}
+                      />
+                    ))}
+                  </div>
+                )}
+
                 {heading.lists && (
                   <ul className="mb-4">
                     {heading.lists.map((list) => (

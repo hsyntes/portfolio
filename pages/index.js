@@ -1,7 +1,13 @@
+import { useQuery } from "react-query";
 import Jumbotron from "@/components/jumbotron/Jumbotron";
 import Projects from "@/components/projects/Projects";
+import getCurrentUser from "@/utils/getCurrentUser";
 
-export default function Home({ s3Bucket, projects }) {
+export default function Home({ BACKEND_API, s3Bucket, projects }) {
+  const { data } = useQuery(["getCurrentUser", BACKEND_API], {
+    queryFn: () => getCurrentUser(BACKEND_API),
+  });
+
   return (
     <>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
@@ -29,7 +35,10 @@ export default function Home({ s3Bucket, projects }) {
 // * Fetch the projects
 export async function getServerSideProps() {
   // * Access to the Server Local Variable(s)
-  const s3Bucket = process.env.REACT_APP_AWS_S3_BUCKET;
+  const [BACKEND_API, s3Bucket] = [
+    process.env.REACT_APP_BACKEND_API,
+    process.env.REACT_APP_AWS_S3_BUCKET,
+  ];
 
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND_API}/hsyntes/projects`
@@ -40,6 +49,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
+      BACKEND_API,
       s3Bucket,
       projects,
     },

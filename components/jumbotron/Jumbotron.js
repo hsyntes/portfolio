@@ -124,15 +124,20 @@ const Jumbotron = ({ s3Bucket }) => {
             <FontAwesomeIcon icon={faFile} className="text-white !text-lg" />
             <span className="ms-2">See the articles</span>
           </Button>
-          <Button
-            type="button"
-            variant="link"
-            className="group relative flex items-center !text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
-          >
-            <FontAwesomeIcon icon={faProjectDiagram} className="text-primary" />
-            <span className="ms-2">Go to the projects</span>
-            <div className="absolute rounded w-0 h-0.5 bg-gradient-to-r from-primary to-secondary bottom-0 left-0 group-hover:w-full transition-all"></div>
-          </Button>
+          <Link href="#projects" scroll={false}>
+            <Button
+              type="button"
+              variant="link"
+              className="group relative flex items-center !text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
+            >
+              <FontAwesomeIcon
+                icon={faProjectDiagram}
+                className="text-primary"
+              />
+              <span className="ms-2">Go to the projects</span>
+              <div className="absolute rounded w-0 h-0.5 bg-gradient-to-r from-primary to-secondary bottom-0 left-0 group-hover:w-full transition-all"></div>
+            </Button>
+          </Link>
         </section>
       </section>
     </>

@@ -1,16 +1,33 @@
-import Login from "@/components/auth/Login";
-import Signup from "@/components/auth/Signup";
-import Card from "@/components/ui/Card";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Login from "@/components/auth/Login";
+import Signup from "@/components/auth/Signup";
+import Card from "@/components/ui/Card";
 
 // * User authentication
 const AuthenticationPage = ({ BACKEND_API }) => {
   // * Access to the URL
   const router = useRouter();
   const { auth } = router.query;
+
+  const codeString = `// * User Redux Global State
+const userSlice = createSlice({
+  name: "current-user",
+  initialState: {
+    currentUser: null,
+  },
+  reducers: {
+    setCurrentUser(state, action) {
+      const { payload } = action;
+
+      state.currentUser = payload;
+
+      return state;
+    },
+  },
+});`;
 
   return (
     <>
@@ -22,6 +39,7 @@ const AuthenticationPage = ({ BACKEND_API }) => {
         <title>Signup - Huseyin Ates | Full Stack MERN Developer</title>
       </Head>
       <div
+        className="my-12"
         style={{
           width: "100%",
           height: "100vh",

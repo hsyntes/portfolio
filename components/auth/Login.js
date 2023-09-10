@@ -4,15 +4,14 @@ import Link from "next/link";
 import Card from "../ui/Card";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
-import useInput from "@/hooks/useInput";
 import ErrorDialog from "../ui/ErrorDialog";
 import Toast from "../ui/Toast";
+import useInput from "@/hooks/useInput";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/router";
 
 const login = async ({ formData, BACKEND_API }) => {
-  console.log(formData, BACKEND_API);
-
   const response = await fetch(`${BACKEND_API}/hsyntes/users/login`, {
     method: "POST",
     headers: {
@@ -33,6 +32,7 @@ const Login = ({ BACKEND_API }) => {
   const [errorDialog, setErrorDialog] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const queryClient = useQueryClient();
+  const router = useRouter();
 
   // * Input values with custom hook
   const {
@@ -70,6 +70,11 @@ const Login = ({ BACKEND_API }) => {
       if (data?.status === "success") {
         setToast(true);
         setToastMessage(data.message);
+
+        queryClient.refetchQueries("getCurrentUser");
+        queryClient.invalidateQueries("getCurrentUser");
+
+        router.push("/");
       }
     },
   });

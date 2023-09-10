@@ -7,7 +7,7 @@ const userSlice = createSlice({
     currentUser: null,
   },
   reducers: {
-    login(state, action) {
+    setCurrentUser(state, action) {
       const { payload } = action;
 
       state.currentUser = payload;
