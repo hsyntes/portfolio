@@ -1,13 +1,26 @@
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 const Modal = ({ show, className, handleModal, children }) => {
+  console.log(router.pathname);
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+
+    if (show) body.style.overflow = "hidden";
+    else body.style.overflow = "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [show]);
+
   if (!show) return null;
 
-  const classes = `modal w-5/6 lg:w-2/4 xl:w-2/6 rounded shadow bg-white dark:bg-dark p-8 ${className}`;
+  const classes = `modal w-11/12 lg:w-2/4 xl:w-2/6 rounded shadow bg-white dark:bg-dark p-8 ${className}`;
 
   document.body.addEventListener("click", (e) => {
     if (e.target === document.getElementById("modal-overlay")) handleModal();

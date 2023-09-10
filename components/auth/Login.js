@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
 import ErrorDialog from "../ui/ErrorDialog";
+import Cookies from "universal-cookie";
 
 const login = async ({ formData, BACKEND_API }) => {
   console.log(formData, BACKEND_API);
@@ -26,8 +27,6 @@ const login = async ({ formData, BACKEND_API }) => {
 };
 
 const Login = ({ BACKEND_API }) => {
-  console.log(BACKEND_API);
-
   const [isFormValid, setIsFormValid] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
@@ -57,13 +56,21 @@ const Login = ({ BACKEND_API }) => {
 
   const handleErrorDialog = () => setErrorDialog(!errorDialog);
 
-  const mutationLogin = useMutation(login, {
+  const mutation = useMutation(login, {
     onSuccess: (data) => {
       console.log(data);
 
       if (data?.status === "fail") {
         setErrorDialog(true);
         setErrorMessage(data?.message);
+      }
+
+      if (data?.status === "success") {
+        const cookies = new Cookies();
+
+        const jwt = cookies.get("jsonwebtoken");
+
+        console.log(jwt);
       }
     },
   });
@@ -118,9 +125,9 @@ const Login = ({ BACKEND_API }) => {
             type="submit"
             variant="primary"
             className="w-full !py-4 lg:!py-6"
-            disabled={!isFormValid}
+            disabled={!isFormValid || mutation.isLoading}
             onClick={() => {
-              mutationLogin.mutate({
+              mutation.mutate({
                 formData: { username, password },
                 BACKEND_API,
               });
