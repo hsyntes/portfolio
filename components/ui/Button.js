@@ -1,5 +1,5 @@
-const Button = ({ type, variant, className, onClick, children }) => {
-  let classes = `rounded shadow font-semibold text-sm px-4 py-2 ${className} transition-all `;
+const Button = ({ type, variant, className, onClick, disabled, children }) => {
+  let classes = `rounded shadow font-semibold text-sm px-5 py-2 ${className} transition-all `;
 
   if (variant === "primary")
     classes +=
@@ -16,8 +16,19 @@ const Button = ({ type, variant, className, onClick, children }) => {
     classes +=
       "bg-gradient-to-r from-primary to-secondary hover:from-primary-darker hover:to-secondary-darker bg-clip-text text-transparent !shadow-none !rounded-none !p-0";
 
+  if (variant === "blue") classes += "bg-blue-500 hover:bg-blue-700";
+
+  if (variant === "blue-link")
+    classes +=
+      "bg-none text-blue-500 hover:text-blue-700 !shadow-none !rounded-none !p-0";
+
   return (
-    <button type={type} className={classes} onClick={onClick}>
+    <button
+      type={type}
+      className={classes}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
