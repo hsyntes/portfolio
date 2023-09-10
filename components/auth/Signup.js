@@ -6,7 +6,7 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import Button from "../ui/Button";
 import Link from "next/link";
 
-const Signup = () => {
+const Signup = ({ BACKEND_API }) => {
   const {
     state: {
       value: firstname,

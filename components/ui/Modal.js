@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 const Modal = ({ show, className, handleModal, children }) => {
   if (!show) return null;
 
-  const classes = `modal w-5/6 lg:w-2/4 xl:w-1/4 rounded shadow bg-white dark:bg-dark p-8 ${className}`;
+  const classes = `modal w-5/6 lg:w-2/4 xl:w-2/6 rounded shadow bg-white dark:bg-dark p-8 ${className}`;
 
   document.body.addEventListener("click", (e) => {
     if (e.target === document.getElementById("modal-overlay")) handleModal();

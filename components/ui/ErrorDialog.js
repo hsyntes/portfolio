@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const { default: Modal } = require("./Modal");
 
-const ErrorDialog = ({ show, handleErrorDialog }) => {
+const ErrorDialog = ({ show, errorMessage, handleErrorDialog }) => {
   if (!show) return null;
 
   return (
@@ -11,7 +11,7 @@ const ErrorDialog = ({ show, handleErrorDialog }) => {
         <h6 className="font-bold text-lg text-center mx-auto">Error</h6>
       </Modal.Header>
       <Modal.Body className="text-gray-500 text-center my-8">
-        Authentication failed. Please log in.
+        {errorMessage}
       </Modal.Body>
       <Modal.Footer className="flex items-center justify-center">
         <Button type="button" variant="blue-link" onClick={handleErrorDialog}>

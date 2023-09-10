@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const AuthenticationPage = () => {
+const AuthenticationPage = ({ BACKEND_API }) => {
   const router = useRouter();
 
   const { auth } = router.query;
@@ -38,15 +38,26 @@ const AuthenticationPage = () => {
               ?.slice(0, 1)
               .toUpperCase()}${auth?.slice(1)}`}</h1>
           </Card.Header>
-          {auth === "signup" ? <Signup /> : <Login />}
+          {auth === "signup" ? (
+            <Signup BACKEND_API={BACKEND_API} />
+          ) : (
+            <Login BACKEND_API={BACKEND_API} />
+          )}
         </Card>
       </div>
     </>
   );
 };
 
-AuthenticationPage.getLayout = function getLayout(page) {
-  return page;
-};
+export async function getStaticProps() {
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API;
+  console.log(BACKEND_API);
+
+  return {
+    props: {
+      BACKEND_API,
+    },
+  };
+}
 
 export default AuthenticationPage;

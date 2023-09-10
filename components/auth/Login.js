@@ -9,30 +9,29 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
 import ErrorDialog from "../ui/ErrorDialog";
 
-const login = async ({ formData }) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_BACKEND_API}/users/login`,
-    {
-      method: "POST",
-      body: formData,
-    }
-  );
+const login = async ({ formData, BACKEND_API }) => {
+  console.log(formData, BACKEND_API);
+
+  const response = await fetch(`${BACKEND_API}/hsyntes/users/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
 
   const data = await response.json();
 
   return data;
 };
 
-const Login = () => {
+const Login = ({ BACKEND_API }) => {
+  console.log(BACKEND_API);
+
   const [isFormValid, setIsFormValid] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
-  //   const queryClient = useQueryClient();
-
-  //   const mutationLogin = useMutation(login, {
-  //     onSuccess: (data) => {
-  //       console.log(data);
-  //     },
-  //   });
+  const [errorMessage, setErrorMessage] = useState();
+  const queryClient = useQueryClient();
 
   const {
     state: {
@@ -57,6 +56,17 @@ const Login = () => {
   } = useInput();
 
   const handleErrorDialog = () => setErrorDialog(!errorDialog);
+
+  const mutationLogin = useMutation(login, {
+    onSuccess: (data) => {
+      console.log(data);
+
+      if (data?.status === "fail") {
+        setErrorDialog(true);
+        setErrorMessage(data?.message);
+      }
+    },
+  });
 
   useEffect(() => {
     const identifier = setTimeout(() => {
@@ -110,7 +120,10 @@ const Login = () => {
             className="w-full !py-4 lg:!py-6"
             disabled={!isFormValid}
             onClick={() => {
-              setErrorDialog(true);
+              mutationLogin.mutate({
+                formData: { username, password },
+                BACKEND_API,
+              });
             }}
           >
             Login
@@ -123,7 +136,11 @@ const Login = () => {
           </Link>
         </Card.Footer>
       </form>
-      <ErrorDialog show={errorDialog} handleErrorDialog={handleErrorDialog} />
+      <ErrorDialog
+        show={errorDialog}
+        handleErrorDialog={handleErrorDialog}
+        errorMessage={errorMessage}
+      />
     </>
   );
 };
