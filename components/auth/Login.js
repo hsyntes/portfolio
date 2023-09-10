@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import Link from "next/link";
@@ -6,10 +7,9 @@ import Input from "../ui/Input";
 import Button from "../ui/Button";
 import ErrorDialog from "../ui/ErrorDialog";
 import Toast from "../ui/Toast";
-import useInput from "@/hooks/useInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/router";
+import useInput from "@/hooks/useInput";
 
 const login = async ({ formData, BACKEND_API }) => {
   const response = await fetch(`${BACKEND_API}/hsyntes/users/login`, {
@@ -57,6 +57,10 @@ const Login = ({ BACKEND_API }) => {
     handleOnBlur: passwordOnBlur,
   } = useInput();
 
+  // * Toggle
+  const handleErrorDialog = () => setErrorDialog(!errorDialog);
+  const handleToast = () => setToast(!toast);
+
   // * Logging in request with React-Query
   const mutation = useMutation(login, {
     onSuccess: (data) => {
@@ -74,14 +78,12 @@ const Login = ({ BACKEND_API }) => {
         queryClient.refetchQueries("getCurrentUser");
         queryClient.invalidateQueries("getCurrentUser");
 
-        router.push("/");
+        setTimeout(() => {
+          router.push("/");
+        }, 2500);
       }
     },
   });
-
-  // * Toggle
-  const handleErrorDialog = () => setErrorDialog(!errorDialog);
-  const handleToast = () => setToast(!toast);
 
   // * Form validation
   useEffect(() => {
@@ -158,10 +160,10 @@ const Login = ({ BACKEND_API }) => {
       </form>
       <ErrorDialog
         show={errorDialog}
-        handleErrorDialog={handleErrorDialog}
         errorMessage={errorMessage}
+        handleErrorDialog={handleErrorDialog}
       />
-      <Toast show={toast} handleToast={handleToast} message={toastMessage} />
+      <Toast show={toast} message={toastMessage} handleToast={handleToast} />
     </>
   );
 };
