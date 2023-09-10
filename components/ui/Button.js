@@ -1,6 +1,7 @@
 const Button = ({ type, variant, className, onClick, disabled, children }) => {
   let classes = `rounded shadow font-semibold text-sm px-5 py-2 ${className} transition-all `;
 
+  // * Buttin variants
   if (variant === "primary")
     classes +=
       "bg-gradient-to-r from-primary to-secondary hover:from-primary-darker hover:to-secondary-darker text-white";

@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import validator from "validator";
 
+// * Initial state(s)
 const initialState = {
   value: "",
   isValid: null,
@@ -8,6 +9,7 @@ const initialState = {
   message: "",
 };
 
+// * Reducer function to update state(s)
 const reducer = (state, action) => {
   const { type, name, payload } = action;
 
@@ -106,11 +108,13 @@ const reducer = (state, action) => {
 const useInput = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // * An input when changed
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     dispatch({ type: "onChange", name, payload: value });
   };
 
+  // * An input when blured
   const handleOnBlur = (e) => {
     const { name } = e.target;
     dispatch({ type: "onBlur", name });

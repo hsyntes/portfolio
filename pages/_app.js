@@ -1,25 +1,19 @@
-import "@/styles/globals.css";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Layout from "@/components/layout";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@/styles/globals.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { useRouter } from "next/router";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 const queryClient = new QueryClient();
-
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
-
-  if (pathname === "/authentication")
-    return (
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />;
-      </QueryClientProvider>
-    );
 
   return (
     <>
@@ -36,11 +30,19 @@ export default function App({ Component, pageProps }) {
           Huseyin Ates - Software Engineer | Full Stack MERN Developer
         </title>
       </Head>
-      <Layout>
+      {/* Redux Provider */}
+      <Provider store={store}>
+        {/* React-Query Provider */}
         <QueryClientProvider client={queryClient}>
-          <Component {...pageProps} />
+          {pathname === "/authentication" ? (
+            <Component {...pageProps} />
+          ) : (
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          )}
         </QueryClientProvider>
-      </Layout>
+      </Provider>
     </>
   );
 }

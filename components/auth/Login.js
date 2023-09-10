@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
 import ErrorDialog from "../ui/ErrorDialog";
-import Cookies from "universal-cookie";
+import Toast from "../ui/Toast";
 
 const login = async ({ formData, BACKEND_API }) => {
   console.log(formData, BACKEND_API);
@@ -28,10 +28,13 @@ const login = async ({ formData, BACKEND_API }) => {
 
 const Login = ({ BACKEND_API }) => {
   const [isFormValid, setIsFormValid] = useState(false);
+  const [toast, setToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState();
   const [errorDialog, setErrorDialog] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const queryClient = useQueryClient();
 
+  // * Input values with custom hook
   const {
     state: {
       value: username,
@@ -54,8 +57,7 @@ const Login = ({ BACKEND_API }) => {
     handleOnBlur: passwordOnBlur,
   } = useInput();
 
-  const handleErrorDialog = () => setErrorDialog(!errorDialog);
-
+  // * Logging in request with React-Query
   const mutation = useMutation(login, {
     onSuccess: (data) => {
       console.log(data);
@@ -66,15 +68,17 @@ const Login = ({ BACKEND_API }) => {
       }
 
       if (data?.status === "success") {
-        const cookies = new Cookies();
-
-        const jwt = cookies.get("jsonwebtoken");
-
-        console.log(jwt);
+        setToast(true);
+        setToastMessage(data.message);
       }
     },
   });
 
+  // * Toggle
+  const handleErrorDialog = () => setErrorDialog(!errorDialog);
+  const handleToast = () => setToast(!toast);
+
+  // * Form validation
   useEffect(() => {
     const identifier = setTimeout(() => {
       setIsFormValid(isUsernameValid && isPasswordValid);
@@ -124,7 +128,7 @@ const Login = ({ BACKEND_API }) => {
           <Button
             type="submit"
             variant="primary"
-            className="w-full !py-4 lg:!py-6"
+            className="w-full !py-4 lg:!py-5"
             disabled={!isFormValid || mutation.isLoading}
             onClick={() => {
               mutation.mutate({
@@ -137,7 +141,11 @@ const Login = ({ BACKEND_API }) => {
           </Button>
           <p className="text-gray-500 my-6">Don't have an account?</p>
           <Link href="/authentication?auth=signup">
-            <Button type="button" variant="link" className="!text-lg">
+            <Button
+              type="button"
+              variant="link"
+              className="w-full !py-4 lg:!py-6"
+            >
               Signup
             </Button>
           </Link>
@@ -148,6 +156,7 @@ const Login = ({ BACKEND_API }) => {
         handleErrorDialog={handleErrorDialog}
         errorMessage={errorMessage}
       />
+      <Toast show={toast} handleToast={handleToast} message={toastMessage} />
     </>
   );
 };

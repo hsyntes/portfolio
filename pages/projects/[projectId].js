@@ -74,6 +74,7 @@ const ProjectDetailPage = ({ project }) => {
   );
 };
 
+// * Fetch the project based on ID
 export async function getServerSideProps({ params }) {
   const { projectId } = params;
 

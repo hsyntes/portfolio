@@ -5,8 +5,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 const Modal = ({ show, className, handleModal, children }) => {
-  console.log(router.pathname);
-
+  // * Disable page scrolling when modal is opened
   useEffect(() => {
     const body = document.querySelector("body");
 
@@ -22,6 +21,8 @@ const Modal = ({ show, className, handleModal, children }) => {
 
   const classes = `modal w-11/12 lg:w-2/4 xl:w-2/6 rounded shadow bg-white dark:bg-dark p-8 ${className}`;
 
+  // * Closing modal when clicked outside of the modal or
+  // * pressed the ESC key
   document.body.addEventListener("click", (e) => {
     if (e.target === document.getElementById("modal-overlay")) handleModal();
   });
@@ -30,6 +31,7 @@ const Modal = ({ show, className, handleModal, children }) => {
     if (e.key === "Escape") handleModal();
   });
 
+  // * Creating portal
   return createPortal(
     <div id="modal-overlay">
       <motion.div

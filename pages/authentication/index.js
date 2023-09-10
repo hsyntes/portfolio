@@ -6,9 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+// * User authentication
 const AuthenticationPage = ({ BACKEND_API }) => {
+  // * Access to the URL
   const router = useRouter();
-
   const { auth } = router.query;
 
   return (
@@ -38,6 +39,7 @@ const AuthenticationPage = ({ BACKEND_API }) => {
               ?.slice(0, 1)
               .toUpperCase()}${auth?.slice(1)}`}</h1>
           </Card.Header>
+          {/* Signup or Login based on the query URL (authMode) */}
           {auth === "signup" ? (
             <Signup BACKEND_API={BACKEND_API} />
           ) : (
@@ -49,6 +51,7 @@ const AuthenticationPage = ({ BACKEND_API }) => {
   );
 };
 
+// * Access to the Server Local Variable(s)
 export async function getStaticProps() {
   const BACKEND_API = process.env.REACT_APP_BACKEND_API;
   console.log(BACKEND_API);

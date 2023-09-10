@@ -7,7 +7,9 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {/* Modal & Toast backdrops */}
         <div id="modal-backdrop"></div>
+        <div id="toast-backdrop"></div>
       </body>
     </Html>
   );

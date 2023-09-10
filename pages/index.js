@@ -5,6 +5,7 @@ export default function Home({ s3Bucket, projects }) {
   return (
     <>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
+        {/* Jumbotron */}
         <Jumbotron s3Bucket={s3Bucket} />
       </header>
       <section className="text-gray-500 text-justify my-12 lg:my-24">
@@ -25,7 +26,9 @@ export default function Home({ s3Bucket, projects }) {
   );
 }
 
+// * Fetch the projects
 export async function getServerSideProps() {
+  // * Access to the Server Local Variable(s)
   const s3Bucket = process.env.REACT_APP_AWS_S3_BUCKET;
 
   const response = await fetch(

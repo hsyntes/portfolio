@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import Link from "next/link";
 
 const Signup = ({ BACKEND_API }) => {
+  // * Input values with custom hook
   const {
     state: {
       value: firstname,
@@ -72,8 +73,6 @@ const Signup = ({ BACKEND_API }) => {
     handleOnChange: passwordConfirmOnChange,
     handleOnBlur: passwordConfirmOnBlur,
   } = useInput();
-
-  console.log(firstname, IsFirstnameValid, isFirstnameError);
 
   return (
     <form>
@@ -179,7 +178,7 @@ const Signup = ({ BACKEND_API }) => {
         <Button
           type="submit"
           variant="primary"
-          className="w-full !py-4 lg:!py-6"
+          className="w-full !py-4 lg:!py-5"
         >
           Signup
         </Button>
