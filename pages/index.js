@@ -3,13 +3,12 @@ import Jumbotron from "@/components/jumbotron/Jumbotron";
 import Projects from "@/components/projects/Projects";
 import getCurrentUser from "@/utils/getCurrentUser";
 import Articles from "@/components/articles/Articles";
+import Image from "next/image";
 
 export default function Home({ BACKEND_API, s3Bucket, projects, articles }) {
-  const { data } = useQuery(["getCurrentUser", BACKEND_API], {
-    queryFn: () => getCurrentUser(BACKEND_API),
-  });
-
-  console.log(articles);
+  // const { data } = useQuery(["getCurrentUser", BACKEND_API], {
+  //   queryFn: () => getCurrentUser(BACKEND_API),
+  // });
 
   return (
     <>
@@ -30,7 +29,27 @@ export default function Home({ BACKEND_API, s3Bucket, projects, articles }) {
       <section className="my-12 lg:my-24">
         <Projects projects={projects} />
       </section>
-      <section className="my-12 lg:my-24">{/* <Articles /> */}</section>
+      <section className="flex items-center justify-center my-12 lg:my-24">
+        <section>
+          <Image
+            src={`${s3Bucket}/icons/idea.png`}
+            className="w-32"
+            width={64}
+            height={64}
+          />
+          <Image
+            src={`${s3Bucket}/icons/experience.png`}
+            className="w-32"
+            width={64}
+            height={64}
+          />
+        </section>
+        <section></section>
+        <section></section>
+      </section>
+      <section className="my-12 lg:my-24">
+        <Articles articles={articles} />
+      </section>
     </>
   );
 }

@@ -31,7 +31,7 @@ const Projects = ({ projects }) => (
           key={project._id}
         >
           <Image
-            src={project.logo}
+            src={project.project_logo}
             width={72}
             height={72}
             className="col-span-2 lg:col-span-1 hover:scale-110 hover:rotate-12 cursor-pointer drop-shadow-md transition-all"
@@ -40,20 +40,22 @@ const Projects = ({ projects }) => (
           />
           <div className="col-span-10 lg:col-span-11">
             <Link href={`/projects/${project._id}`}>
-              <h1 className="font-bold text-2xl mb-2">{project.name}</h1>
+              <h1 className="font-bold text-2xl mb-2">
+                {project.project_name}
+              </h1>
               <p className="text-gray-500 dark:text-gray-400 lg:text-base mb-8">
-                {project.description}
+                {project.project_description}
               </p>
             </Link>
             <div className="flex flex-col lg:flex-row lg:items-center">
-              <Link href={project.link} target="_blank">
+              <Link href={project.project_link} target="_blank">
                 <Button type="button" variant="primary">
                   <span className="me-2">Go to the project</span>
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 </Button>
               </Link>
               <Link
-                href={project.repo}
+                href={project.project_repo}
                 target="_blank"
                 className="mt-6 lg:mt-0 lg:ms-4"
               >

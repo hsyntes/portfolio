@@ -5,33 +5,41 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectDetailPage = ({ project }) => {
-  const { documentation } = project;
-  const { headings } = documentation;
+  const { project_documentation } = project;
+  const { headings } = project_documentation;
 
   return (
     <>
       <Head>
-        <meta name="description" content={documentation.description} />
-        <meta name="keywords" content={documentation.keywords.join(", ")} />
-        <title>{`${documentation.title} - ${documentation.description}`}</title>
+        <meta name="description" content={project_documentation.description} />
+        <meta
+          name="keywords"
+          content={project_documentation.keywords.join(", ")}
+        />
+        <title>{`${project_documentation.title} - ${project_documentation.description}`}</title>
       </Head>
       <section>
         <section className="mb-10">
           <h1 className="font-bold text-2xl lg:text-4xl mb-4">
-            {documentation.title}
+            {project_documentation.title}
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-base lg:text-lg">
-            {documentation.description}
+            {project_documentation.description}
           </p>
         </section>
         <Link
-          href={`${project.link}`}
+          href={`${project.project_link}`}
           target="_blank"
           className="flex items-center mb-10"
         >
-          <Image src={project.logo} width={48} height={48} alt="Project Icon" />
+          <Image
+            src={project.project_logo}
+            width={48}
+            height={48}
+            alt="Project Icon"
+          />
           <h1 className="font-bold text-2xl lg:text-4xl ms-2">
-            {project.name}
+            {project.project_name}
           </h1>
           <FontAwesomeIcon
             className="text-gray-500 ms-2"
@@ -97,7 +105,7 @@ export async function getServerSideProps({ params }) {
   const { projectId } = params;
 
   const response = await fetch(
-    `${process.env.BACKEND_API}/hsyntes/projects/${projectId}`
+    `${process.env.BACKEND_API}/hsyntes/projects/id/${projectId}`
   );
 
   const { data } = await response.json();
