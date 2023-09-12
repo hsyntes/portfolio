@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
           content="Huseyin Ates, hsyntes, Full-Stack Developer, Full Stack Developer, Web Development, Web Developer, Frontend, Backend, API"
         />
         <title>
-          Huseyin Ates - Software Engineer | Full Stack MERN Developer
+          Huseyin Ates @hsyntes - Software Engineer | Full Stack MERN Developer
         </title>
       </Head>
       {/* Redux Provider */}

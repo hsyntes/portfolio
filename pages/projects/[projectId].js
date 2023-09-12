@@ -41,10 +41,10 @@ const ProjectDetailPage = ({ project }) => {
         </Link>
         {headings?.map((heading, index) => {
           return (
-            <ul className="mb-10" key={index}>
+            <ul className="mb-16" key={index}>
               <li key={heading._id}>
                 {heading.sub_title && (
-                  <h2 className="font-bold text-xl lg:text-2xl mb-4">
+                  <h2 className="font-bold text-xl lg:text-2xl mb-2">
                     {heading.sub_title}
                   </h2>
                 )}
@@ -57,7 +57,7 @@ const ProjectDetailPage = ({ project }) => {
                   <Link
                     href={Object.values(heading.link).join("")}
                     target="_blank"
-                    className="text-blue-500 hover:text-blue-700 transition"
+                    className="text-blue-500 hover:text-blue-700 transition mb-4"
                   >
                     {Object.keys(heading.link).join("")}
                   </Link>
@@ -69,16 +69,15 @@ const ProjectDetailPage = ({ project }) => {
                         src={image}
                         width={1920}
                         height={1080}
-                        className="w-96 lg:w-auto rounded mb-6 last:mb-0 first:lg:me-6"
+                        className="w-96 lg:w-auto rounded mb-4 last:mb-0 first:lg:me-6"
                         alt={`Project Documentation Image ${index}`}
                         key={index}
                       />
                     ))}
                   </div>
                 )}
-
                 {heading.lists && (
-                  <ul className="mb-4">
+                  <ul className="mb-2">
                     {heading.lists.map((list) => (
                       <li key={list}>{list}</li>
                     ))}

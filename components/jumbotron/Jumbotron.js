@@ -135,7 +135,7 @@ const Jumbotron = ({ s3Bucket }) => {
                 className="text-primary"
               />
               <span className="ms-2">Go to the projects</span>
-              <div className="absolute rounded w-0 h-0.5 bg-gradient-to-r from-primary to-secondary bottom-0 left-0 group-hover:w-full transition-all"></div>
+              <div className="absolute rounded w-0 h-0.5 bg-gradient-to-r from-primary-darker to-secondary-darker bottom-0 left-0 group-hover:w-full transition-all"></div>
             </Button>
           </Link>
         </section>

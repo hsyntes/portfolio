@@ -4,7 +4,7 @@ import Container from "./container/Container";
 // * Root layout
 const Layout = ({ children }) => (
   <>
-    <header className="bg-light dark:bg-black sticky top-0 py-4 mb-10 z-10">
+    <header className="bg-light dark:bg-black sticky top-0 py-1 lg:py-4 mb-10 z-10">
       <Navbar />
     </header>
     <main className="my-12 lg:my-24">

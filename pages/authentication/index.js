@@ -12,23 +12,6 @@ const AuthenticationPage = ({ BACKEND_API }) => {
   const router = useRouter();
   const { auth } = router.query;
 
-  const codeString = `// * User Redux Global State
-const userSlice = createSlice({
-  name: "current-user",
-  initialState: {
-    currentUser: null,
-  },
-  reducers: {
-    setCurrentUser(state, action) {
-      const { payload } = action;
-
-      state.currentUser = payload;
-
-      return state;
-    },
-  },
-});`;
-
   return (
     <>
       <Head>

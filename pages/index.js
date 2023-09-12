@@ -1,7 +1,10 @@
+"use client";
+
 import { useQuery } from "react-query";
 import Jumbotron from "@/components/jumbotron/Jumbotron";
 import Projects from "@/components/projects/Projects";
 import getCurrentUser from "@/utils/getCurrentUser";
+// import from "highlight.js";
 
 export default function Home({ BACKEND_API, s3Bucket, projects }) {
   const { data } = useQuery(["getCurrentUser", BACKEND_API], {
@@ -14,7 +17,7 @@ export default function Home({ BACKEND_API, s3Bucket, projects }) {
         {/* Jumbotron */}
         <Jumbotron s3Bucket={s3Bucket} />
       </header>
-      <section className="text-gray-500 text-justify my-12 lg:my-24">
+      <section className="text-gray-500 lg:text-lg text-justify my-12 lg:my-24">
         <h2>
           <strong className="text-dark dark:text-white">Full Stack MERN</strong>{" "}
           Developer with proficient in using React & Next.js, TailwindCSS &

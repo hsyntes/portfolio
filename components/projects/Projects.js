@@ -27,7 +27,7 @@ const Projects = ({ projects }) => (
           whileInView={{ opacity: [0, 1], y: [100, 0] }}
           transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
-          className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker p-3 my-12 lg:my-24 transition"
+          className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker p-4 my-12 lg:my-24 transition"
           key={project._id}
         >
           <Image
@@ -39,14 +39,6 @@ const Projects = ({ projects }) => (
             onClick={() => window.open(`${project.link}`, "_blank")}
           />
           <div className="col-span-10 lg:col-span-11">
-            {/* <h1 className="font-bold text-2xl mb-2">
-              <Link href={`/projects/${project._id}`}>{project.name}</Link>
-            </h1>
-            <p className="text-gray-500 dark:text-gray-400 mb-8">
-              <Link href={`/projects/${project._id}`}>
-                {project.description}
-              </Link>
-            </p> */}
             <Link href={`/projects/${project._id}`}>
               <h1 className="font-bold text-2xl mb-2">{project.name}</h1>
               <p className="text-gray-500 dark:text-gray-400 lg:text-base mb-8">

@@ -17,6 +17,8 @@ const getCurrentUser = async (BACKEND_API) => {
 
     if (!data) return null;
 
+    console.log(data);
+
     return data.currentUser;
   } catch (e) {
     new Error(e);
