@@ -5,15 +5,17 @@ import getCurrentUser from "@/utils/getCurrentUser";
 import Articles from "@/components/articles/Articles";
 import Image from "next/image";
 
-export default function Home({ BACKEND_API, s3Bucket, projects, articles }) {
-  // const { data } = useQuery(["getCurrentUser", BACKEND_API], {
-  //   queryFn: () => getCurrentUser(BACKEND_API),
-  // });
-
+export default function Home({
+  BACKEND_API,
+  s3Bucket,
+  projects,
+  articles,
+  icons,
+}) {
   return (
     <>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
-        <Jumbotron s3Bucket={s3Bucket} />
+        <Jumbotron s3Bucket={s3Bucket} icons={icons} />
       </header>
       <section className="text-gray-500 lg:text-lg text-justify my-12 lg:my-24">
         <h2>
@@ -73,6 +75,7 @@ export async function getServerSideProps() {
 
   const projectsData = await fetchData(BACKEND_API, "projects");
   const articlesData = await fetchData(BACKEND_API, "articles");
+  const iconsData = await fetchData(BACKEND_API, "icons");
 
   return {
     props: {
@@ -80,6 +83,7 @@ export async function getServerSideProps() {
       s3Bucket,
       projects: projectsData.projects,
       articles: articlesData.articles,
+      icons: iconsData.icons,
     },
   };
 }

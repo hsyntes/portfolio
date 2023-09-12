@@ -8,7 +8,7 @@ import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 
-const Jumbotron = ({ s3Bucket }) => {
+const Jumbotron = ({ s3Bucket, icons }) => {
   const [text] = useState("<Full-Stack/>");
 
   return (
@@ -87,7 +87,20 @@ const Jumbotron = ({ s3Bucket }) => {
         </h1>
         <div className="flex items-center justify-center lg:justify-start my-12">
           <ul>
-            <li className="flex items-start lg:items-center justify-start">
+            {icons.map((icon) => (
+              <li className="flex items-start lg:items-center justify-start">
+                <Image src={icon.icon_link} width={20} height={20} />
+                <span className="text-base lg:text-lg leading-6 ms-2">
+                  {icon.icon_name === "idea" &&
+                    "Solving problems with creative and efficient approaches"}
+                  {icon.icon_name === "experience" &&
+                    "Sharing my knowledge and experiences"}
+                  {icon.icon_name === "develop" &&
+                    "Developing Full-Stack applications"}
+                </span>
+              </li>
+            ))}
+            {/* <li className="flex items-start lg:items-center justify-start">
               <img src={`${s3Bucket}/icons/idea.png`} width={20} height={20} />
               <span className="text-base lg:text-lg leading-6 ms-2">
                 Solving problems with creative and efficient approaches
@@ -112,7 +125,7 @@ const Jumbotron = ({ s3Bucket }) => {
               <span className="text-base lg:text-lg leading-6 ms-2">
                 Developing Full-Stack applications
               </span>
-            </li>
+            </li> */}
           </ul>
         </div>
         <section className="flex flex-col lg:flex-row items-center justify-center lg:justify-start">
