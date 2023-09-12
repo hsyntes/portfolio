@@ -35,7 +35,7 @@ const Projects = ({ projects }) => (
             width={72}
             height={72}
             className="col-span-2 lg:col-span-1 hover:scale-110 hover:rotate-12 cursor-pointer drop-shadow-md transition-all"
-            alt="Project"
+            alt={project.project_name}
             onClick={() => window.open(`${project.link}`, "_blank")}
           />
           <div className="col-span-10 lg:col-span-11">

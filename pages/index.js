@@ -31,7 +31,7 @@ export default function Home({ BACKEND_API, s3Bucket, projects, articles }) {
       </section>
       <section className="flex items-center justify-center my-12 lg:my-24">
         <section>
-          <Image
+          {/* <Image
             src={`${s3Bucket}/icons/idea.png`}
             className="w-32"
             width={64}
@@ -42,7 +42,7 @@ export default function Home({ BACKEND_API, s3Bucket, projects, articles }) {
             className="w-32"
             width={64}
             height={64}
-          />
+          /> */}
         </section>
         <section></section>
         <section></section>

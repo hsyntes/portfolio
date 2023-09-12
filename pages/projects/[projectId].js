@@ -36,7 +36,7 @@ const ProjectDetailPage = ({ project }) => {
             src={project.project_logo}
             width={48}
             height={48}
-            alt="Project Icon"
+            alt={project.project_name}
           />
           <h1 className="font-bold text-2xl lg:text-4xl ms-2">
             {project.project_name}
@@ -78,7 +78,7 @@ const ProjectDetailPage = ({ project }) => {
                         width={1920}
                         height={1080}
                         className="w-96 lg:w-auto rounded mb-4 last:mb-0 first:lg:me-6"
-                        alt={`Project Documentation Image ${index}`}
+                        alt={project.project_name}
                         key={index}
                       />
                     ))}
