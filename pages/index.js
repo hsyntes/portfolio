@@ -28,6 +28,7 @@ export default function Home({ BACKEND_API, s3Bucket, projects }) {
       <section className="my-12 lg:my-24">
         <Projects projects={projects} />
       </section>
+      <section className="my-12 lg:my-24"></section>
     </>
   );
 }
