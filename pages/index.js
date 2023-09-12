@@ -2,16 +2,18 @@ import { useQuery } from "react-query";
 import Jumbotron from "@/components/jumbotron/Jumbotron";
 import Projects from "@/components/projects/Projects";
 import getCurrentUser from "@/utils/getCurrentUser";
+import Articles from "@/components/articles/Articles";
 
-export default function Home({ BACKEND_API, s3Bucket, projects }) {
+export default function Home({ BACKEND_API, s3Bucket, projects, articles }) {
   const { data } = useQuery(["getCurrentUser", BACKEND_API], {
     queryFn: () => getCurrentUser(BACKEND_API),
   });
 
+  console.log(articles);
+
   return (
     <>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
-        {/* Jumbotron */}
         <Jumbotron s3Bucket={s3Bucket} />
       </header>
       <section className="text-gray-500 lg:text-lg text-justify my-12 lg:my-24">
@@ -28,31 +30,37 @@ export default function Home({ BACKEND_API, s3Bucket, projects }) {
       <section className="my-12 lg:my-24">
         <Projects projects={projects} />
       </section>
-      <section className="my-12 lg:my-24"></section>
+      <section className="my-12 lg:my-24">{/* <Articles /> */}</section>
     </>
   );
 }
+
+// * Fetching backend data
+const fetchData = async (BACKEND_API, route) => {
+  const response = await fetch(`${BACKEND_API}/hsyntes/${route}`);
+
+  const { data } = await response.json();
+
+  return data;
+};
 
 // * Fetch the projects
 export async function getServerSideProps() {
   // * Access to the Server Local Variable(s)
   const [BACKEND_API, s3Bucket] = [
-    process.env.REACT_APP_BACKEND_API,
-    process.env.REACT_APP_AWS_S3_BUCKET,
+    process.env.BACKEND_API,
+    process.env.AWS_S3_BUCKET,
   ];
 
-  const response = await fetch(
-    `${process.env.REACT_APP_BACKEND_API}/hsyntes/projects`
-  );
-
-  const { data } = await response.json();
-  const { projects } = data;
+  const projectsData = await fetchData(BACKEND_API, "projects");
+  const articlesData = await fetchData(BACKEND_API, "articles");
 
   return {
     props: {
       BACKEND_API,
       s3Bucket,
-      projects,
+      projects: projectsData.projects,
+      articles: articlesData.articles,
     },
   };
 }

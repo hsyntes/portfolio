@@ -54,7 +54,7 @@ const AuthenticationPage = ({ BACKEND_API }) => {
 
 // * Access to the Server Local Variable(s)
 export async function getStaticProps() {
-  const BACKEND_API = process.env.REACT_APP_BACKEND_API;
+  const BACKEND_API = process.env.BACKEND_API;
   console.log(BACKEND_API);
 
   return {

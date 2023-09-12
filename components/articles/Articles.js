@@ -1,1 +1,3 @@
-const Articles = ({ Articles }) => {};
+const Articles = ({ articles }) => {
+  //   console.log(articles);
+};
