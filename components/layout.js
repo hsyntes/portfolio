@@ -7,13 +7,13 @@ const Layout = ({ children }) => (
     <header className="bg-light dark:bg-black sticky top-0 py-1 lg:py-4 mb-10 z-10">
       <Navbar />
     </header>
-    <main className="my-12 lg:my-24">
+    <main className="my-20 lg:my-40">
       {/* Wrap the app with Container */}
       <Container>{children}</Container>
     </main>
-    <footer className="my-12 lg:my-24">
+    <footer className="my-20 lg:my-40">
       <Container>
-        <hr className="bg-gray-300 dark:bg-gray-600 h-0.5 border-none" />
+        <hr className="bg-gray-300 dark:bg-gray-700 h-0.5 border-none" />
       </Container>
     </footer>
   </>

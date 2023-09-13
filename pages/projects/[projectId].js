@@ -77,7 +77,7 @@ const ProjectDetailPage = ({ project }) => {
                         src={image}
                         width={1920}
                         height={1080}
-                        className="w-96 lg:w-auto rounded mb-4 last:mb-0 first:lg:me-6"
+                        className="w-96 lg:w-auto rounded my-4 last:mb-0 first:lg:me-6"
                         alt={project.project_name}
                         key={index}
                       />

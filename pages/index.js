@@ -5,19 +5,13 @@ import getCurrentUser from "@/utils/getCurrentUser";
 import Articles from "@/components/articles/Articles";
 import Image from "next/image";
 
-export default function Home({
-  BACKEND_API,
-  s3Bucket,
-  projects,
-  articles,
-  icons,
-}) {
+export default function Home({ projects, articles, icons }) {
   return (
     <>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
-        <Jumbotron s3Bucket={s3Bucket} icons={icons} />
+        <Jumbotron icons={icons} />
       </header>
-      <section className="text-gray-500 lg:text-lg text-justify my-12 lg:my-24">
+      <section className="text-gray-500 lg:text-lg text-justify my-20 lg:my-40">
         <h2>
           <strong className="text-dark dark:text-white">Full Stack MERN</strong>{" "}
           Developer with proficient in using React & Next.js, TailwindCSS &
@@ -28,30 +22,8 @@ export default function Home({
           Web Services & Cloud Computing.
         </h2>
       </section>
-      <section className="my-12 lg:my-24">
-        <Projects projects={projects} />
-      </section>
-      <section className="flex items-center justify-center my-12 lg:my-24">
-        <section>
-          {/* <Image
-            src={`${s3Bucket}/icons/idea.png`}
-            className="w-32"
-            width={64}
-            height={64}
-          />
-          <Image
-            src={`${s3Bucket}/icons/experience.png`}
-            className="w-32"
-            width={64}
-            height={64}
-          /> */}
-        </section>
-        <section></section>
-        <section></section>
-      </section>
-      <section className="my-12 lg:my-24">
-        <Articles articles={articles} />
-      </section>
+      <Projects projects={projects} />
+      <Articles icons={icons} articles={articles} />
     </>
   );
 }
@@ -79,8 +51,6 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      BACKEND_API,
-      s3Bucket,
       projects: projectsData.projects,
       articles: articlesData.articles,
       icons: iconsData.icons,

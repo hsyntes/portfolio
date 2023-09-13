@@ -10,8 +10,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Projects = ({ projects }) => (
-  <section id="projects">
-    <h1 className="font-bold text-2xl lg:text-4xl text-center">
+  <section id="projects" className="my-20 lg:my-40">
+    <h6 className="font-bold text-2xl lg:text-4xl text-center">
       You can see the full code of my projects and contribute them on&nbsp;
       <Link
         href="https://github.com/hsyntes"
@@ -20,11 +20,11 @@ const Projects = ({ projects }) => (
       >
         GitHub!
       </Link>
-    </h1>
+    </h6>
     <ul className="lg:mx-auto">
       {projects?.map((project) => (
         <motion.li
-          whileInView={{ opacity: [0, 1], y: [100, 0] }}
+          whileInView={{ opacity: [0, 1], y: [150, 0] }}
           transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
           className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker hover:shadow p-4 my-12 lg:my-24 transition"

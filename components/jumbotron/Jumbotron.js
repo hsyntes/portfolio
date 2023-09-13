@@ -8,7 +8,7 @@ import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 
-const Jumbotron = ({ s3Bucket, icons }) => {
+const Jumbotron = ({ icons }) => {
   const [text] = useState("<Full-Stack/>");
 
   return (
@@ -88,8 +88,16 @@ const Jumbotron = ({ s3Bucket, icons }) => {
         <div className="flex items-center justify-center lg:justify-start my-12">
           <ul>
             {icons.map((icon) => (
-              <li className="flex items-start lg:items-center justify-start">
-                <Image src={icon.icon_link} width={20} height={20} />
+              <li
+                className="flex items-start lg:items-center justify-start"
+                key={icon._id}
+              >
+                <Image
+                  src={icon.icon_link}
+                  width={20}
+                  height={20}
+                  alt={icon.icon_name}
+                />
                 <span className="text-base lg:text-lg leading-6 ms-2">
                   {icon.icon_name === "idea" &&
                     "Solving problems with creative and efficient approaches"}
@@ -129,14 +137,16 @@ const Jumbotron = ({ s3Bucket, icons }) => {
           </ul>
         </div>
         <section className="flex flex-col lg:flex-row items-center justify-center lg:justify-start">
-          <Button
-            type="button"
-            variant="primary"
-            className="flex items-center mb-4 lg:mb-0 !px-6 !py-3"
-          >
-            <FontAwesomeIcon icon={faFile} className="text-white !text-lg" />
-            <span className="ms-2">See the articles</span>
-          </Button>
+          <Link href="#articles" scroll={false}>
+            <Button
+              type="button"
+              variant="primary"
+              className="flex items-center mb-4 lg:mb-0 !px-6 !py-3"
+            >
+              <FontAwesomeIcon icon={faFile} className="text-white !text-lg" />
+              <span className="ms-2">See the articles</span>
+            </Button>
+          </Link>
           <Link href="#projects" scroll={false}>
             <Button
               type="button"
