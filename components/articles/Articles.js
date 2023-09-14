@@ -1,19 +1,9 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import Card from "../ui/Card";
-import Button from "../ui/Button";
 import Article from "./Article";
 
 const Articles = ({ icons, articles }) => {
   console.log(articles);
-
-  const [articledHovered, setArticleHovered] = useState(false);
 
   return (
     <section id="articles" className="my-20 lg:my-40">
@@ -62,11 +52,7 @@ const Articles = ({ icons, articles }) => {
             key={article._id}
             className="col-span-6 lg:col-span-4 rounded overflow-hidden"
           >
-            <Article
-              article={article}
-              articledHovered={articledHovered}
-              setArticleHovered={setArticleHovered}
-            />
+            <Article article={article} />
           </li>
         ))}
       </ul>
