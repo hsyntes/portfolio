@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const Article = ({ article }) => {
+  // Set hoverend event
   const [articledHovered, setArticleHovered] = useState(false);
 
   return (
