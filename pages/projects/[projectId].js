@@ -105,7 +105,7 @@ export async function getServerSideProps({ params }) {
   const { projectId } = params;
 
   const response = await fetch(
-    `${process.env.BACKEND_API}/hsyntes/projects/id/${projectId}`
+    `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/projects/id/${projectId}`
   );
 
   const { data } = await response.json();

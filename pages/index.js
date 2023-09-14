@@ -32,8 +32,8 @@ const fetchData = async (BACKEND_API, route) => {
 export async function getServerSideProps() {
   // * Access to the Server Local Variable(s)
   const [BACKEND_API, s3Bucket] = [
-    process.env.BACKEND_API,
-    process.env.AWS_S3_BUCKET,
+    process.env.NEXT_PUBLIC_BACKEND_API,
+    process.env.NEXT_PUBLIC_AWS_S3_BUCKET,
   ];
 
   const projectsData = await fetchData(BACKEND_API, "projects");
