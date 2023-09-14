@@ -13,6 +13,8 @@ const Button = ({ type, variant, className, onClick, disabled, children }) => {
 
   if (variant === "light") classes += "bg-light hover:bg-white text-dark";
 
+  if (variant === "none") classes += "bg-none !shadow-none";
+
   if (variant === "link")
     classes +=
       "bg-gradient-to-r from-primary to-secondary hover:from-primary-darker hover:to-secondary-darker bg-clip-text text-transparent !shadow-none !rounded-none !p-0";

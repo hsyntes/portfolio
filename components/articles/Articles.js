@@ -1,11 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
+import Article from "./Article";
 
 const Articles = ({ icons, articles }) => {
   console.log(articles);
@@ -53,68 +56,17 @@ const Articles = ({ icons, articles }) => {
           </motion.li>
         ))}
       </ul>
-      <ul className="grid grid-cols-12 gap-4">
+      <ul className="grid grid-cols-12 gap-6 lg:gap-12 xl:gap-24">
         {articles?.map((article) => (
           <li
             key={article._id}
             className="col-span-6 lg:col-span-4 rounded overflow-hidden"
           >
-            <Link
-              href="https://github.com/hsyntes"
-              className="group relative overflow-hidden"
-              onMouseEnter={() => setArticleHovered(true)}
-              onMouseLeave={() => setArticleHovered(false)}
-            >
-              <Image
-                src={article.article_thumbnail}
-                width={1080}
-                height={1350}
-                className="rounded border group-hover:opacity-75 group-hover:dark:opacity-40 transition"
-                alt={article.article_title}
-                priority={true}
-              />
-              <motion.div className="hidden lg:block absolute w-full h-96 top-full -translate-y-12 left-0 backdrop-blur group-hover:-translate-y-full transition-all duration-200">
-                <Card.Header className="my-3">
-                  <motion.div
-                    animate={
-                      articledHovered ? { rotate: [0, 180] } : { rotate: 0 }
-                    }
-                    transition={{ ease: "easeOut", duration: 0.5 }}
-                    className="mx-auto"
-                  >
-                    <motion.div
-                      animate={!articledHovered ? { y: [0, 5, 0] } : { y: [0] }}
-                      transition={{
-                        ease: "easeInOut",
-                        duration: 1.5,
-                        repeat: Infinity,
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        icon={faAngleUp}
-                        size="xl"
-                        className={
-                          articledHovered ? "dark:text-white" : "text-dark"
-                        }
-                      />
-                    </motion.div>
-                  </motion.div>
-                </Card.Header>
-                <Card.Body className="px-6">
-                  <h1 className="font-bold text-lg text-center mb-3">
-                    {article.article_title}
-                  </h1>
-                  <p className="text-justify">{article.article_description}</p>
-                  <Button
-                    type="button"
-                    variant="light"
-                    className="absolute bottom-6 left-1/2 -translate-x-1/2 !text-xs"
-                  >
-                    Read More
-                  </Button>
-                </Card.Body>
-              </motion.div>
-            </Link>
+            <Article
+              article={article}
+              articledHovered={articledHovered}
+              setArticleHovered={setArticleHovered}
+            />
           </li>
         ))}
       </ul>
