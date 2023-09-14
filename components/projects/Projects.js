@@ -49,7 +49,7 @@ const Projects = ({ projects }) => (
             </Link>
             <div className="flex flex-col lg:flex-row lg:items-center">
               <Link href={project.project_link} target="_blank">
-                <Button type="button" variant="primary">
+                <Button type="button" variant="primary" className="py-3">
                   <span className="me-2">Go to the project</span>
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 </Button>
