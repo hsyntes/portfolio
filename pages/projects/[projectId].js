@@ -80,6 +80,7 @@ const ProjectDetailPage = ({ project }) => {
                         className="w-96 lg:w-auto rounded my-4 last:mb-0 first:lg:me-6"
                         alt={project.project_name}
                         key={index}
+                        priority={true}
                       />
                     ))}
                   </div>
