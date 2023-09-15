@@ -76,7 +76,7 @@ const Login = ({ BACKEND_API }) => {
         setToast(true);
         setToastMessage(data.message);
 
-        if (data.token) localStorage.setItem("jsonwebtoken" || data.token);
+        if (data.token) localStorage.setItem("jsonwebtoken", data.token);
 
         queryClient.refetchQueries("getCurrentUser");
         queryClient.invalidateQueries("getCurrentUser");
