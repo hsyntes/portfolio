@@ -4,7 +4,6 @@ const getCurrentUser = async (BACKEND_API) => {
   try {
     const cookies = new Cookies();
     const jsonwebtoken = cookies.get("jsonwebtoken");
-    console.log(jsonwebtoken, localStorage.getItem("jsonwebtoken"));
 
     const response = await fetch(`${BACKEND_API}/hsyntes/users/current-user`, {
       method: "GET",
@@ -20,6 +19,8 @@ const getCurrentUser = async (BACKEND_API) => {
     if (!response.ok) return null;
 
     const { data } = response.json();
+
+    console.log(data);
 
     if (!data) return null;
 
