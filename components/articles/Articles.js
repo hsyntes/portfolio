@@ -11,6 +11,7 @@ const Articles = ({ icons, articles }) => (
     <ul className="lg:grid lg:grid-cols-12 gap-6 lg:gap-12 xl:gap-24 my-12 lg:my-24">
       {icons?.map((icon, index) => (
         <motion.li
+          style={{ opacity: 0 }}
           whileInView={{ opacity: [0, 1] }}
           transition={{
             ease: "easeOut",
