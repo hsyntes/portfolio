@@ -21,7 +21,7 @@ const getCurrentUser = async () => {
 
     if (!response.ok) return null;
 
-    const { data } = response.json();
+    const { data } = await response.json();
 
     return data.currentUser;
   } catch (e) {
