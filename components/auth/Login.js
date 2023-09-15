@@ -82,7 +82,6 @@ const Login = () => {
         if (data.token) localStorage.setItem("jsonwebtoken", data.token);
 
         queryClient.refetchQueries("getCurrentUser");
-        queryClient.invalidateQueries("getCurrentUser");
 
         setTimeout(() => {
           router.push("/");
