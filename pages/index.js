@@ -6,11 +6,11 @@ import Articles from "@/components/articles/Articles";
 import Summary from "@/components/summary/Summary";
 
 export default function Home({ projects, articles, icons }) {
-  const { data: currentUser } = useQuery("getCurrentUser", {
+  const { data } = useQuery("getCurrentUser", {
     queryFn: getCurrentUser,
   });
 
-  console.log(currentUser);
+  console.log(data);
 
   return (
     <>
