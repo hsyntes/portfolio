@@ -2,11 +2,14 @@ import Cookies from "universal-cookie";
 
 const getCurrentUser = async (BACKEND_API) => {
   try {
+    const cookies = new Cookies();
+    const jsonwebtoken = cookies.get("jsonwebtoken");
+
     const response = await fetch(`${BACKEND_API}/hsyntes/users/current-user`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${new Cookies().get("jsonwebtoken")}`,
+        Authorization: `Bearer ${jsonwebtoken}`,
       },
       credentials: "include",
     });
