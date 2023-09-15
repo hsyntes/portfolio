@@ -80,7 +80,7 @@ const Login = ({ BACKEND_API }) => {
 
         setTimeout(() => {
           router.push("/");
-        }, 2500);
+        }, 1000);
       }
     },
   });
