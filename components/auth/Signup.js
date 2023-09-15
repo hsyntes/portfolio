@@ -12,14 +12,17 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
 import Head from "next/head";
 
-const signup = async ({ formData, BACKEND_API }) => {
-  const response = await fetch(`${BACKEND_API}/hsyntes/users/signup`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
+const signup = async ({ formData }) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/users/signup`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }
+  );
 
   const data = await response.json();
 
@@ -274,7 +277,6 @@ const Signup = ({ BACKEND_API }) => {
                   password,
                   passwordConfirm,
                 },
-                BACKEND_API,
               })
             }
           >

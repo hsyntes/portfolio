@@ -3,11 +3,9 @@ import Jumbotron from "@/components/jumbotron/Jumbotron";
 import Projects from "@/components/projects/Projects";
 import getCurrentUser from "@/utils/getCurrentUser";
 import Articles from "@/components/articles/Articles";
-import Image from "next/image";
 import Summary from "@/components/summary/Summary";
 
 export default function Home({ projects, articles, icons }) {
-  console.log(process.env.NEXT_PUBLIC_BACKEND_API);
   const { data: currentUser } = useQuery(
     ["getCurrentUser", process.env.NEXT_PUBLIC_BACKEND_API],
     {

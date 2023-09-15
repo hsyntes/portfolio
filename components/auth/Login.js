@@ -12,21 +12,24 @@ import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
 import Head from "next/head";
 
-const login = async ({ formData, BACKEND_API }) => {
-  const response = await fetch(`${BACKEND_API}/hsyntes/users/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
+const login = async ({ formData }) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/users/login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }
+  );
 
   const data = await response.json();
 
   return data;
 };
 
-const Login = ({ BACKEND_API }) => {
+const Login = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [toast, setToast] = useState(false);
   const [toastMessage, setToastMessage] = useState();
@@ -144,10 +147,7 @@ const Login = ({ BACKEND_API }) => {
             className="w-full !py-4 lg:!py-5"
             disabled={!isFormValid || mutation.isLoading}
             onClick={() => {
-              mutation.mutate({
-                formData: { username, password },
-                BACKEND_API,
-              });
+              mutation.mutate({ formData: { username, password } });
             }}
           >
             Login

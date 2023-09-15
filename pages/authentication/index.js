@@ -7,7 +7,7 @@ import Signup from "@/components/auth/Signup";
 import Card from "@/components/ui/Card";
 
 // * User authentication
-const AuthenticationPage = ({ BACKEND_API }) => {
+const AuthenticationPage = () => {
   // * Access to the URL
   const router = useRouter();
   const { auth } = router.query;
@@ -40,27 +40,11 @@ const AuthenticationPage = ({ BACKEND_API }) => {
               .toUpperCase()}${auth?.slice(1)}`}</h1>
           </Card.Header>
           {/* Signup or Login based on the query URL (authMode) */}
-          {auth === "signup" ? (
-            <Signup BACKEND_API={BACKEND_API} />
-          ) : (
-            <Login BACKEND_API={BACKEND_API} />
-          )}
+          {auth === "signup" ? <Signup /> : <Login />}
         </Card>
       </div>
     </>
   );
 };
-
-// * Access to the Server Local Variable(s)
-export async function getStaticProps() {
-  const BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;
-  console.log(BACKEND_API);
-
-  return {
-    props: {
-      BACKEND_API,
-    },
-  };
-}
 
 export default AuthenticationPage;
