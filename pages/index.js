@@ -6,12 +6,9 @@ import Articles from "@/components/articles/Articles";
 import Summary from "@/components/summary/Summary";
 
 export default function Home({ projects, articles, icons }) {
-  const { data: currentUser } = useQuery(
-    ["getCurrentUser", process.env.NEXT_PUBLIC_BACKEND_API],
-    {
-      queryFn: () => getCurrentUser(process.env.NEXT_PUBLIC_BACKEND_API),
-    }
-  );
+  const { data: currentUser } = useQuery("getCurrentUser", {
+    queryFn: getCurrentUser,
+  });
 
   console.log(currentUser);
 
