@@ -110,21 +110,23 @@ const Signup = ({ BACKEND_API }) => {
   const mutation = useMutation(signup, {
     onSuccess: (data) => {
       console.log(data);
-      if (data.status === "fail") {
+      if (data?.status === "fail") {
         setErrorDialog(true);
         setErrorMessage(data.message);
       }
 
-      if (data.status === "success") {
+      if (data?.status === "success") {
         setToast(true);
         setToastMessage(data.message);
 
-        queryClient.invalidateQueries("getCurrentUser");
+        if (data.token) localStorage.setItem("jsonwebtoken", data.token);
+
         queryClient.refetchQueries("getCurrentUser");
+        queryClient.invalidateQueries("getCurrentUser");
 
         setTimeout(() => {
           router.push("/");
-        }, 2500);
+        }, 750);
       }
     },
   });

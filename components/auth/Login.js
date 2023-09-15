@@ -83,7 +83,7 @@ const Login = ({ BACKEND_API }) => {
 
         setTimeout(() => {
           router.push("/");
-        }, 1000);
+        }, 750);
       }
     },
   });
