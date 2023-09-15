@@ -29,8 +29,10 @@ export default function Home({ projects, articles, icons }) {
 }
 
 // * Fetching backend data
-const fetchData = async (BACKEND_API, route) => {
-  const response = await fetch(`${BACKEND_API}/hsyntes/${route}`);
+const fetchData = async (route) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/${route}`
+  );
 
   const { data } = await response.json();
 
@@ -40,15 +42,13 @@ const fetchData = async (BACKEND_API, route) => {
 // * Fetch the projects
 export async function getServerSideProps() {
   // * Access to the Server Local Variable(s)
-  const BACKEND_API = process.env.NEXT_PUBLIC_BACKEND_API;
 
-  const projectsData = await fetchData(BACKEND_API, "projects");
-  const articlesData = await fetchData(BACKEND_API, "articles");
-  const iconsData = await fetchData(BACKEND_API, "icons");
+  const projectsData = await fetchData("projects");
+  const articlesData = await fetchData("articles");
+  const iconsData = await fetchData("icons");
 
   return {
     props: {
-      BACKEND_API,
       projects: projectsData.projects,
       articles: articlesData.articles,
       icons: iconsData.icons,
