@@ -83,9 +83,7 @@ const Login = () => {
 
         queryClient.refetchQueries("getCurrentUser");
 
-        setTimeout(() => {
-          router.push("/");
-        }, 750);
+        router.push("/");
       }
     },
   });

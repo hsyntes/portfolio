@@ -126,9 +126,7 @@ const Signup = ({ BACKEND_API }) => {
 
         queryClient.refetchQueries("getCurrentUser");
 
-        setTimeout(() => {
-          router.push("/");
-        }, 750);
+        router.push("/");
       }
     },
   });
