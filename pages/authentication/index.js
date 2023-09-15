@@ -17,9 +17,8 @@ const AuthenticationPage = ({ BACKEND_API }) => {
       <Head>
         <meta
           name="keywords"
-          content="Huseyin Ates, hsyntes, signup, login, authentication, Full-Stack Developer, Full Stack Developer, Web Development, Web Developer, Frontend, Backend, API"
+          content="Huseyin Ates, hsyntes, huseyin ates, huseyin ates full stack developer, huseyin ates mern developer"
         />
-        <title>Signup - Huseyin Ates | Full Stack MERN Developer</title>
       </Head>
       <div
         className="my-12"

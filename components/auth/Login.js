@@ -10,6 +10,7 @@ import Toast from "../ui/Toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
+import Head from "next/head";
 
 const login = async ({ formData, BACKEND_API }) => {
   const response = await fetch(`${BACKEND_API}/hsyntes/users/login`, {
@@ -75,7 +76,7 @@ const Login = ({ BACKEND_API }) => {
         setToast(true);
         setToastMessage(data.message);
 
-        if (data.token) localStorage.setItem(data.token);
+        if (data.token) localStorage.setItem("jsonwebtoken" || data.token);
 
         queryClient.refetchQueries("getCurrentUser");
         queryClient.invalidateQueries("getCurrentUser");
@@ -98,6 +99,9 @@ const Login = ({ BACKEND_API }) => {
 
   return (
     <>
+      <Head>
+        <title>Login - Huseyin Ates | Full Stack MERN Developer</title>
+      </Head>
       <form onSubmit={(e) => e.preventDefault()}>
         <Card.Body className="my-12">
           <div className="form-group mb-8">
