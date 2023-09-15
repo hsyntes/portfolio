@@ -31,7 +31,7 @@ const Projects = ({ projects }) => (
           key={project._id}
         >
           <Image
-            src={project.project_link}
+            src={project.project_logo}
             width={72}
             height={72}
             className="col-span-2 lg:col-span-1 hover:scale-110 hover:rotate-12 cursor-pointer drop-shadow-md transition-all"
