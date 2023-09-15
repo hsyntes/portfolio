@@ -7,6 +7,7 @@ import Image from "next/image";
 import Summary from "@/components/summary/Summary";
 
 export default function Home({ projects, articles, icons }) {
+  console.log(process.env.NEXT_PUBLIC_BACKEND_API);
   const { data: currentUser } = useQuery(
     ["getCurrentUser", process.env.NEXT_PUBLIC_BACKEND_API],
     {
