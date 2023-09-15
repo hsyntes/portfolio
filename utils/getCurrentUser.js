@@ -5,6 +5,8 @@ const getCurrentUser = async () => {
     const cookies = new Cookies();
     const jsonwebtoken = cookies.get("jsonwebtoken");
 
+    console.log("Backend API: ", process.env.NEXT_PUBLIC_BACKEND_API);
+
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/users/current-user`,
       {
