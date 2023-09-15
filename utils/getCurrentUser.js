@@ -5,15 +5,15 @@ const getCurrentUser = async () => {
     const cookies = new Cookies();
     const jsonwebtoken = cookies.get("jsonwebtoken");
 
+    const token = jsonwebtoken || localStorage.getItem("jsonwebtoken");
+
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/users/current-user`,
+      `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/users/authorization/current-user`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            jsonwebtoken || localStorage.getItem("jsonwebtoken")
-          }`,
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
       }
