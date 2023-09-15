@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import Button from "../ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +7,6 @@ import {
   faCode,
   faCodeFork,
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Projects = ({ projects }) => (
@@ -34,9 +34,8 @@ const Projects = ({ projects }) => (
             src={project.project_logo}
             width={72}
             height={72}
-            className="col-span-2 lg:col-span-1 hover:scale-110 hover:rotate-12 cursor-pointer drop-shadow-md transition-all"
+            className="col-span-2 lg:col-span-1 cursor-pointer drop-shadow-md transition-all"
             alt={project.project_name}
-            onClick={() => window.open(`${project.link}`, "_blank")}
           />
           <div className="col-span-10 lg:col-span-11">
             <Link href={`/projects/${project._id}`}>
@@ -49,7 +48,7 @@ const Projects = ({ projects }) => (
             </Link>
             <div className="flex flex-col lg:flex-row lg:items-center">
               <Link href={project.project_link} target="_blank">
-                <Button type="button" variant="primary" className="py-3">
+                <Button type="button" variant="primary">
                   <span className="me-2">Go to the project</span>
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 </Button>
