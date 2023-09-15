@@ -27,7 +27,7 @@ const Article = ({ article }) => {
         alt={article.article_title}
         priority={true}
       />
-      <motion.div className="hidden lg:block absolute w-full h-full top-full -translate-y-12 left-0 backdrop-blur group-hover:-translate-y-full transition-all duration-300">
+      <motion.div className="block absolute w-full h-full top-full -translate-y-12 left-0 backdrop-blur group-hover:-translate-y-full transition-all duration-300">
         <Card.Header className="!block my-3">
           <motion.div
             animate={articledHovered ? { rotate: [0, 180] } : { rotate: 0 }}

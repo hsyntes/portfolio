@@ -30,15 +30,13 @@ const Projects = ({ projects }) => (
           className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker hover:shadow p-4 my-12 lg:my-24 transition"
           key={project._id}
         >
-          <Link href={`/projects/${project._id}`}>
-            <Image
-              src={project.project_logo}
-              width={72}
-              height={72}
-              className="col-span-2 lg:col-span-1 cursor-pointer drop-shadow-md transition-all"
-              alt={project.project_name}
-            />
-          </Link>
+          <Image
+            src={project.project_logo}
+            width={72}
+            height={72}
+            className="col-span-2 lg:col-span-1 cursor-pointer drop-shadow-md transition-all"
+            alt={project.project_name}
+          />
           <div className="col-span-10 lg:col-span-11">
             <Link href={`/projects/${project._id}`}>
               <h1 className="font-bold text-2xl mb-2">
