@@ -9,7 +9,9 @@ const getCurrentUser = async (BACKEND_API) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${jsonwebtoken}`,
+        Authorization: `Bearer ${
+          jsonwebtoken || localStorage.getItem("jsonwebtoken")
+        }`,
       },
       credentials: "include",
     });

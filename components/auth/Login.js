@@ -75,6 +75,8 @@ const Login = ({ BACKEND_API }) => {
         setToast(true);
         setToastMessage(data.message);
 
+        if (data.token) localStorage.setItem(data.token);
+
         queryClient.refetchQueries("getCurrentUser");
         queryClient.invalidateQueries("getCurrentUser");
 
