@@ -47,6 +47,9 @@ const Articles = ({ icons, articles }) => (
         </motion.li>
       ))}
     </ul>
+    <h1 className="font-bold text-xl lg:text-2xl text-center">
+      LEARN MERN DEVELOPMENT
+    </h1>
     <ul className="grid grid-cols-12 gap-6 lg:gap-12 xl:gap-24 my-12 lg:my-24">
       {articles?.map((article) => (
         <li
