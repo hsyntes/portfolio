@@ -106,7 +106,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
 };
 
 const OffcanvasFooter = ({ className }) => {
-  const classes = `offcanvas-footer ${className}`;
+  const classes = `offcanvas-footer border mt-auto ${className}`;
   return <div className={classes}></div>;
 };
 
