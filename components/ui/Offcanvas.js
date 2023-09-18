@@ -1,13 +1,102 @@
+import Link from "next/link";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-import Image from "next/image";
 import Brand from "./Brand";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import Button from "./Button";
 
-const Offcanvas = ({ show, className, handleOffcanvas, children }) => {
+const OffcanvasHeader = ({ className, handleOffcanvas }) => {
+  const classes = `offcanvas-header relative flex items-center ${className}`;
+
+  return (
+    <div className={classes}>
+      <Brand onClick={handleOffcanvas} />
+      <FontAwesomeIcon
+        icon={faTimes}
+        size="xl"
+        className="text-dark dark:text-white cursor-pointer absolute top-1/2 right-0 -translate-y-1/2"
+        onClick={handleOffcanvas}
+      />
+    </div>
+  );
+};
+
+const OffcanvasBody = ({ className }) => {
+  const classes = `offcanvas-body my-8 ${className}`;
+  return (
+    <div className={classes}>
+      <section className="grid grid-cols-12 gap-2 mb-10">
+        <Link
+          href="https://github.com/hsyntes"
+          className="col-span-6 bg-white dark:bg-dark w-full rounded shadow p-4"
+          target="_blank"
+        >
+          <section className="flex items-center mb-2">
+            <FontAwesomeIcon icon={faGithub} />
+            <h6 className="font-bold ms-2">GitHub</h6>
+          </section>
+          <section>
+            <p className="text-gray-500 text-sm">
+              Reach out the full code of my projects!
+            </p>
+          </section>
+        </Link>
+        <Link
+          href="https://linkedin.com/in/hsyntes"
+          className="col-span-6 bg-white dark:bg-dark w-full rounded shadow p-4"
+          target="_blank"
+        >
+          <section className="flex items-center text-blue-500 dark:text-blue-300 mb-2">
+            <FontAwesomeIcon icon={faLinkedin} />
+            <h6 className="font-bold ms-2">LinkedIn</h6>
+          </section>
+          <section>
+            <p className="text-gray-500 text-sm">
+              Read all the articles of my blog!
+            </p>
+          </section>
+        </Link>
+      </section>
+      <section className="mb-10">
+        <section className="flex items-center mb-1">
+          <FontAwesomeIcon icon={faPowerOff} />
+          <h6 className="font-bold text-lg ms-2">Sign up</h6>
+        </section>
+        <section>
+          <p className="text-gray-500 mb-2">
+            Sign up now to be informed about the latest articles and source
+            codes of excellent projects!
+          </p>
+          <Button type="button" variant="link" className="text-lg">
+            Sign up
+          </Button>
+        </section>
+      </section>
+      <ul className="text-secondary text-lg mb-10">
+        <li>
+          <Link href="#articles" scroll={false}>
+            Articles
+          </Link>
+        </li>
+        <li>
+          <Link href="#articles" scroll={false}>
+            Projects
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+const OffcanvasFooter = ({ className }) => {
+  const classes = `offcanvas-footer ${className}`;
+  return <div className={classes}></div>;
+};
+
+const Offcanvas = ({ show, className, handleOffcanvas }) => {
   // * Disable page scrolling when offcanvas is opened
   useEffect(() => {
     const body = document.querySelector("body");
@@ -42,36 +131,13 @@ const Offcanvas = ({ show, className, handleOffcanvas, children }) => {
         transition={{ ease: "easeOut", duration: 0.25 }}
         className={classes}
       >
-        {children}
+        <Offcanvas.Header handleOffcanvas={handleOffcanvas} />
+        <Offcanvas.Body />
+        <Offcanvas.Footer />
       </motion.div>
     </div>,
     document.getElementById("offcanvas-backdrop")
   );
-};
-
-const OffcanvasHeader = ({ className, handleOffcanvas }) => {
-  const classes = `offcanvas-header relative flex items-center ${className}`;
-  return (
-    <div className={classes}>
-      <Brand />
-      <FontAwesomeIcon
-        icon={faTimes}
-        size="xl"
-        className="text-dark dark:text-white cursor-pointer absolute top-1/2 right-0 -translate-y-1/2"
-        onClick={handleOffcanvas}
-      />
-    </div>
-  );
-};
-
-const OffcanvasBody = ({ className, children }) => {
-  const classes = `offcanvas-body ${className}`;
-  return <div className={classes}>{children}</div>;
-};
-
-const OffcanvasFooter = ({ className, children }) => {
-  const classes = `offcanvas-footer ${className}`;
-  return <div className={classes}>{children}</div>;
 };
 
 Offcanvas.Header = OffcanvasHeader;

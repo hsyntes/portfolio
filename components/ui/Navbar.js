@@ -67,9 +67,7 @@ const Navbar = () => {
           </ul>
         </Container>
       </nav>
-      <Offcanvas show={offcanvas} handleOffcanvas={handleOffcanvas}>
-        <Offcanvas.Header handleOffcanvas={handleOffcanvas} />
-      </Offcanvas>
+      <Offcanvas show={offcanvas} handleOffcanvas={handleOffcanvas} />
     </>
   );
 };

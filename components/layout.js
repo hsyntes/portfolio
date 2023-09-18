@@ -13,7 +13,7 @@ const Layout = ({ children }) => (
     </main>
     <footer className="my-20 lg:my-40">
       <Container>
-        <hr className="bg-gray-300 dark:bg-gray-700 h-0.5 border-none" />
+        <hr className="bg-gray-200 dark:bg-gray-700 h-0.5 border-none" />
       </Container>
     </footer>
   </>

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
 
 const Modal = ({ show, className, handleModal, children }) => {
   // * Disable page scrolling when modal is opened
