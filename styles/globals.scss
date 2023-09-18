@@ -66,6 +66,11 @@ ul {
   background-color: $backdrop-color-light;
 }
 
+#projects,
+#articles {
+  scroll-margin-top: 10rem;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: var(--color-white);

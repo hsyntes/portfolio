@@ -4,6 +4,7 @@ import Projects from "@/components/projects/Projects";
 import getCurrentUser from "@/utils/getCurrentUser";
 import Articles from "@/components/articles/Articles";
 import Summary from "@/components/summary/Summary";
+import Expertise from "@/components/expertise/Expertise";
 
 export default function Home({ projects, articles, icons }) {
   const { data } = useQuery("getCurrentUser", {
@@ -19,7 +20,8 @@ export default function Home({ projects, articles, icons }) {
       </header>
       <Summary />
       <Projects projects={projects} />
-      <Articles icons={icons} articles={articles} />
+      <Expertise icons={icons} />
+      <Articles articles={articles} />
     </>
   );
 }
