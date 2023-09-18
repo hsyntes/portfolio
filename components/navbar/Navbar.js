@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => (
   <nav>
@@ -17,8 +18,15 @@ const Navbar = () => (
           priority={true}
         />
       </Link>
-      <ul className="flex items-center ms-auto">
-        <li className="hidden lg:block">
+      <ul className="flex lg:hidden items-center ms-auto">
+        <li>
+          <Button type="button" variant="none">
+            <FontAwesomeIcon icon={faBars} size="xl" />
+          </Button>
+        </li>
+      </ul>
+      <ul className="items-center ms-auto hidden lg:flex">
+        <li>
           <Link
             href="https://github.com/hsyntes"
             className="text-gray-500 dark:text-gray-400 hover:text-dark hover:dark:text-white transition"
@@ -27,7 +35,7 @@ const Navbar = () => (
             <FontAwesomeIcon icon={faGithub} size="xl" />
           </Link>
         </li>
-        <li className="hidden lg:block mx-4">
+        <li className="mx-4">
           <Link
             href="https://linkedin.com/in/hsyntes"
             target="_blank"

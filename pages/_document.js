@@ -10,6 +10,7 @@ export default function Document() {
         {/* Modal & Toast backdrops */}
         <div id="modal-backdrop"></div>
         <div id="toast-backdrop"></div>
+        <div id="offcanvas-backdrop"></div>
       </body>
     </Html>
   );
