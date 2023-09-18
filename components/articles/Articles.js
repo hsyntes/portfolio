@@ -42,7 +42,7 @@ const Articles = ({ icons, articles }) => (
             {icon.icon_name === "experience" &&
               "Sharing my knowledge and experiences"}
             {icon.icon_name === "develop" &&
-              "Building real-world Full Stack web apps"}
+              "Building real-world Full Stack web apps with MERN"}
           </p>
         </motion.li>
       ))}

@@ -110,7 +110,7 @@ const OffcanvasFooter = ({ className }) => {
   return <div className={classes}></div>;
 };
 
-const Offcanvas = ({ show, className, handleOffcanvas }) => {
+const Offcanvas = ({ show, handleOffcanvas }) => {
   // * Disable page scrolling when offcanvas is opened
   useEffect(() => {
     const body = document.querySelector("body");
@@ -124,8 +124,6 @@ const Offcanvas = ({ show, className, handleOffcanvas }) => {
   }, [show]);
 
   if (!show) return null;
-
-  const classes = `offcanvas w-full backdrop-blur px-6 py-4 ${className}`;
 
   // * Closing the offcanvas when clicked outside of the offcanvas or
   // * pressed the ESC key
@@ -143,10 +141,11 @@ const Offcanvas = ({ show, className, handleOffcanvas }) => {
       <motion.div
         animate={{ y: [100, 0], opacity: [0, 1] }}
         transition={{ ease: "easeOut", duration: 0.25 }}
-        className={classes}
+        className="offcanvas flex flex-col w-full backdrop-blur px-6 py-4"
       >
         <Offcanvas.Header handleOffcanvas={handleOffcanvas} />
         <Offcanvas.Body handleOffcanvas={handleOffcanvas} />
+
         <Offcanvas.Footer />
       </motion.div>
     </div>,
