@@ -108,32 +108,6 @@ const Jumbotron = ({ icons }) => {
                 </span>
               </li>
             ))}
-            {/* <li className="flex items-start lg:items-center justify-start">
-              <img src={`${s3Bucket}/icons/idea.png`} width={20} height={20} />
-              <span className="text-base lg:text-lg leading-6 ms-2">
-                Solving problems with creative and efficient approaches
-              </span>
-            </li>
-            <li className="flex items-start lg:items-center justify-start">
-              <img
-                src={`${s3Bucket}/icons/experience.png`}
-                width={20}
-                height={20}
-              />
-              <span className="text-base lg:text-lg leading-6 ms-2">
-                Sharing my knowledge and experiences
-              </span>
-            </li>
-            <li className="flex items-start lg:items-center justify-start">
-              <img
-                src={`${s3Bucket}/icons/develop.png`}
-                width={20}
-                height={20}
-              />
-              <span className="text-base lg:text-lg leading-6 ms-2">
-                Developing Full-Stack applications
-              </span>
-            </li> */}
           </ul>
         </div>
         <section className="flex flex-col lg:flex-row items-center justify-center lg:justify-start">
