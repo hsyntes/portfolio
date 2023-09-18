@@ -118,7 +118,7 @@ const Jumbotron = ({ icons }) => {
               className="flex items-center mb-4 lg:mb-0 !px-6 !py-3"
             >
               <FontAwesomeIcon icon={faFile} className="text-white !text-lg" />
-              <span className="ms-2">See the articles</span>
+              <span className="ms-2">Read the articles</span>
             </Button>
           </Link>
           <Link href="#projects" scroll={false}>

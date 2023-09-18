@@ -24,7 +24,7 @@ const OffcanvasHeader = ({ className, handleOffcanvas }) => {
   );
 };
 
-const OffcanvasBody = ({ className }) => {
+const OffcanvasBody = ({ className, handleOffcanvas }) => {
   const classes = `offcanvas-body my-8 ${className}`;
   return (
     <div className={classes}>
@@ -36,7 +36,7 @@ const OffcanvasBody = ({ className }) => {
         >
           <section className="flex items-center mb-2">
             <FontAwesomeIcon icon={faGithub} />
-            <h6 className="font-bold ms-2">GitHub</h6>
+            <h6 className="font-bold ms-1">GitHub</h6>
           </section>
           <section>
             <p className="text-gray-500 text-sm">
@@ -49,9 +49,9 @@ const OffcanvasBody = ({ className }) => {
           className="col-span-6 bg-white dark:bg-dark w-full rounded shadow p-4"
           target="_blank"
         >
-          <section className="flex items-center text-blue-500 dark:text-blue-300 mb-2">
+          <section className="flex items-center  mb-2">
             <FontAwesomeIcon icon={faLinkedin} />
-            <h6 className="font-bold ms-2">LinkedIn</h6>
+            <h6 className="font-bold ms-1">LinkedIn</h6>
           </section>
           <section>
             <p className="text-gray-500 text-sm">
@@ -75,15 +75,29 @@ const OffcanvasBody = ({ className }) => {
           </Button>
         </section>
       </section>
-      <ul className="text-secondary text-lg mb-10">
+      <ul className="mb-10">
         <li>
           <Link href="#articles" scroll={false}>
-            Articles
+            <Button
+              type="button"
+              variant="link"
+              className="!text-lg"
+              onClick={handleOffcanvas}
+            >
+              Articles
+            </Button>
           </Link>
         </li>
         <li>
           <Link href="#articles" scroll={false}>
-            Projects
+            <Button
+              type="button"
+              variant="link"
+              className="!text-lg"
+              onClick={handleOffcanvas}
+            >
+              Projects
+            </Button>
           </Link>
         </li>
       </ul>
@@ -132,7 +146,7 @@ const Offcanvas = ({ show, className, handleOffcanvas }) => {
         className={classes}
       >
         <Offcanvas.Header handleOffcanvas={handleOffcanvas} />
-        <Offcanvas.Body />
+        <Offcanvas.Body handleOffcanvas={handleOffcanvas} />
         <Offcanvas.Footer />
       </motion.div>
     </div>,

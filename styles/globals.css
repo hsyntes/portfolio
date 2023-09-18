@@ -37,7 +37,7 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(var(--color-white), 0.25);
+  background-color: rgba(var(--color-white), 0.2);
 }
 
 #toast-overlay {
@@ -54,7 +54,7 @@ ul li {
   left: 0;
   display: flex;
   justify-content: flex-end;
-  background-color: rgba(var(--color-white), 0.25);
+  background-color: rgba(var(--color-white), 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,6 +64,6 @@ ul li {
   }
   #modal-overlay, #toast-overlay,
   #offcanvas-overlay {
-    background-color: rgba(var(--color-black), 0.75) !important;
+    background-color: rgba(var(--color-black), 0.8) !important;
   }
 }/*# sourceMappingURL=globals.css.map */
