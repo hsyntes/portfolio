@@ -34,14 +34,12 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
           className="col-span-6 bg-white dark:bg-dark w-full rounded shadow p-4"
           target="_blank"
         >
-          <section className="flex items-center mb-2">
+          <section className="flex items-center mb-1">
             <FontAwesomeIcon icon={faGithub} />
             <h6 className="font-bold ms-1">GitHub</h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">
-              Reach out the full code of my projects!
-            </p>
+            <p className="text-gray-500 text-sm">Reach out the full code!</p>
           </section>
         </Link>
         <Link
@@ -49,7 +47,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
           className="col-span-6 bg-white dark:bg-dark w-full rounded shadow p-4"
           target="_blank"
         >
-          <section className="flex items-center  mb-2">
+          <section className="flex items-center mb-1">
             <FontAwesomeIcon icon={faLinkedin} />
             <h6 className="font-bold ms-1">LinkedIn</h6>
           </section>
@@ -66,7 +64,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
           <h6 className="font-bold text-lg ms-2">Sign up</h6>
         </section>
         <section>
-          <p className="text-gray-500 mb-2">
+          <p className="text-gray-600 dark:text-gray-400 mb-2">
             Sign up now to be informed about the latest articles and source
             codes of excellent projects!
           </p>
