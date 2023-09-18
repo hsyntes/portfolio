@@ -22,7 +22,7 @@ const Offcanvas = ({ show, className, handleOffcanvas, children }) => {
 
   if (!show) return null;
 
-  const classes = `offcanvas w-full backdrop-blur p-6 ${className}`;
+  const classes = `offcanvas w-full backdrop-blur px-6 py-4 ${className}`;
 
   // * Closing the offcanvas when clicked outside of the offcanvas or
   // * pressed the ESC key
@@ -49,7 +49,7 @@ const Offcanvas = ({ show, className, handleOffcanvas, children }) => {
   );
 };
 
-const OffcanvasHeader = ({ className, handleOffcanvas, children }) => {
+const OffcanvasHeader = ({ className, handleOffcanvas }) => {
   const classes = `offcanvas-header relative flex items-center ${className}`;
   return (
     <div className={classes}>
