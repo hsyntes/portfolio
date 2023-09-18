@@ -55,7 +55,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
           </section>
           <section>
             <p className="text-gray-500 text-sm">
-              Read all the articles pf my blog
+              Read all the articles of my blog
             </p>
           </section>
         </Link>
