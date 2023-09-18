@@ -48,8 +48,16 @@ const Articles = ({ icons, articles }) => (
       ))}
     </ul>
     <h1 className="font-bold text-xl lg:text-2xl text-center">
-      LEARN MERN DEVELOPMENT
+      LEARN <span className="text-green-500">M</span>&nbsp;
+      <span className="text-gray-500">E</span>&nbsp;
+      <span className="text-blue-500">R</span>&nbsp;
+      <span className="text-green-700">N</span> DEVELOPMENT
     </h1>
+    <Image
+      src="https://hsyntes.s3.us-east-2.amazonaws.com/icons/mern.png"
+      width={675}
+      height={234}
+    />
     <ul className="grid grid-cols-12 gap-6 lg:gap-12 xl:gap-24 my-12 lg:my-24">
       {articles?.map((article) => (
         <li
