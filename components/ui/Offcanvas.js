@@ -39,7 +39,9 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             <h6 className="font-bold ms-1">GitHub</h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">Reach out the full code</p>
+            <p className="text-gray-500 text-sm">
+              Check the full code of my projects
+            </p>
           </section>
         </Link>
         <Link
@@ -52,7 +54,9 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             <h6 className="font-bold ms-1">LinkedIn</h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">Read all the articles</p>
+            <p className="text-gray-500 text-sm">
+              Read all the articles pf my blog
+            </p>
           </section>
         </Link>
       </section>
@@ -62,7 +66,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
           <h6 className="font-bold text-lg ms-2">Sign up</h6>
         </section>
         <section>
-          <p className="text-gray-600 dark:text-gray-400 mb-2">
+          <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
             Sign up now to be informed about the latest articles and source
             codes of excellent projects!
           </p>
