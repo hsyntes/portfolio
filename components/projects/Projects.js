@@ -77,16 +77,26 @@ const Projects = ({ projects }) => {
         ))}
       </ul>
       <center className="my-12 lg:my-24">
-        <Button
-          type="button"
-          variant="primary"
-          onClick={() =>
-            router.replace("https://github.com/hsyntes?tab=repositories")
-          }
+        <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          viewport={{ once: true }}
+          transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
         >
-          <span className="me-2">See all on GitHub</span>
-          <FontAwesomeIcon icon={faGithub} size="lg" />
-        </Button>
+          <Button
+            type="button"
+            variant="link"
+            onClick={() =>
+              router.replace("https://github.com/hsyntes?tab=repositories")
+            }
+          >
+            <span className="me-2">See all on GitHub</span>
+            <FontAwesomeIcon
+              icon={faGithub}
+              size="lg"
+              className="text-secondary"
+            />
+          </Button>
+        </motion.div>
       </center>
     </section>
   );

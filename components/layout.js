@@ -1,10 +1,10 @@
-import Navbar from "./navbar/Navbar";
+import Navbar from "./ui/Navbar";
 import Container from "./container/Container";
 
 // * Root layout
 const Layout = ({ children }) => (
   <>
-    <header className="bg-light dark:bg-black sticky top-0 py-2 lg:py-4 mb-10 z-10">
+    <header className="bg-light dark:bg-black sticky top-0 py-4 mb-10 z-10">
       <Navbar />
     </header>
     <main className="my-20 lg:my-40">
