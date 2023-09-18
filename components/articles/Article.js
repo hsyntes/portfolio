@@ -12,13 +12,7 @@ const Article = ({ article }) => {
   const [articledHovered, setArticleHovered] = useState(false);
 
   return (
-    <Link
-      href="https://github.com/hsyntes"
-      target="_blank"
-      className="group relative overflow-hidden"
-      onMouseEnter={() => setArticleHovered(true)}
-      onMouseLeave={() => setArticleHovered(false)}
-    >
+    <>
       <Image
         src={article.article_thumbnail}
         width={1080}
@@ -26,12 +20,22 @@ const Article = ({ article }) => {
         className="rounded border group-hover:opacity-60 group-hover:dark:opacity-40 transition"
         alt={article.article_title}
         priority={true}
+        style={{ opacity: !articledHovered ? "100%" : undefined }}
+        onMouseEnter={() => setArticleHovered(true)}
+        onMouseLeave={() => setArticleHovered(false)}
+        onClick={() => setArticleHovered(true)}
       />
-      <motion.div className="block absolute w-full h-full top-full -translate-y-12 left-0 backdrop-blur group-hover:-translate-y-full transition-all duration-300">
+      <motion.div
+        className="block absolute w-full h-full top-full -translate-y-12 left-0 backdrop-blur group-hover:lg:-translate-y-full transition-all duration-300"
+        style={{ transform: articledHovered ? "translateY(-100%)" : undefined }}
+        onMouseEnter={() => setArticleHovered(true)}
+        onMouseLeave={() => setArticleHovered(false)}
+      >
         <Card.Header className="!block my-3">
           <motion.div
             animate={articledHovered ? { rotate: [0, 180] } : { rotate: 0 }}
             transition={{ ease: "easeOut", duration: 0.5 }}
+            onClick={() => setArticleHovered(!articledHovered)}
             className="text-center"
           >
             <motion.div
@@ -65,13 +69,13 @@ const Article = ({ article }) => {
           <Button
             type="button"
             variant="none"
-            className="bg-white text-white dark:bg-white dark:text-dark !text-xs"
+            className="bg-dark text-white dark:bg-white dark:text-dark !text-xs"
           >
             Read More
           </Button>
         </Card.Footer>
       </motion.div>
-    </Link>
+    </>
   );
 };
 

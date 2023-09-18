@@ -49,7 +49,7 @@ const Articles = ({ icons, articles }) => (
       {articles?.map((article) => (
         <li
           key={article._id}
-          className="col-span-12 lg:col-span-4 rounded overflow-hidden"
+          className="col-span-12 lg:col-span-4 group relative rounded overflow-hidden"
         >
           <Article article={article} />
         </li>
