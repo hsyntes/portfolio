@@ -3,7 +3,7 @@ import Image from "next/image";
 import MernText from "../mern-text/MernText";
 
 const Expertise = ({ icons }) => (
-  <>
+  <section className="my-20 lg:my-40">
     <h6 className="font-bold text-2xl lg:text-4xl text-center">
       Sharing my knowledge and experiences in Full Stack MERN Development
     </h6>
@@ -56,7 +56,7 @@ const Expertise = ({ icons }) => (
         alt="MERN Stack"
       />
     </section>
-  </>
+  </section>
 );
 
 export default Expertise;
