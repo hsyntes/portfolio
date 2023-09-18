@@ -39,7 +39,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             <h6 className="font-bold ms-1">GitHub</h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">Reach out the full code!</p>
+            <p className="text-gray-500 text-sm">Reach out the full code</p>
           </section>
         </Link>
         <Link
@@ -52,9 +52,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             <h6 className="font-bold ms-1">LinkedIn</h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">
-              Read all the articles of my blog!
-            </p>
+            <p className="text-gray-500 text-sm">Read all the articles</p>
           </section>
         </Link>
       </section>
@@ -68,7 +66,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             Sign up now to be informed about the latest articles and source
             codes of excellent projects!
           </p>
-          <Button type="button" variant="link" className="text-lg">
+          <Button type="button" variant="link" className="!text-base">
             Sign up
           </Button>
         </section>
@@ -79,7 +77,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             <Button
               type="button"
               variant="link"
-              className="!text-lg"
+              className="!text-base"
               onClick={handleOffcanvas}
             >
               Articles
@@ -91,7 +89,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
             <Button
               type="button"
               variant="link"
-              className="!text-lg"
+              className="!text-base"
               onClick={handleOffcanvas}
             >
               Projects
