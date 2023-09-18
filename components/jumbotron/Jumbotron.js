@@ -16,37 +16,45 @@ const Jumbotron = ({ icons }) => {
       <motion.div
         animate={{ opacity: [0, 1] }}
         transition={{ ease: "easeOut", delay: 0.75, duration: 0.25 }}
-        className="text-center mb-6 lg:mb-0"
+        className="text-center"
       >
         <Image
           src="/logo.svg"
-          className="w-32 lg:w-72 xl:w-96 mx-auto mb-8 lg:mb-0"
+          className="w-32 lg:w-72 xl:w-96 mx-auto"
           width={192}
           height={192}
           alt="Logo"
           priority={true}
         />
-        <ul className="flex items-center justify-center lg:hidden">
-          <li className="mx-1.5">
-            <Link
-              href="https://github.com/hsyntes"
-              className="text-gray-500 hover:text-dark hover:dark:text-white transition"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={faGithub} size="xl" />
-            </Link>
-          </li>
-          <li className="mx-1.5">
-            <Link
-              href="https://linkedin.com/in/hsyntes"
-              target="_blank"
-              className="text-gray-500 hover:text-dark hover:dark:text-white transition"
-            >
-              <FontAwesomeIcon icon={faLinkedin} size="xl" />
-            </Link>
-          </li>
-        </ul>
       </motion.div>
+      <ul className="flex items-center justify-center lg:hidden my-3 mt-6">
+        <motion.li
+          animate={{ opacity: [0, 1], scale: [0.75, 1] }}
+          transition={{ ease: "easeOut", delay: 1, duration: 0.35 }}
+          className="mx-1.5"
+        >
+          <Link
+            href="https://github.com/hsyntes"
+            className="text-gray-500 hover:text-dark hover:dark:text-white transition"
+            target="_blank"
+          >
+            <FontAwesomeIcon icon={faGithub} size="xl" />
+          </Link>
+        </motion.li>
+        <motion.li
+          animate={{ opacity: [0, 1], scale: [0.75, 1] }}
+          transition={{ ease: "easeOut", delay: 1.25, duration: 0.35 }}
+          className="mx-1.5"
+        >
+          <Link
+            href="https://linkedin.com/in/hsyntes"
+            target="_blank"
+            className="text-gray-500 hover:text-dark hover:dark:text-white transition"
+          >
+            <FontAwesomeIcon icon={faLinkedin} size="xl" />
+          </Link>
+        </motion.li>
+      </ul>
       <section className="order-last lg:order-first">
         <h1 className="text-center lg:text-start">
           <motion.span

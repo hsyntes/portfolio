@@ -67,8 +67,8 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
         </section>
         <section>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-            Sign up now to be informed about the latest articles and source
-            codes of excellent projects!
+            Sign up now to be informed about the latest articles, source codes
+            of excellent projects, and comment them!
           </p>
           <Button type="button" variant="link" className="!text-base">
             Sign up
@@ -77,7 +77,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
       </section>
       <ul className="mb-10">
         <li>
-          <Link href="#articles" scroll={false}>
+          <Link href="#articles" className="block" scroll={false}>
             <Button
               type="button"
               variant="link"
@@ -89,7 +89,7 @@ const OffcanvasBody = ({ className, handleOffcanvas }) => {
           </Link>
         </li>
         <li>
-          <Link href="#articles" scroll={false}>
+          <Link href="#projects" className="block" scroll={false}>
             <Button
               type="button"
               variant="link"
