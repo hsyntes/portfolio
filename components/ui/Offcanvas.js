@@ -144,7 +144,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
           Contact Me
         </span>
       </h6>
-      <p className="text-gray-500 mb-3">
+      <p className="mb-4">
         Hello! I'm delighted that you want to reach out to me. I'am here to hear
         from you for any questions you may have. Whether it's feedback,
         collaboration opportunities, or simply to say hello, please feel free to
@@ -153,7 +153,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       <Link
         href={"mailto:se.hsyntes@gmail.com"}
         target="_blank"
-        className="block font-bold text-blue-500"
+        className="block font-bold"
       >
         <FontAwesomeIcon icon={faEnvelope} />
         <span className="ms-2">se.hsyntes@gmail.com</span>
@@ -161,7 +161,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       <Link
         href="https://twitter.com/hsyntes"
         target="_blank"
-        className="block font-bold text-blue-500 my-1"
+        className="block font-bold my-1"
       >
         <FontAwesomeIcon icon={faTwitter} />
         <span className="ms-2">Twitter</span>
@@ -169,7 +169,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       <Link
         href="https://instagram.com/hsyntes"
         target="_blank"
-        className="block font-bold text-blue-500"
+        className="block font-bold"
       >
         <FontAwesomeIcon icon={faInstagram} />
         <span className="ms-2">Instagram</span>
