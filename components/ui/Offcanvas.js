@@ -103,7 +103,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
 
 const OffcanvasFooter = () => (
   <div className="offcanvas-footer mt-auto">
-    <Hr className="mb-6" />
+    <Hr className="mb-4" />
     <Brand />
   </div>
 );
