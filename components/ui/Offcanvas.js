@@ -138,7 +138,6 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </Link>
       </li>
     </ul>
-    dark:text-white
     <section>
       <h6 className="font-bold text-lg mb-2">
         <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:text-white">
@@ -156,7 +155,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         target="_blank"
         className="block font-bold text-blue-500"
       >
-        <FontAwesomeIcon icon={faEnvelope} className="text-primary" />
+        <FontAwesomeIcon icon={faEnvelope} />
         <span className="ms-2">se.hsyntes@gmail.com</span>
       </Link>
       <Link
