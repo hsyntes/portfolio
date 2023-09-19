@@ -1,5 +1,6 @@
 import Navbar from "./ui/Navbar";
 import Container from "./container/Container";
+import Hr from "./ui/Hr";
 
 // * Root layout
 const Layout = ({ children }) => (
@@ -13,7 +14,7 @@ const Layout = ({ children }) => (
     </main>
     <footer className="my-20 lg:my-40">
       <Container>
-        <hr className="bg-gray-200 dark:bg-gray-700 h-0.5 border-none" />
+        <Hr />
       </Container>
     </footer>
   </>
