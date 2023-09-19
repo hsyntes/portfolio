@@ -17,7 +17,7 @@ const Articles = ({ articles }) => (
       alt="MERN Stack"
     />
     <Image
-      className="block dark:hidden mx-auto w-64 lg:w-72"
+      className="block dark:hidden mx-auto w-52 lg:w-72"
       src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mern-dark.png`}
       width={675}
       height={234}

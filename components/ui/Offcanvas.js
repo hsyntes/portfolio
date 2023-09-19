@@ -73,7 +73,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </section>
         <section>
           <p className="text-gray-500 text-sm">
-            Learn advanced MERN Stack tricks & tips
+            Learn advanced MERN Stack Tricks & Tips
           </p>
         </section>
       </Link>

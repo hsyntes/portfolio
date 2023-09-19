@@ -167,6 +167,7 @@ const Signup = ({ BACKEND_API }) => {
               name="firstname"
               placeholder="Firstname"
               value={firstname}
+              xxxxxxxx
               onChange={firstnameOnChange}
               onBlur={firstnameOnBlur}
             />
