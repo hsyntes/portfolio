@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Brand from "./Brand";
 import Button from "./Button";
 import Hr from "./Hr";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
@@ -21,9 +21,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const OffcanvasHeader = ({ handleOffcanvas }) => (
-  <div className="offcanvas-header bg-white dark:bg-black flex items-center sticky top-0 z-10 px-6 py-4">
-    {/* <Brand onClick={handleOffcanvas} /> */}
-    <Image src="/logo.svg" width={32} height={32} alt="Logo" />
+  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 px-6 py-4">
+    <Link href="/" onClick={handleOffcanvas}>
+      <Image src="/logo.svg" width={32} height={32} alt="Logo" />
+    </Link>
     <FontAwesomeIcon
       icon={faTimes}
       size="xl"
@@ -34,7 +35,7 @@ const OffcanvasHeader = ({ handleOffcanvas }) => (
 );
 
 const OffcanvasBody = ({ handleOffcanvas }) => (
-  <div className="offcanvas-body px-6 py-4">
+  <div className="offcanvas-body px-6 my-8">
     <section className="grid grid-cols-12 gap-2 mb-8">
       <Link
         href="https://github.com/hsyntes"
@@ -77,7 +78,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </section>
       </Link>
     </section>
-    <section className="bg-white dark:bg-dark rounded shadow-md p-4 mb-8">
+    <section className="mb-8">
       <section className="flex items-center mb-1">
         <FontAwesomeIcon
           icon={faPowerOff}
