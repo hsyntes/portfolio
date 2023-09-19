@@ -11,6 +11,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Links from "./links/Links";
+import About from "./about/About";
 
 // * Root layout
 const Layout = ({ children }) => (
@@ -25,10 +26,15 @@ const Layout = ({ children }) => (
     <Container>
       <Hr />
     </Container>
-    <footer className="my-4 mb-16">
+    <footer className="my-6 mb-24">
       <Container>
-        <Brand />
-        <section className="flex items-center my-4">
+        <section>
+          <Brand />
+        </section>
+        <section className="my-4">
+          <About />
+        </section>
+        <section>
           <Links />
         </section>
       </Container>
