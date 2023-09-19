@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
 
 const Projects = ({ projects }) => (
   <section id="projects" className="my-20 lg:my-40">

@@ -1,8 +1,8 @@
-import Article from "./Article";
-import Button from "../ui/Button";
 import Link from "next/link";
 import Image from "next/image";
-import MernText from "../mern-text/MernText";
+import Article from "./Article";
+import Button from "@/components/ui/Button";
+import MernText from "@/components/mern-text/MernText";
 
 const Articles = ({ articles }) => (
   <section id="articles" className="my-20 lg:my-40">

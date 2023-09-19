@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
-import Link from "next/link";
 import Card from "../ui/Card";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
@@ -10,7 +11,6 @@ import Toast from "../ui/Toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import useInput from "@/hooks/useInput";
-import Head from "next/head";
 
 const signup = async ({ formData }) => {
   const response = await fetch(

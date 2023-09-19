@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import MernText from "../mern-text/MernText";
 
 const Expertise = ({ icons }) => (
   <section className="my-20 lg:my-40">

@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Toast = ({ show, handleToast, message }) => {
   if (!show) return null;

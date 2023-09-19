@@ -1,6 +1,5 @@
 import Button from "./Button";
-
-const { default: Modal } = require("./Modal");
+import Modal from "./Modal";
 
 const ErrorDialog = ({ show, errorMessage, handleErrorDialog }) => {
   if (!show) return null;

@@ -1,7 +1,7 @@
 import Navbar from "./ui/Navbar";
-import Container from "./container/Container";
 import Hr from "./ui/Hr";
 import Brand from "./ui/Brand";
+import Container from "./container/Container";
 import Links from "./links/Links";
 
 // * Root layout

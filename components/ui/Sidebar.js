@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import Offcanvas from "./Offcanvas";
-import Hr from "./Hr";
 import Button from "./Button";
 import Brand from "./Brand";
 import Badge from "./Badge";
+import Hr from "./Hr";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,

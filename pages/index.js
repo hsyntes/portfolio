@@ -1,11 +1,11 @@
 import { useQuery } from "react-query";
 import Jumbotron from "@/components/jumbotron/Jumbotron";
-import Projects from "@/components/projects/Projects";
-import getCurrentUser from "@/utils/getCurrentUser";
-import Articles from "@/components/articles/Articles";
+import Projects from "@/components/documentations/projects/Projects";
+import Articles from "@/components/documentations/articles/Articles";
 import Summary from "@/components/summary/Summary";
 import Expertise from "@/components/expertise/Expertise";
 import fetchData from "@/utils/fetchData";
+import getCurrentUser from "@/utils/getCurrentUser";
 
 export default function Home({ projects, articles, icons }) {
   const { data } = useQuery("getCurrentUser", {

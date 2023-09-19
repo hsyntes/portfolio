@@ -1,9 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import Card from "../ui/Card";
+import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import Button from "../ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
