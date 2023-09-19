@@ -138,6 +138,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </Link>
       </li>
     </ul>
+    dark:text-white
     <section>
       <h6 className="font-bold text-lg mb-2">
         <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:text-white">
@@ -153,12 +154,10 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       <Link
         href={"mailto:se.hsyntes@gmail.com"}
         target="_blank"
-        className="block font-bold"
+        className="block font-bold text-blue-500"
       >
-        <Button type="button" variant="link" className="!text-base">
-          <FontAwesomeIcon icon={faEnvelope} className="text-primary" />
-          <span className="ms-2">se.hsyntes@gmail.com</span>
-        </Button>
+        <FontAwesomeIcon icon={faEnvelope} className="text-primary" />
+        <span className="ms-2">se.hsyntes@gmail.com</span>
       </Link>
       <Link
         href="https://twitter.com/hsyntes"
@@ -171,7 +170,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       <Link
         href="https://instagram.com/hsyntes"
         target="_blank"
-        className="block font-bold text-pink-500 dark:text-purple-500"
+        className="block font-bold text-blue-500"
       >
         <FontAwesomeIcon icon={faInstagram} />
         <span className="ms-2">Instagram</span>
