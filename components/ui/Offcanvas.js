@@ -23,7 +23,7 @@ import {
 const OffcanvasHeader = ({ handleOffcanvas }) => (
   <div className="offcanvas-header bg-white dark:bg-black flex items-center sticky top-0 z-10 px-6 py-4">
     {/* <Brand onClick={handleOffcanvas} /> */}
-    <Image src="/logo.svg" width={32} height={32} />
+    <Image src="/logo.svg" width={32} height={32} alt="Logo" />
     <FontAwesomeIcon
       icon={faTimes}
       size="xl"
@@ -171,7 +171,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       <Link
         href="https://instagram.com/hsyntes"
         target="_blank"
-        className="block font-bold text-pink-500"
+        className="block font-bold text-pink-500 dark:text-purple-500"
       >
         <FontAwesomeIcon icon={faInstagram} />
         <span className="ms-2">Instagram</span>
