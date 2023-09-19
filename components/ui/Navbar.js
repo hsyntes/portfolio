@@ -4,7 +4,7 @@ import Link from "next/link";
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Offcanvas from "./Offcanvas";
 
@@ -26,6 +26,21 @@ const Navbar = () => {
               priority={true}
             />
           </Link>
+          <ul className="flex items-center justify-center w-full md:w-9/12 xl:w-10/12  mx-auto">
+            <li className="w-3/4 lg:w-2/4 xl:w-3/4 relative">
+              <input
+                type="text"
+                name="search"
+                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black border-gray-500 rounded py-1.5 placeholder:ps-6 focus:border-gray-500 focus:ring-0"
+                placeholder="Search documentation..."
+                readOnly
+              />
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="absolute text-gray-500 top-1/2 left-3 -translate-y-1/2"
+              />
+            </li>
+          </ul>
           <ul className="flex lg:hidden items-center ms-auto">
             <li>
               <Button
