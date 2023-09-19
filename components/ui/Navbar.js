@@ -12,13 +12,11 @@ const Navbar = () => {
   const [sidebar, setSidebar] = useState();
   const handleSidebar = () => setSidebar(!sidebar);
 
-  // flex items-center justify-center w-full md:w-9/12 xl:w-10/12
-
   return (
     <>
       <nav>
         <Container className="grid grid-cols-12 items-center">
-          <Link href="/" className="col-span-2 lg:col-span-3">
+          <Link href="/" className="col-span-2">
             <Image
               src="/logo.svg"
               width={32}
@@ -27,12 +25,12 @@ const Navbar = () => {
               priority={true}
             />
           </Link>
-          <ul className="col-span-8 lg:col-span-6 w-full">
+          <ul className="col-span-8 lg:col-span-8">
             <li className="relative">
               <input
                 type="text"
                 name="search"
-                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-gray-500 py-1 placeholder:ps-6 placeholder:text-sm placeholder:lg:text-base focus:border-gray-500 focus:ring-0"
+                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-gray-300 dark:border-gray-600 py-1 lg:py-1.5 placeholder:text-gray-500 placeholder:ps-6 placeholder:text-sm placeholder:lg:text-base focus:border-gray-300 focus:dark:border-gray-600 focus:ring-0"
                 placeholder="Search documentation..."
                 readOnly
               />
@@ -43,19 +41,19 @@ const Navbar = () => {
               />
             </li>
           </ul>
-          <ul className="col-span-2 lg:col-span-3 flex lg:hidden items-center ms-auto">
+          <ul className="col-span-2 flex lg:hidden items-center justify-end">
             <li>
               <Button
                 type="button"
                 variant="none"
-                className="text-secondary !p-0"
+                className="text-secondary !text-base px-0"
                 onClick={handleSidebar}
               >
                 <FontAwesomeIcon icon={faBars} size="xl" />
               </Button>
             </li>
           </ul>
-          <ul className="col-span-2 lg:col-span-3 items-center ms-auto hidden lg:flex">
+          <ul className="col-span-2 items-center ms-auto hidden lg:flex">
             <li>
               <Link
                 href="https://github.com/hsyntes"
