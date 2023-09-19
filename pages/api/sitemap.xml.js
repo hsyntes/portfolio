@@ -13,7 +13,6 @@ router.get("/sitemap.xml", async (req, res) => {
 
     // Add static URLs
     smStream.write({ url: "/" });
-    smStream.write({ url: "/projects" });
     smStream.write({ url: "/articles" });
 
     // Fetch and add dynamic URLs
