@@ -53,7 +53,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </section>
         <section>
           <p className="text-gray-500 text-sm">
-            Check the full code of my projects
+            Access the full code of my projects
           </p>
         </section>
       </Link>
@@ -73,7 +73,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </section>
         <section>
           <p className="text-gray-500 text-sm">
-            Read all the articles of my blog
+            Learn advanced MERN Stack tricks & tips
           </p>
         </section>
       </Link>
@@ -105,7 +105,8 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </Button>
       </section>
     </section>
-    <ul className="mb-8">
+    <Hr />
+    <ul className="my-4">
       <li>
         <Link href="#articles" className="flex items-center" scroll={false}>
           <Button
@@ -139,6 +140,7 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
         </Link>
       </li>
     </ul>
+    <Hr className="mb-8" />
     <section>
       <h6 className="font-bold text-lg mb-2">
         <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:text-white">

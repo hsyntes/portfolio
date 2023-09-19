@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
         />
         <meta
           name="keywords"
-          content="Huseyin Ates, hsyntes, Full-Stack Developer, Full Stack Developer, Web Development, Web Developer, Frontend, Backend, API"
+          content="Huseyin Ates, hsyntes, Huseyin Ates Full-Stack Developer, Huseyin Ates Full Stack Developer, huseyin ates full stack developer, huseyin ates mern developer"
         />
         <title>
           Huseyin Ates @hsyntes - Software Engineer | Full Stack MERN Developer

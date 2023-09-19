@@ -1,6 +1,7 @@
 import Navbar from "./ui/Navbar";
 import Container from "./container/Container";
 import Hr from "./ui/Hr";
+import Brand from "./ui/Brand";
 
 // * Root layout
 const Layout = ({ children }) => (
@@ -12,9 +13,12 @@ const Layout = ({ children }) => (
       {/* Wrap the app with Container */}
       <Container>{children}</Container>
     </main>
-    <footer className="my-20 lg:my-40">
+    <Container>
+      <Hr />
+    </Container>
+    <footer className="my-4 mb-12">
       <Container>
-        <Hr />
+        <Brand />
       </Container>
     </footer>
   </>
