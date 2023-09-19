@@ -78,7 +78,11 @@ const Projects = ({ projects }) => (
         transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
       >
         <Link href="https://github.com/hsyntes" target="_blank">
-          <Button type="button" variant="link" className="!text-base">
+          <Button
+            type="button"
+            variant="link"
+            className="!text-base lg:!text-lg"
+          >
             <span className="me-2">See all on GitHub</span>
             <FontAwesomeIcon
               icon={faGithub}

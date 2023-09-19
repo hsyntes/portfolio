@@ -167,7 +167,6 @@ const Signup = ({ BACKEND_API }) => {
               name="firstname"
               placeholder="Firstname"
               value={firstname}
-              xxxxxxxx
               onChange={firstnameOnChange}
               onBlur={firstnameOnBlur}
             />
@@ -282,7 +281,7 @@ const Signup = ({ BACKEND_API }) => {
           </Button>
           <p className="text-gray-500 my-6">Have you an account?</p>
           <Link href="/authentication?auth=login">
-            <Button type="button" variant="link" className="!text-lg">
+            <Button type="button" variant="link" className="!text-base">
               Login
             </Button>
           </Link>

@@ -151,11 +151,7 @@ const Login = () => {
           </Button>
           <p className="text-gray-500 my-6">Don't have an account?</p>
           <Link href="/authentication?auth=signup">
-            <Button
-              type="button"
-              variant="link"
-              className="w-full !py-4 lg:!py-6"
-            >
+            <Button type="button" variant="link" className="!text-base">
               Signup
             </Button>
           </Link>

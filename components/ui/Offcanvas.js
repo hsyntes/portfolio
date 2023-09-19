@@ -79,31 +79,37 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       </Link>
     </section>
     <section className="mb-8">
-      <section className="flex items-center mb-1">
-        <FontAwesomeIcon
-          icon={faPowerOff}
-          className="text-primary dark:text-white"
-        />
-        <h6 className="font-bold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:text-white ms-2">
-          Sign up
-        </h6>
-      </section>
-      <section>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-          Sign up now to be informed about the latest articles, source codes of
-          excellent projects, and comment them!
-        </p>
-        <Button type="button" variant="link" className="!text-base dark:hidden">
-          Sign up
-        </Button>
-        <Button
-          type="button"
-          variant="none"
-          className="!text-base hidden dark:block !p-0"
-        >
-          Sign up
-        </Button>
-      </section>
+      <Link href="/authentication?auth=signup">
+        <section className="flex items-center mb-1">
+          <FontAwesomeIcon
+            icon={faPowerOff}
+            className="text-primary dark:text-white"
+          />
+          <h6 className="font-bold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:text-white ms-2">
+            Sign up
+          </h6>
+        </section>
+        <section>
+          <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+            Sign up now to be informed about the latest articles, source codes
+            of excellent projects, and comment them!
+          </p>
+          <Button
+            type="button"
+            variant="link"
+            className="!text-base dark:hidden"
+          >
+            Sign up
+          </Button>
+          <Button
+            type="button"
+            variant="none"
+            className="!text-base hidden dark:block !p-0"
+          >
+            Sign up
+          </Button>
+        </section>
+      </Link>
     </section>
     <Hr />
     <ul className="my-4">

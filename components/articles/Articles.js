@@ -35,7 +35,11 @@ const Articles = ({ articles }) => (
     </ul>
     <center className="my-12 lg:my-24">
       <Link href="/articles">
-        <Button type="button" variant="primary">
+        <Button
+          type="button"
+          variant="primary"
+          className="!text-base lg:!text-lg"
+        >
           See all
         </Button>
       </Link>
