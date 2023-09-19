@@ -150,7 +150,7 @@ const Sidebar = ({ show, handleSidebar }) => (
             Contact Me
           </span>
         </h6>
-        <p className="mb-4">
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
           Hello! I'm delighted that you want to reach out to me. I'am here to
           hear from you for any questions you may have. Whether it's feedback,
           collaboration opportunities, or simply to say hello, please feel free
@@ -159,7 +159,7 @@ const Sidebar = ({ show, handleSidebar }) => (
         <Link
           href={"mailto:se.hsyntes@gmail.com"}
           target="_blank"
-          className="block font-bold"
+          className="block text-gray-600 dark:text-gray-400"
         >
           <Badge variant="primary" className="inline-block">
             Send an email now!
@@ -172,7 +172,7 @@ const Sidebar = ({ show, handleSidebar }) => (
         <Link
           href="https://twitter.com/hsyntes"
           target="_blank"
-          className="block font-bold my-1"
+          className="block text-gray-600 dark:text-gray-400 my-1"
         >
           <FontAwesomeIcon icon={faTwitter} />
           <span className="ms-2">Twitter</span>
@@ -180,7 +180,7 @@ const Sidebar = ({ show, handleSidebar }) => (
         <Link
           href="https://instagram.com/hsyntes"
           target="_blank"
-          className="block font-bold"
+          className="block text-gray-600 dark:text-gray-400"
         >
           <FontAwesomeIcon icon={faInstagram} />
           <span className="ms-2">Instagram</span>

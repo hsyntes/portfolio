@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 
 const OffcanvasHeader = ({ children }) => (
-  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 p-6">
+  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 p-6 py-4">
     {children}
   </div>
 );
