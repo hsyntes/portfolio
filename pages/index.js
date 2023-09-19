@@ -5,6 +5,7 @@ import getCurrentUser from "@/utils/getCurrentUser";
 import Articles from "@/components/articles/Articles";
 import Summary from "@/components/summary/Summary";
 import Expertise from "@/components/expertise/Expertise";
+import fetchData from "@/utils/fetchData";
 
 export default function Home({ projects, articles, icons }) {
   const { data } = useQuery("getCurrentUser", {
@@ -26,21 +27,8 @@ export default function Home({ projects, articles, icons }) {
   );
 }
 
-// * Fetching backend data
-const fetchData = async (route) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/${route}`
-  );
-
-  const { data } = await response.json();
-
-  return data;
-};
-
-// * Fetch the projects
+// * Fetch the backend data
 export async function getServerSideProps() {
-  // * Access to the Server Local Variable(s)
-
   const projectsData = await fetchData("projects");
   const articlesData = await fetchData("articles");
   const iconsData = await fetchData("icons");
