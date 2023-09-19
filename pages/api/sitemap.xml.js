@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/sitemap.xml", async (req, res) => {
   try {
     const smStream = new SitemapStream({
-      hostname: "https://www.example.com", // Sitenizin URL'si
+      hostname: "https://www.hsyntes.com/",
     });
 
     smStream.write({ URL: "/" });
