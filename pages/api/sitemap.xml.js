@@ -1,7 +1,7 @@
+const express = require("express");
 const { SitemapStream, streamToPromise } = require("sitemap");
 const { Readable } = require("stream");
-const express = require("express");
-const { default: fetchData } = require("@/utils/fetchData");
+const { fetchData } = require("@/utils/fetchData");
 
 const router = express.Router();
 
@@ -11,19 +11,21 @@ router.get("/sitemap.xml", async (req, res) => {
       hostname: "https://www.hsyntes.com/",
     });
 
-    smStream.write({ URL: "/" });
-    smStream.write({ URL: "/projects" });
-    smStream.write({ URL: "/articles" });
+    // Add static URLs
+    smStream.write({ url: "/" });
+    smStream.write({ url: "/projects" });
+    smStream.write({ url: "/articles" });
 
+    // Fetch and add dynamic URLs
     const projectsData = await fetchData("projects");
-    projectsData.projects.forEach((project) =>
-      smStream.write({ URL: `/projects/${project._id}` })
-    );
+    projectsData.projects.forEach((project) => {
+      smStream.write({ url: `/projects/${project._id}` });
+    });
 
     const articlesData = await fetchData("articles");
-    articlesData.articles.forEach((article) =>
-      smStream.write({ URL: `/articles/${article._id}` })
-    );
+    articlesData.articles.forEach((article) => {
+      smStream.write({ url: `/articles/${article._id}` });
+    });
 
     smStream.end();
 
