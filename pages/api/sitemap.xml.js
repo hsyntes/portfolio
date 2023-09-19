@@ -3,6 +3,7 @@ const { SitemapStream, streamToPromise } = require("sitemap");
 const { Readable } = require("stream");
 const { fetchData } = require("@/utils/fetchData");
 
+const app = express();
 const router = express.Router();
 
 router.get("/sitemap.xml", async (req, res) => {
@@ -11,11 +12,12 @@ router.get("/sitemap.xml", async (req, res) => {
       hostname: "https://www.hsyntes.com/",
     });
 
-    // Add static URLs
+    // Static URLs
     smStream.write({ url: "/" });
+    smStream.write({ url: "/projects" });
     smStream.write({ url: "/articles" });
 
-    // Fetch and add dynamic URLs
+    // Dinamik URLs
     const projectsData = await fetchData("projects");
     projectsData.projects.forEach((project) => {
       smStream.write({ url: `/projects/${project._id}` });
@@ -38,4 +40,9 @@ router.get("/sitemap.xml", async (req, res) => {
   }
 });
 
-module.exports = router;
+app.use(router);
+
+const PORT = process.env.NEXT_PUBLIC_PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
