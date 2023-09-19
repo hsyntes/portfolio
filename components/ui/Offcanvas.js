@@ -139,8 +139,8 @@ const OffcanvasBody = ({ handleOffcanvas }) => (
       </li>
     </ul>
     <section>
-      <h6 className="font-bold text-lg dark:text-white mb-2">
-        <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      <h6 className="font-bold text-lg mb-2">
+        <span className="dark:bg-gradient-to-r dark:from-primary dark:to-secondary dark:bg-clip-text dark:text-transparent dark:text-white">
           Contact Me
         </span>
       </h6>
