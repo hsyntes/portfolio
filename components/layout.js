@@ -2,6 +2,15 @@ import Navbar from "./ui/Navbar";
 import Container from "./container/Container";
 import Hr from "./ui/Hr";
 import Brand from "./ui/Brand";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import Links from "./links/Links";
 
 // * Root layout
 const Layout = ({ children }) => (
@@ -16,9 +25,12 @@ const Layout = ({ children }) => (
     <Container>
       <Hr />
     </Container>
-    <footer className="my-4 mb-12">
+    <footer className="my-4 mb-16">
       <Container>
         <Brand />
+        <section className="flex items-center my-4">
+          <Links />
+        </section>
       </Container>
     </footer>
   </>
