@@ -2,16 +2,7 @@ import Navbar from "./ui/Navbar";
 import Container from "./container/Container";
 import Hr from "./ui/Hr";
 import Brand from "./ui/Brand";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import Links from "./links/Links";
-import About from "./about/About";
 
 // * Root layout
 const Layout = ({ children }) => (
@@ -30,9 +21,6 @@ const Layout = ({ children }) => (
       <Container>
         <section>
           <Brand />
-        </section>
-        <section className="my-4">
-          <About />
         </section>
         <section>
           <Links />
