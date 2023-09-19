@@ -14,7 +14,6 @@ router.get("/sitemap.xml", async (req, res) => {
 
     // Static URLs
     smStream.write({ url: "/" });
-    smStream.write({ url: "/projects" });
     smStream.write({ url: "/articles" });
 
     // Dinamik URLs
