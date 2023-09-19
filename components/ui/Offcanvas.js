@@ -35,7 +35,7 @@ const OffcanvasHeader = ({ handleOffcanvas }) => (
 
 const OffcanvasBody = ({ handleOffcanvas }) => (
   <div className="offcanvas-body px-6 py-4">
-    <section className="grid grid-cols-12 gap-4 mb-8">
+    <section className="grid grid-cols-12 gap-2 mb-8">
       <Link
         href="https://github.com/hsyntes"
         className="col-span-6 bg-white dark:bg-dark w-full rounded shadow-md p-4"
