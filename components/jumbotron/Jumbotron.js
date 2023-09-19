@@ -6,15 +6,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { motion } from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 
 const Jumbotron = ({ icons }) => {
   const [text] = useState("<Full-Stack/>");
+
+  const { scrollYProgress } = useViewportScroll();
+
+  const scale = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   return (
     <>
       <motion.div
         animate={{ opacity: [0, 1] }}
+        style={{ scale }}
         transition={{ ease: "easeOut", delay: 0.75, duration: 0.25 }}
         className="text-center"
       >
