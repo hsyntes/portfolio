@@ -1,6 +1,7 @@
 const { SitemapStream, streamToPromise } = require("sitemap");
 const { Readable } = require("stream");
 const express = require("express");
+const { default: fetchData } = require("@/utils/fetchData");
 
 const router = express.Router();
 
@@ -10,15 +11,18 @@ router.get("/sitemap.xml", async (req, res) => {
       hostname: "https://www.example.com", // Sitenizin URL'si
     });
 
-    // // Dinamik olarak sayfa URL'lerini ekleyin
-    // smStream.write({ url: "/page1" });
-    // smStream.write({ url: "/page2" });
-    // // ...
-
     smStream.write({ URL: "/" });
     smStream.write({ URL: "/articles" });
 
-    // const articles = await g
+    const projectsData = await fetchData("projects");
+    projectsData.projects.forEach((project) =>
+      smStream.write({ URL: `/projects/${project._id}` })
+    );
+
+    const articlesData = await fetchData("articles");
+    articlesData.articles.forEach((article) =>
+      smStream.write({ URL: `/articles/${article._id}` })
+    );
 
     smStream.end();
 
