@@ -12,13 +12,14 @@ const Jumbotron = ({ icons }) => {
   const [text] = useState("<Full-Stack/>");
 
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.1], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
 
   return (
     <>
       <motion.div
         animate={{ opacity: [0, 1] }}
-        style={{ scale }}
+        style={{ scale, opacity }}
         transition={{ ease: "easeOut", delay: 0.75, duration: 0.25 }}
         className="text-center"
       >

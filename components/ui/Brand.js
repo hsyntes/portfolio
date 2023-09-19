@@ -1,13 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 
-const Brand = ({ onClick }) => (
-  <Link
-    href="/"
-    className="flex items-center justify-between"
-    onClick={onClick}
-  >
-    <section className="flex items-center">
+const Brand = ({ onClick, children }) => (
+  <div className="flex items-center justify-between" onClick={onClick}>
+    <section className="flex items-start">
       <Image
         src="https://avatars.githubusercontent.com/u/69708483?v=4"
         className="rounded-full drop-shadow"
@@ -20,6 +15,7 @@ const Brand = ({ onClick }) => (
         <span className="block text-gray-500 text-sm">
           Full Stack Developer
         </span>
+        {children}
       </h1>
     </section>
     <Image
@@ -36,7 +32,7 @@ const Brand = ({ onClick }) => (
       className="block dark:hidden w-20"
       alt="Mern Stack"
     />
-  </Link>
+  </div>
 );
 
 export default Brand;

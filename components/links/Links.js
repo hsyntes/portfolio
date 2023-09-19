@@ -1,11 +1,11 @@
-const {
-  faLinkedin,
+import Link from "next/link";
+import {
   faGithub,
   faInstagram,
+  faLinkedin,
   faTwitter,
-} = require("@fortawesome/free-brands-svg-icons");
-const { FontAwesomeIcon } = require("@fortawesome/react-fontawesome");
-const { default: Link } = require("next/link");
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LINKS = [
   { href: "https://linkedin.com/in/hsyntes", icon: faLinkedin },
@@ -19,10 +19,10 @@ const Links = () =>
     <Link
       href={link.href}
       target="_blank"
-      className="me-3 last:me-0"
+      className="text-gray-500 me-2 last:me-0"
       key={link.href}
     >
-      <FontAwesomeIcon icon={link.icon} size="lg" />
+      <FontAwesomeIcon icon={link.icon} />
     </Link>
   ));
 

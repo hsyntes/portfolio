@@ -17,13 +17,12 @@ const Layout = ({ children }) => (
     <Container>
       <Hr />
     </Container>
-    <footer className="my-6 mb-24">
+    <footer className="my-6 mb-12">
       <Container>
         <section>
-          <Brand />
-        </section>
-        <section>
-          <Links />
+          <Brand>
+            <Links />
+          </Brand>
         </section>
       </Container>
     </footer>

@@ -25,7 +25,7 @@ const Navbar = () => {
               priority={true}
             />
           </Link>
-          <ul className="col-span-8 lg:col-span-8">
+          <ul className="col-span-8">
             <li className="relative">
               <input
                 type="text"
@@ -41,12 +41,12 @@ const Navbar = () => {
               />
             </li>
           </ul>
-          <ul className="col-span-2 flex lg:hidden items-center justify-end">
+          <ul className="col-span-2 flex lg:hidden items-center justify-end ms-auto">
             <li>
               <Button
                 type="button"
                 variant="none"
-                className="text-secondary !text-base px-0"
+                className="text-secondary !text-base !px-0"
                 onClick={handleSidebar}
               >
                 <FontAwesomeIcon icon={faBars} size="xl" />

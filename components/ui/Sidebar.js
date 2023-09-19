@@ -189,7 +189,7 @@ const Sidebar = ({ show, handleSidebar }) => (
     </Offcanvas.Body>
     <Offcanvas.Footer>
       <Hr className="mb-4" />
-      <Brand />
+      <Brand onClick={handleSidebar} />
     </Offcanvas.Footer>
   </Offcanvas>
 );
