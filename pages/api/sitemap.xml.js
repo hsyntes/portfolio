@@ -12,6 +12,7 @@ router.get("/sitemap.xml", async (req, res) => {
     });
 
     smStream.write({ URL: "/" });
+    smStream.write({ URL: "/projects" });
     smStream.write({ URL: "/articles" });
 
     const projectsData = await fetchData("projects");
