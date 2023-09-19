@@ -1,7 +1,7 @@
 const Hr = ({ className }) => {
-  const classes = `bg-gray-200 dark:bg-gray-700 h-0.5 border-none ${className}`;
+  const classes = `bg-dark dark:bg-light opacity-10 dark:opacity-20 h-0.5 border-none ${className}`;
 
-  return <hr className={className} />;
+  return <hr className={classes} />;
 };
 
 export default Hr;
