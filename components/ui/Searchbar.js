@@ -7,8 +7,12 @@ import searchDocuments from "@/utils/searchDocuments";
 import useInput from "@/hooks/useInput";
 import Image from "next/image";
 import Link from "next/link";
+import Spinner from "./Spinner";
 
 const SearchLists = ({ documents, handleSearchBar }) => {
+  if (documents.projects.length === 0 && documents.articles.length === 0)
+    return null;
+
   return (
     <>
       <section className="mb-6">
@@ -66,6 +70,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
           ))}
         </ul>
       </section>
+      <Spinner />
     </>
   );
 };
@@ -124,7 +129,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
             type="text"
             name="search"
             placeholder="Search documents"
-            className="!bg-white dark:!bg-black !block !w-full placeholder:text-sm text-sm"
+            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-secondary"
             value={search}
             onChange={handleSearchOnChange}
             autoFocus={true}
