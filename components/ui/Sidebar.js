@@ -152,10 +152,10 @@ const Sidebar = ({ show, handleSidebar }) => (
         <Link
           href={"mailto:se.hsyntes@gmail.com"}
           target="_blank"
-          className="block text-gray-600 dark:text-gray-400"
+          className="block text-blue-500 underline"
         >
           <Badge variant="primary" className="inline-block">
-            Send an email now!
+            Send me an email now!
           </Badge>
           <div className="block">
             <FontAwesomeIcon icon={faEnvelope} />
