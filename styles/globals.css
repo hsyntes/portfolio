@@ -65,7 +65,7 @@ ul li {
 
 #projects,
 #articles {
-  scroll-margin-top: 8rem;
+  scroll-margin-top: 5rem;
 }
 
 @media (prefers-color-scheme: dark) {

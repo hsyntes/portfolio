@@ -10,7 +10,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 
 const Projects = ({ projects }) => (
-  <section id="projects" className="my-20 lg:my-40">
+  <section id="projects" className="my-20">
     <h6 className="font-bold text-2xl lg:text-4xl text-center">
       You can see the full code of my projects and contribute them on&nbsp;
       <Link
@@ -42,7 +42,7 @@ const Projects = ({ projects }) => (
               <h1 className="font-bold text-2xl mb-2">
                 {project.project_name}
               </h1>
-              <p className="text-gray-500 dark:text-gray-400 lg:text-base mb-8">
+              <p className="text-gray-500 dark:text-gray-400 text-sm lg:text-base line-clamp-4 mb-8">
                 {project.project_description}
               </p>
             </Link>

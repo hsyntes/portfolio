@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 import MernText from "@/components/mern-text/MernText";
 
 const Articles = ({ articles }) => (
-  <section id="articles" className="my-20 lg:my-40">
+  <section id="articles" className="my-20">
     <h1 className="font-bold text-xl lg:text-4xl text-center mb-3">
       LEARN <MernText /> DEVELOPMENT
     </h1>

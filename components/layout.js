@@ -10,14 +10,14 @@ const Layout = ({ children }) => (
     <header className="bg-light dark:bg-black sticky top-0 py-2 lg:py-4 mb-10 z-10">
       <Navbar />
     </header>
-    <main className="my-20 lg:my-40">
+    <main className="my-20">
       {/* Wrap the app with Container */}
       <Container>{children}</Container>
     </main>
     <Container>
       <Hr />
     </Container>
-    <footer className="my-6 mb-12">
+    <footer className="mt-6 mb-20">
       <Container>
         <section>
           <Brand>

@@ -34,7 +34,7 @@ const Navbar = () => {
               <input
                 type="text"
                 name="search"
-                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-gray-300 dark:border-gray-600 ps-10 py-1 lg:py-1.5 placeholder:text-gray-500 placeholder:text-sm placeholder:lg:text-base focus:border-gray-300 focus:dark:border-gray-600 focus:ring-0 hover:shadow-md cursor-default transition"
+                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-none shadow ps-10 py-1 lg:py-1.5 placeholder:text-gray-500 placeholder:text-sm placeholder:lg:text-base focus:border-gray-300 focus:dark:border-gray-600 focus:ring-0 hover:shadow-md cursor-default transition"
                 placeholder="Search documents"
                 onClick={handleSearchBar}
                 readOnly
