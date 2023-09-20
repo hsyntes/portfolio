@@ -19,7 +19,7 @@ const Modal = ({ show, className, handleModal, children }) => {
 
   if (!show) return null;
 
-  const classes = `modal rounded shadow bg-white dark:bg-dark p-8 ${className}`;
+  const classes = `modal rounded shadow p-8 ${className}`;
 
   // * Closing modal when clicked outside of the modal or
   // * pressed the ESC key

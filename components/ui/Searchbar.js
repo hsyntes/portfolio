@@ -166,7 +166,11 @@ const Searchbar = ({ show, handleSearchBar }) => {
 
   if (deviceType === "desktop")
     return (
-      <Modal show={show} handleModal={handleSearchBar}>
+      <Modal
+        show={show}
+        handleModal={handleSearchBar}
+        className="backdrop-blur !bg-none w-3/4 xl:w-2/4"
+      >
         <Modal.Header handleModal={handleSearchBar}></Modal.Header>
         <Modal.Body>
           {searchedDocuments && searchedDocuments?.results === 0 && (

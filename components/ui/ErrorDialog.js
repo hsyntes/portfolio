@@ -8,7 +8,7 @@ const ErrorDialog = ({ show, errorMessage, handleErrorDialog }) => {
     <Modal
       show={show}
       handleModal={handleErrorDialog}
-      className="w-11/12 lg:w-2/4 xl:w-2/6"
+      className="bg-white dark:bg-dark w-11/12 lg:w-2/4 xl:w-2/6"
     >
       <Modal.Header handleModal={handleErrorDialog}>
         <h6 className="font-bold text-lg text-center mx-auto">Error</h6>
