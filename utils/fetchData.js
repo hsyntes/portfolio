@@ -4,7 +4,7 @@ const fetchData = async (param) => {
     `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/${param}`
   );
 
-  const { data } = await response.json();
+  const data = await response.json();
 
   return data;
 };
