@@ -180,10 +180,7 @@ const Sidebar = ({ show, handleSidebar }) => (
         </Link>
       </section>
     </Offcanvas.Body>
-    <Offcanvas.Footer>
-      <Hr className="mb-4" />
-      <Brand onClick={handleSidebar} />
-    </Offcanvas.Footer>
+    <Offcanvas.Footer />
   </Offcanvas>
 );
 

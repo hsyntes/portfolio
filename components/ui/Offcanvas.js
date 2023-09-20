@@ -1,28 +1,10 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
+import Hr from "./Hr";
+import Brand from "./Brand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
-const OffcanvasHeader = ({ children, handleOffcanvas }) => (
-  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 p-6 py-5">
-    {children}
-    <FontAwesomeIcon
-      icon={faTimes}
-      size="xl"
-      className="text-secondary cursor-pointer ms-auto"
-      onClick={handleOffcanvas}
-    />
-  </div>
-);
-
-const OffcanvasBody = ({ children }) => (
-  <div className="offcanvas-body px-6 my-4">{children}</div>
-);
-
-const OffcanvasFooter = ({ children }) => (
-  <div className="offcanvas-footer mt-auto px-6 py-4">{children}</div>
-);
 
 const Offcanvas = ({ show, handleOffcanvas, children }) => {
   // * Disable page scrolling when offcanvas is opened
@@ -63,6 +45,29 @@ const Offcanvas = ({ show, handleOffcanvas, children }) => {
     document.getElementById("offcanvas-backdrop")
   );
 };
+
+const OffcanvasHeader = ({ children, handleOffcanvas }) => (
+  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 p-6 py-5">
+    {children}
+    <FontAwesomeIcon
+      icon={faTimes}
+      size="xl"
+      className="text-secondary cursor-pointer ms-auto"
+      onClick={handleOffcanvas}
+    />
+  </div>
+);
+
+const OffcanvasBody = ({ children }) => (
+  <div className="offcanvas-body px-6 my-4">{children}</div>
+);
+
+const OffcanvasFooter = () => (
+  <div className="offcanvas-footer mt-auto px-6 py-4">
+    <Hr className="mb-4" />
+    <Brand />
+  </div>
+);
 
 Offcanvas.Header = OffcanvasHeader;
 Offcanvas.Body = OffcanvasBody;
