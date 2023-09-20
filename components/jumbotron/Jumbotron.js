@@ -11,9 +11,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const Jumbotron = ({ icons }) => {
   const [text] = useState("<Full-Stack/>");
 
+  // * Scrolling animation with framer-motion
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.035], [1, 0.5]);
-  const opacity = useTransform(scrollYProgress, [0, 0.035], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.03], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 0.03], [1, 0]);
 
   return (
     <>

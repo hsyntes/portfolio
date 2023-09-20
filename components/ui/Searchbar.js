@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import Offcanvas from "./Offcanvas";
 import Input from "./Input";
-import useInput from "@/hooks/useInput";
-import { useQuery } from "react-query";
 import fetchData from "@/utils/fetchData";
+import searchDocuments from "@/utils/searchDocuments";
+import useInput from "@/hooks/useInput";
 
 const Searchbar = ({ show, handleSearchBar }) => {
   const [deviceType, setDeviceType] = useState();
 
+  // * Showing different component for searching
+  // * based on the device type
   if (typeof window !== "undefined") {
     window
       .matchMedia("(max-width: 992px)")
@@ -23,25 +26,28 @@ const Searchbar = ({ show, handleSearchBar }) => {
     }
   }, [deviceType]);
 
+  // * Input value with custom hook
   const {
     state: { value: search, isValid: isSearchValid },
     handleOnChange: handleSearchOnChange,
-    handleOnBlur: handleSearchOnBlur,
   } = useInput();
 
+  // * Fetching data with React-Query
   const { data: documents } = useQuery({
     queryKey: "getDocuments",
     queryFn: () => fetchData("documents"),
+    refetchOnWindowFocus: false,
   });
 
   const { data: searchedDocuments } = useQuery(["searchDocuments", search], {
     queryFn: async () => {
       if (search && search !== "" && isSearchValid) {
-        const data = await searchedDocuments(search);
+        const data = await searchDocuments(search);
 
         return data;
       } else return null;
     },
+    refetchOnWindowFocus: false,
   });
 
   console.log(searchedDocuments);
@@ -57,7 +63,6 @@ const Searchbar = ({ show, handleSearchBar }) => {
             className="!bg-white dark:!bg-black !block !w-full placeholder:text-sm text-sm"
             value={search}
             onChange={handleSearchOnChange}
-            onBlur={handleSearchOnBlur}
           />
         </Offcanvas.Header>
         <Offcanvas.Body></Offcanvas.Body>
