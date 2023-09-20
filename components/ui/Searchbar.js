@@ -19,13 +19,6 @@ const Searchbar = ({ show, handleSearchBar }) => {
       );
   }
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window?.innerWidth >= 992) setDeviceType("desktop");
-      else setDeviceType("mobile");
-    }
-  }, [deviceType]);
-
   // * Input value with custom hook
   const {
     state: { value: search, isValid: isSearchValid },
@@ -51,6 +44,13 @@ const Searchbar = ({ show, handleSearchBar }) => {
   });
 
   console.log(searchedDocuments);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window?.innerWidth >= 992) setDeviceType("desktop");
+      else setDeviceType("mobile");
+    }
+  }, [deviceType]);
 
   if (deviceType === "mobile")
     return (

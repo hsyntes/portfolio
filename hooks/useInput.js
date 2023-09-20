@@ -47,7 +47,7 @@ const reducer = (state, action) => {
         case "search":
           return {
             value: payload,
-            isValid: payload.length >= 2,
+            isValid: payload.length >= 1,
           };
 
         default:
