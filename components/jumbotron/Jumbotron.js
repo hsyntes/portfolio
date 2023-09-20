@@ -12,8 +12,8 @@ const Jumbotron = ({ icons }) => {
   const [text] = useState("<Full-Stack/>");
 
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.1], [1, 0.5]);
-  const opacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.035], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 0.035], [1, 0]);
 
   return (
     <>

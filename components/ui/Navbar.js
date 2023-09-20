@@ -7,9 +7,13 @@ import Sidebar from "./Sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
-  const [sidebar, setSidebar] = useState();
+  const [searchbar, setSearchbar] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+
+  const handleSearchBar = () => setSearchbar(!searchbar);
   const handleSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -32,6 +36,7 @@ const Navbar = () => {
                 name="search"
                 className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-gray-300 dark:border-gray-600 py-1 lg:py-1.5 placeholder:text-gray-500 placeholder:ps-6 placeholder:text-sm placeholder:lg:text-base focus:border-gray-300 focus:dark:border-gray-600 focus:ring-0"
                 placeholder="Search documentation..."
+                onClick={handleSearchBar}
                 readOnly
               />
 
@@ -83,6 +88,7 @@ const Navbar = () => {
         </Container>
       </nav>
       <Sidebar show={sidebar} handleSidebar={handleSidebar} />
+      <Searchbar show={searchbar} handleSearchBar={handleSearchBar} />
     </>
   );
 };

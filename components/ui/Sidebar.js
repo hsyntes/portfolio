@@ -21,16 +21,10 @@ import {
 
 const Sidebar = ({ show, handleSidebar }) => (
   <Offcanvas show={show} handleSidebar={handleSidebar}>
-    <Offcanvas.Header>
+    <Offcanvas.Header handleOffcanvas={handleSidebar}>
       <Link href="/" onClick={handleSidebar}>
         <Image src="/logo.svg" width={32} height={32} alt="Logo" />
       </Link>
-      <FontAwesomeIcon
-        icon={faTimes}
-        size="xl"
-        className="text-secondary cursor-pointer ms-auto"
-        onClick={handleSidebar}
-      />
     </Offcanvas.Header>
     <Offcanvas.Body>
       <section className="grid grid-cols-12 gap-2 mb-8">
