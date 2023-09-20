@@ -19,7 +19,11 @@ const Jumbotron = ({ icons }) => {
     <>
       <motion.div
         animate={{ opacity: [0, 1] }}
-        style={{ scale, opacity }}
+        style={
+          typeof window !== "undefined" && window.innerWidth <= 992
+            ? { scale, opacity }
+            : undefined
+        }
         transition={{ ease: "easeOut", delay: 0.75, duration: 0.25 }}
         className="text-center"
       >
