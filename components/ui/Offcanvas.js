@@ -59,7 +59,7 @@ const OffcanvasHeader = ({ children, handleOffcanvas }) => (
 );
 
 const OffcanvasBody = ({ children }) => (
-  <div className="offcanvas-body px-6 my-4">{children}</div>
+  <div className="offcanvas-body px-6 my-2">{children}</div>
 );
 
 const OffcanvasFooter = () => (
