@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Offcanvas from "./Offcanvas";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Input from "./Input";
+import useInput from "@/hooks/useInput";
 
 const Searchbar = ({ show, handleSearchBar }) => {
   const [deviceType, setDeviceType] = useState();
@@ -21,10 +21,26 @@ const Searchbar = ({ show, handleSearchBar }) => {
     }
   }, [deviceType]);
 
+  const {
+    state: { value: search, valid: isSearchValid },
+    handleOnChange: handleSearchOnChange,
+    handleOnBlur: handleSearchOnBlur,
+  } = useInput();
+
   if (deviceType === "mobile")
     return (
       <Offcanvas show={show} handleOffcanvas={handleSearchBar}>
-        <Offcanvas.Header handleOffcanvas={handleSearchBar}></Offcanvas.Header>
+        <Offcanvas.Header handleOffcanvas={handleSearchBar}>
+          <Input
+            type="text"
+            name="search"
+            placeholder="Search documents"
+            className="!bg-white dark:!bg-black !block !w-full"
+            value={search}
+            onChange={handleSearchOnChange}
+            onBlur={handleSearchOnBlur}
+          />
+        </Offcanvas.Header>
         <Offcanvas.Body></Offcanvas.Body>
         <Offcanvas.Footer></Offcanvas.Footer>
       </Offcanvas>
