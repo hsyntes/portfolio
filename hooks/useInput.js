@@ -44,6 +44,12 @@ const reducer = (state, action) => {
             isValid: payload.length >= 8 && payload.length <= 32,
           };
 
+        case "search":
+          return {
+            value: payload,
+            isValid: payload.length >= 2,
+          };
+
         default:
           return new Error(`Unknown input name: ${name}`);
       }
