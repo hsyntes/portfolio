@@ -29,7 +29,7 @@ const Navbar = () => {
               priority={true}
             />
           </Link>
-          <ul className="col-span-8">
+          <ul className="col-span-8 lg:col-span-7">
             <li className="relative">
               <input
                 type="text"
@@ -58,7 +58,7 @@ const Navbar = () => {
               </Button>
             </li>
           </ul>
-          <ul className="col-span-2 items-center ms-auto hidden lg:flex">
+          <ul className="col-span-2 lg:col-span-3 items-center ms-auto hidden lg:flex">
             <li>
               <Link
                 href="https://github.com/hsyntes"
