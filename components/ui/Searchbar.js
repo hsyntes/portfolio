@@ -43,8 +43,6 @@ const Searchbar = ({ show, handleSearchBar }) => {
     refetchOnWindowFocus: false,
   });
 
-  console.log(searchedDocuments);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (window?.innerWidth >= 992) setDeviceType("desktop");

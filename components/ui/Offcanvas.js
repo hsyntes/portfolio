@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const OffcanvasHeader = ({ children, handleOffcanvas }) => (
-  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 p-6 py-4">
+  <div className="offcanvas-header bg-white dark:bg-black flex items-center scroll sticky top-0 z-10 p-6 py-5">
     {children}
     <FontAwesomeIcon
       icon={faTimes}

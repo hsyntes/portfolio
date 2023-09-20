@@ -22,6 +22,7 @@ const Input = ({
         onChange={onChange}
         onBlur={onBlur}
         autoFocus={autoFocus}
+        autoComplete="off"
       />
       <label
         htmlFor={name}
