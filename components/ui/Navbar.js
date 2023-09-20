@@ -34,15 +34,15 @@ const Navbar = () => {
               <input
                 type="text"
                 name="search"
-                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-gray-300 dark:border-gray-600 py-1 lg:py-1.5 placeholder:text-gray-500 placeholder:ps-6 placeholder:text-sm placeholder:lg:text-base focus:border-gray-300 focus:dark:border-gray-600 focus:ring-0"
-                placeholder="Search documentation..."
+                className="form-input block w-full bg-light dark:bg-black caret-light dark:caret-black rounded border-gray-300 dark:border-gray-600 py-1 lg:py-1.5 placeholder:text-gray-500 placeholder:text-center placeholder:lg:text-start placeholder:ps-6 placeholder:text-sm placeholder:lg:text-base focus:border-gray-300 focus:dark:border-gray-600 focus:ring-0"
+                placeholder="Search documents"
                 onClick={handleSearchBar}
                 readOnly
               />
 
               <FontAwesomeIcon
                 icon={faSearch}
-                className="absolute text-gray-500 top-1/2 left-3 -translate-y-1/2"
+                className="absolute text-gray-500 top-1/2 left-14 lg:left-3 -translate-y-1/2"
               />
             </li>
           </ul>
