@@ -35,9 +35,9 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      projects: projectsData.projects,
-      articles: articlesData.articles,
-      icons: iconsData.icons,
+      projects: projectsData.data.projects,
+      articles: articlesData.data.articles,
+      icons: iconsData.data.icons,
     },
   };
 }

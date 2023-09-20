@@ -28,9 +28,11 @@ ul li {
 
 .modal::-webkit-scrollbar {
   width: 3px;
+  scroll-padding: 1rem;
 }
 .modal::-webkit-scrollbar-thumb {
   background-color: rgb(var(--color-primary));
+  border-radius: 1rem;
 }
 
 #modal-overlay, #toast-overlay {

@@ -33,7 +33,7 @@ const Modal = ({ show, className, handleModal, children }) => {
 
   // * Creating portal
   return createPortal(
-    <div id="modal-overlay">
+    <div id="modal-overlay" className="z-50">
       <motion.div
         animate={{ scale: [1.1, 1], opacity: [0.75, 1] }}
         transition={{ ease: "easeOut", duration: 0.15 }}

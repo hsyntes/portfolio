@@ -10,74 +10,83 @@ import Link from "next/link";
 import Spinner from "./Spinner";
 import Modal from "./Modal";
 
-const SearchLists = ({ documents, handleSearchBar }) => (
-  <>
-    <section className="mb-6">
-      {documents?.projects && documents?.projects?.length >= 1 && (
-        <>
-          <h6 className="font-bold text-lg mb-3">Projects</h6>
-          <ul>
-            {documents?.projects?.map((project) => (
-              <li key={project._id}>
-                <Link
-                  href={`/projects/${project._id}`}
-                  className="flex items-start"
-                  onClick={handleSearchBar}
-                >
-                  <Image
-                    src={project.project_logo}
-                    width={32}
-                    height={32}
-                    alt="Project"
-                  />
-                  <section className="ms-3">
-                    <h1 className="font-bold">{project.project_name}</h1>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
-                      {project.project_description}
-                    </p>
-                  </section>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </section>
-    <section>
-      {documents?.articles && documents?.articles?.length >= 1 && (
-        <>
-          <h6 className="font-bold text-lg mb-3">Articles</h6>
-          <ul>
-            {documents?.articles?.length >= 1 &&
-              documents?.articles?.map((article) => (
-                <li className="my-4 last:mb-0" key={article._id}>
+const SearchLists = ({ documents, handleSearchBar }) => {
+  if (documents.results === 0)
+    return (
+      <p className="text-gray-400 dark:text-gray-600 text-center">
+        No results found.
+      </p>
+    );
+
+  return (
+    <>
+      <section className="mb-6">
+        {documents?.data.projects && documents?.data.projects?.length >= 1 && (
+          <>
+            <h6 className="font-bold text-lg mb-3">Projects</h6>
+            <ul>
+              {documents?.data.projects?.map((project) => (
+                <li key={project._id}>
                   <Link
-                    href={`/articles/${article._id}`}
+                    href={`/projects/${project._id}`}
                     className="flex items-start"
                     onClick={handleSearchBar}
                   >
                     <Image
-                      src={article.article_thumbnail}
-                      width={1080}
-                      height={1350}
-                      className="w-16 rounded"
-                      alt="Article Thumbnail"
+                      src={project.project_logo}
+                      width={32}
+                      height={32}
+                      alt="Project"
                     />
                     <section className="ms-3">
-                      <h1 className="font-bold">{article.article_title}</h1>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-                        {article.article_description}
+                      <h1 className="font-bold">{project.project_name}</h1>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
+                        {project.project_description}
                       </p>
                     </section>
                   </Link>
                 </li>
               ))}
-          </ul>
-        </>
-      )}
-    </section>
-  </>
-);
+            </ul>
+          </>
+        )}
+      </section>
+      <section>
+        {documents?.data.articles && documents?.data.articles?.length >= 1 && (
+          <>
+            <h6 className="font-bold text-lg mb-3">Articles</h6>
+            <ul>
+              {documents?.data.articles?.length >= 1 &&
+                documents?.data.articles?.map((article) => (
+                  <li className="my-4 last:mb-0" key={article._id}>
+                    <Link
+                      href={`/articles/${article._id}`}
+                      className="flex items-start"
+                      onClick={handleSearchBar}
+                    >
+                      <Image
+                        src={article.article_thumbnail}
+                        width={1080}
+                        height={1350}
+                        className="w-16 rounded"
+                        alt="Article Thumbnail"
+                      />
+                      <section className="ms-3">
+                        <h1 className="font-bold">{article.article_title}</h1>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                          {article.article_description}
+                        </p>
+                      </section>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </>
+        )}
+      </section>
+    </>
+  );
+};
 
 const Searchbar = ({ show, handleSearchBar }) => {
   const [deviceType, setDeviceType] = useState();
@@ -124,25 +133,21 @@ const Searchbar = ({ show, handleSearchBar }) => {
     }
   }, [deviceType]);
 
-  // let content;
+  let content;
 
-  // if (isDocumentsLoading || isSearchedDocumentLoading)
-  //   content = (
-  //     <center>
-  //       <Spinner />
-  //     </center>
-  //   );
-
-  // if (!isDocumentsLoading && !isSearchedDocumentLoading)
-  //   content = (
-  //     <SearchLists
-  //       documents={searchedDocuments?.data || documents}
-  //       handleSearchBar={handleSearchBar}
-  //     />
-  //   );
-
-  // if (searchedDocuments?.results === 0)
-  //   content = <p className="text-white">No results found.</p>;
+  if (isDocumentsLoading || isSearchedDocumentLoading)
+    content = (
+      <center>
+        <Spinner />
+      </center>
+    );
+  else
+    content = (
+      <SearchLists
+        documents={searchedDocuments || documents}
+        handleSearchBar={handleSearchBar}
+      />
+    );
 
   if (deviceType === "mobile")
     return (
@@ -158,7 +163,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
             autoFocus={true}
           />
         </Offcanvas.Header>
-        <Offcanvas.Body>{/* {content} */}</Offcanvas.Body>
+        <Offcanvas.Body> {content}</Offcanvas.Body>
         <Offcanvas.Footer />
       </Offcanvas>
     );
@@ -168,20 +173,20 @@ const Searchbar = ({ show, handleSearchBar }) => {
       <Modal
         show={show}
         handleModal={handleSearchBar}
-        className="backdrop-blur !bg-none w-3/4 xl:w-2/4 h-5/6 overflow-y-scroll"
+        className="backdrop-blur !bg-none w-3/4 xl:w-2/4 h-5/6 dark:border dark:border-gray-700 overflow-y-scroll"
       >
         <Modal.Header handleModal={handleSearchBar}>
           <Input
             type="text"
             name="search"
             placeholder="Search documents"
-            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-secondary"
+            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-primary"
             value={search}
             onChange={handleSearchOnChange}
             autoFocus={true}
           />
         </Modal.Header>
-        <Modal.Body className="my-8">{/* {content} */}</Modal.Body>
+        <Modal.Body className="my-8">{content}</Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
     );
