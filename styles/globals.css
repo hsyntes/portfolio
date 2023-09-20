@@ -26,6 +26,13 @@ ul li {
   margin: 0.5rem 0rem;
 }
 
+.modal::-webkit-scrollbar {
+  width: 3px;
+}
+.modal::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-primary));
+}
+
 #modal-overlay, #toast-overlay {
   width: 100%;
   height: 100vh;

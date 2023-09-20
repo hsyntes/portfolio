@@ -22,7 +22,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
             <h6 className="font-bold text-lg mb-3">Projects</h6>
             <ul>
               {documents?.projects?.map((project) => (
-                <li>
+                <li key={project._id}>
                   <Link
                     href={`/projects/${project._id}`}
                     className="flex items-start"
@@ -54,7 +54,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
             <ul>
               {documents?.articles?.length >= 1 &&
                 documents?.articles?.map((article) => (
-                  <li className="my-4 last:mb-0">
+                  <li className="my-4 last:mb-0" key={article._id}>
                     <Link
                       href={`/articles/${article._id}`}
                       className="flex items-start"
@@ -169,10 +169,20 @@ const Searchbar = ({ show, handleSearchBar }) => {
       <Modal
         show={show}
         handleModal={handleSearchBar}
-        className="backdrop-blur !bg-none w-3/4 xl:w-2/4"
+        className="backdrop-blur !bg-none w-3/4 xl:w-2/4 h-5/6 overflow-y-scroll"
       >
-        <Modal.Header handleModal={handleSearchBar}></Modal.Header>
-        <Modal.Body>
+        <Modal.Header handleModal={handleSearchBar}>
+          <Input
+            type="text"
+            name="search"
+            placeholder="Search documents"
+            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-secondary"
+            value={search}
+            onChange={handleSearchOnChange}
+            autoFocus={true}
+          />
+        </Modal.Header>
+        <Modal.Body className="my-8">
           {searchedDocuments && searchedDocuments?.results === 0 && (
             <p className="text-gray-500 text-center">No results found.</p>
           )}
