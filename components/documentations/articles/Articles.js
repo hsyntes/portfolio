@@ -35,7 +35,7 @@ const Articles = ({ articles }) => (
     </ul>
     <center className="my-12 lg:my-24">
       <Link href="/articles">
-        <Button type="button" variant="primary" className="!text-base">
+        <Button type="button" variant="primary" className="!text-sm">
           See all
         </Button>
       </Link>

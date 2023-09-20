@@ -63,6 +63,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
             className="!bg-white dark:!bg-black !block !w-full placeholder:text-sm text-sm"
             value={search}
             onChange={handleSearchOnChange}
+            autoFocus={true}
           />
         </Offcanvas.Header>
         <Offcanvas.Body></Offcanvas.Body>
