@@ -3,7 +3,7 @@ const searchDocuments = async (q) => {
     `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/documents/search/${q}`
   );
 
-  const { data } = await response.json();
+  const data = await response.json();
 
   return data;
 };

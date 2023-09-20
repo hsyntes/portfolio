@@ -8,53 +8,8 @@ import useInput from "@/hooks/useInput";
 import Image from "next/image";
 import Link from "next/link";
 
-const Searchbar = ({ show, handleSearchBar }) => {
-  const [deviceType, setDeviceType] = useState();
-
-  // * Showing different component for searching
-  // * based on the device type
-  if (typeof window !== "undefined") {
-    window
-      .matchMedia("(max-width: 992px)")
-      .addEventListener("change", (e) =>
-        setDeviceType(e.matches ? "mobile" : "desktop")
-      );
-  }
-
-  // * Input value with custom hook
-  const {
-    state: { value: search, isValid: isSearchValid },
-    handleOnChange: handleSearchOnChange,
-  } = useInput();
-
-  // * Fetching data with React-Query
-  const { data: documents } = useQuery({
-    queryKey: "getDocuments",
-    queryFn: () => fetchData("documents"),
-    refetchOnWindowFocus: false,
-  });
-
-  const { data: searchedDocuments } = useQuery(["searchDocuments", search], {
-    queryFn: async () => {
-      if (search && search !== "" && isSearchValid) {
-        const data = await searchDocuments(search);
-
-        return data;
-      } else return null;
-    },
-    refetchOnWindowFocus: false,
-  });
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window?.innerWidth >= 992) setDeviceType("desktop");
-      else setDeviceType("mobile");
-    }
-  }, [deviceType]);
-
-  console.log(documents);
-
-  let content = (
+const SearchLists = ({ documents, handleSearchBar }) => {
+  return (
     <>
       <section className="mb-6">
         <h6 className="font-bold text-lg mb-3">Projects</h6>
@@ -113,8 +68,53 @@ const Searchbar = ({ show, handleSearchBar }) => {
       </section>
     </>
   );
+};
 
-  if (searchedDocuments) content = undefined;
+const Searchbar = ({ show, handleSearchBar }) => {
+  const [deviceType, setDeviceType] = useState();
+
+  // * Showing different component for searching
+  // * based on the device type
+  if (typeof window !== "undefined") {
+    window
+      .matchMedia("(max-width: 992px)")
+      .addEventListener("change", (e) =>
+        setDeviceType(e.matches ? "mobile" : "desktop")
+      );
+  }
+
+  // * Input value with custom hook
+  const {
+    state: { value: search, isValid: isSearchValid },
+    handleOnChange: handleSearchOnChange,
+  } = useInput();
+
+  // * Fetching data with React-Query
+  const { data: documents } = useQuery({
+    queryKey: "getDocuments",
+    queryFn: () => fetchData("documents"),
+    refetchOnWindowFocus: false,
+  });
+
+  const { data: searchedDocuments } = useQuery(["searchDocuments", search], {
+    queryFn: async () => {
+      if (search && search !== "" && isSearchValid) {
+        const data = await searchDocuments(search);
+
+        return data;
+      } else return null;
+    },
+    refetchOnWindowFocus: false,
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window?.innerWidth >= 992) setDeviceType("desktop");
+      else setDeviceType("mobile");
+    }
+  }, [deviceType]);
+
+  console.log(searchedDocuments);
 
   if (deviceType === "mobile")
     return (
@@ -130,7 +130,15 @@ const Searchbar = ({ show, handleSearchBar }) => {
             autoFocus={true}
           />
         </Offcanvas.Header>
-        <Offcanvas.Body>{content}</Offcanvas.Body>
+        <Offcanvas.Body>
+          {searchedDocuments && searchedDocuments?.results === 0 && (
+            <p className="text-gray-500 text-center">No results found.</p>
+          )}
+          <SearchLists
+            documents={searchedDocuments?.data || documents}
+            handleSearchBar={handleSearchBar}
+          />
+        </Offcanvas.Body>
         <Offcanvas.Footer />
       </Offcanvas>
     );
