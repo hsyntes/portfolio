@@ -5,6 +5,8 @@ import Input from "./Input";
 import fetchData from "@/utils/fetchData";
 import searchDocuments from "@/utils/searchDocuments";
 import useInput from "@/hooks/useInput";
+import Image from "next/image";
+import Link from "next/link";
 
 const Searchbar = ({ show, handleSearchBar }) => {
   const [deviceType, setDeviceType] = useState();
@@ -50,6 +52,42 @@ const Searchbar = ({ show, handleSearchBar }) => {
     }
   }, [deviceType]);
 
+  console.log(documents);
+
+  let content = (
+    <>
+      <section>
+        <h6 className="font-bold text-lg mb-3">Projects</h6>
+        <ul>
+          {documents?.projects?.map((project) => (
+            <li>
+              <Link
+                href={`/projects/${project._id}`}
+                className="flex items-start"
+                onClick={handleSearchBar}
+              >
+                <Image
+                  src={project.project_logo}
+                  width={32}
+                  height={32}
+                  alt="Project"
+                />
+                <section className="ms-3">
+                  <h1>{project.project_name}</h1>
+                  <p className="text-gray-400 dark:text-gray-600">
+                    {project.project_description.slice(0, 64)}...
+                  </p>
+                </section>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+
+  if (searchedDocuments) content = undefined;
+
   if (deviceType === "mobile")
     return (
       <Offcanvas show={show} handleOffcanvas={handleSearchBar}>
@@ -64,8 +102,8 @@ const Searchbar = ({ show, handleSearchBar }) => {
             autoFocus={true}
           />
         </Offcanvas.Header>
-        <Offcanvas.Body></Offcanvas.Body>
-        <Offcanvas.Footer></Offcanvas.Footer>
+        <Offcanvas.Body>{content}</Offcanvas.Body>
+        <Offcanvas.Footer />
       </Offcanvas>
     );
 };
