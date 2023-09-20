@@ -70,7 +70,6 @@ const SearchLists = ({ documents, handleSearchBar }) => {
           ))}
         </ul>
       </section>
-      <Spinner />
     </>
   );
 };
@@ -95,22 +94,23 @@ const Searchbar = ({ show, handleSearchBar }) => {
   } = useInput();
 
   // * Fetching data with React-Query
-  const { data: documents } = useQuery({
+  const { data: documents, isLoading: isDocumentsLoading } = useQuery({
     queryKey: "getDocuments",
     queryFn: () => fetchData("documents"),
     refetchOnWindowFocus: false,
   });
 
-  const { data: searchedDocuments } = useQuery(["searchDocuments", search], {
-    queryFn: async () => {
-      if (search && search !== "" && isSearchValid) {
-        const data = await searchDocuments(search);
+  const { data: searchedDocuments, isLoading: isSearchedDocumentLoading } =
+    useQuery(["searchDocuments", search], {
+      queryFn: async () => {
+        if (search && search !== "" && isSearchValid) {
+          const data = await searchDocuments(search);
 
-        return data;
-      } else return null;
-    },
-    refetchOnWindowFocus: false,
-  });
+          return data;
+        } else return null;
+      },
+      refetchOnWindowFocus: false,
+    });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -139,10 +139,16 @@ const Searchbar = ({ show, handleSearchBar }) => {
           {searchedDocuments && searchedDocuments?.results === 0 && (
             <p className="text-gray-500 text-center">No results found.</p>
           )}
-          <SearchLists
-            documents={searchedDocuments?.data || documents}
-            handleSearchBar={handleSearchBar}
-          />
+          {isDocumentsLoading || isSearchedDocumentLoading ? (
+            <center>
+              <Spinner />
+            </center>
+          ) : (
+            <SearchLists
+              documents={searchedDocuments?.data || documents}
+              handleSearchBar={handleSearchBar}
+            />
+          )}
         </Offcanvas.Body>
         <Offcanvas.Footer />
       </Offcanvas>
