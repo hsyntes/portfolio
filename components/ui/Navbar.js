@@ -42,7 +42,7 @@ const Navbar = () => {
 
               <FontAwesomeIcon
                 icon={faSearch}
-                className="absolute text-gray-500 top-1/2 left-14 lg:left-3 -translate-y-1/2"
+                className="absolute text-gray-500 top-1/2 left-14 lg:left-4 -translate-y-1/2"
               />
             </li>
           </ul>
