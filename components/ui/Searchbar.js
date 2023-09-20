@@ -56,7 +56,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
 
   let content = (
     <>
-      <section>
+      <section className="mb-6">
         <h6 className="font-bold text-lg mb-3">Projects</h6>
         <ul>
           {documents?.projects?.map((project) => (
@@ -73,9 +73,37 @@ const Searchbar = ({ show, handleSearchBar }) => {
                   alt="Project"
                 />
                 <section className="ms-3">
-                  <h1>{project.project_name}</h1>
-                  <p className="text-gray-400 dark:text-gray-600">
-                    {project.project_description.slice(0, 64)}...
+                  <h1 className="font-bold">{project.project_name}</h1>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
+                    {project.project_description}
+                  </p>
+                </section>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section>
+        <h6 className="font-bold text-lg mb-3">Articles</h6>
+        <ul>
+          {documents?.articles?.map((article) => (
+            <li className="my-4 last:mb-0">
+              <Link
+                href={`/articles/${article._id}`}
+                className="flex items-start"
+                onClick={handleSearchBar}
+              >
+                <Image
+                  src={article.article_thumbnail}
+                  width={1080}
+                  height={1350}
+                  className="w-16 rounded"
+                  alt="Article Thumbnail"
+                />
+                <section className="ms-3">
+                  <h1 className="font-bold">{article.article_title}</h1>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                    {article.article_description}
                   </p>
                 </section>
               </Link>
