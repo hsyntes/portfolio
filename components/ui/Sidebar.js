@@ -16,7 +16,6 @@ import {
   faAngleRight,
   faEnvelope,
   faPowerOff,
-  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = ({ show, handleSidebar }) => (
