@@ -17,7 +17,10 @@ const ArticlesPage = ({ icons }) => {
       <header
         className="flex flex-col w-full items-center justify-center"
         style={{
-          height: "30vh",
+          height:
+            typeof window !== "undefined" && window.innerWidth >= 992
+              ? "40vh"
+              : "30vh",
           backgroundImage: `url("${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/banner.png")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -30,7 +33,7 @@ const ArticlesPage = ({ icons }) => {
           &nbsp;DEVELOPMENT
         </h1>
         <section className="grid grid-cols-12 gap-3 lg:gap-0 lg:w-1/3">
-          <section className="flex items-center col-span-4">
+          <section className="flex items-center col-span-4 justify-start">
             <Image
               src={icons[0].icon_link}
               width={24}
