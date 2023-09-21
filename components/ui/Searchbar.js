@@ -200,7 +200,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
         <Modal.Body>{content}</Modal.Body>
         <Modal.Footer>
           <Brand />
-          <h6 className="font-bold text-gray-500 mt-4">
+          <h6 className="font-bold text-gray-500 text-sm mt-4">
             <FontAwesomeIcon icon={faGears} size="lg" />
             <span className="ms-2">
               Powered with MongoDB Atlas Search Engine
