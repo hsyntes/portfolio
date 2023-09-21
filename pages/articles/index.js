@@ -1,3 +1,4 @@
+import Container from "@/components/container/Container";
 import MernText from "@/components/mern-text/MernText";
 import Summary from "@/components/summary/Summary";
 import Head from "next/head";
@@ -12,32 +13,21 @@ const ArticlesPage = () => {
           Full Stack MERN Developer
         </title>
       </Head>
-      <section>
-        <h1 className="font-bold text-2xl lg:text-4xl mb-4">
-          LEARN MERN DEVELOPMENT
-        </h1>
-
-        {/* <Image
-            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mern-light.png`}
-            width={675}
-            height={234}
-            className="hidden dark:block w-36 mx-auto lg:ms-auto"
-            alt="Mern Stack"
-          />
-          <Image
-            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mern-dark.png`}
-            width={675}
-            height={234}
-            className="block dark:hidden w-36 mx-auto lg:ms-auto"
-            alt="Mern Stack"
-          /> */}
-      </section>
-      <section>
-        <h1 className="font-bold text-gray-500 mb-2">
-          Hi 👋, I'm Huseyin Ates
-        </h1>
-        <Summary />
-      </section>
+      <Container className="my-20">
+        <section className="flex flex-col lg:flex-row lg:items-center mb-4">
+          <h1 className="order-last lg:order-first font-bold text-2xl lg:text-4xl">
+            LEARN <MernText /> DEVELOPMENT
+          </h1>
+          <section className="lg:ms-auto mb-2 lg:mb-0"></section>
+        </section>
+        <section>
+          <h1 className="font-bold text-gray-500 mb-2">
+            Hi👋 I'm Huseyin Ates
+          </h1>
+          <Summary />
+        </section>
+        <section></section>
+      </Container>
     </>
   );
 };

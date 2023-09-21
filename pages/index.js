@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import Container from "@/components/container/Container";
 import Jumbotron from "@/components/jumbotron/Jumbotron";
 import Projects from "@/components/documentations/projects/Projects";
 import Articles from "@/components/documentations/articles/Articles";
@@ -15,7 +16,7 @@ export default function Home({ projects, articles, icons }) {
   console.log(data);
 
   return (
-    <>
+    <Container>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto mt-20">
         <Jumbotron icons={icons} />
       </header>
@@ -25,7 +26,7 @@ export default function Home({ projects, articles, icons }) {
       <Projects projects={projects} />
       <Expertise icons={icons} />
       <Articles articles={articles} />
-    </>
+    </Container>
   );
 }
 

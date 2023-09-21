@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Container from "@/components/container/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,7 +19,7 @@ const ProjectDetailPage = ({ project }) => {
         />
         <title>{`${project_documentation.title} - ${project_documentation.description}`}</title>
       </Head>
-      <section>
+      <Container>
         <section className="mb-10">
           <h1 className="font-bold text-2xl lg:text-4xl mb-4">
             {project_documentation.title}
@@ -96,7 +97,7 @@ const ProjectDetailPage = ({ project }) => {
             </ul>
           );
         })}
-      </section>
+      </Container>
     </>
   );
 };

@@ -11,8 +11,8 @@ const Layout = ({ children }) => (
       <Navbar />
     </header>
     <main>
-      {/* Wrap the app with Container */}
-      <Container>{children}</Container>
+      {/* The pages */}
+      {children}
     </main>
     <Container>
       <Hr />
@@ -20,9 +20,9 @@ const Layout = ({ children }) => (
     <footer className="mt-6 mb-20">
       <Container>
         <section>
-          {/* <Brand>
+          <Brand>
             <Links />
-          </Brand> */}
+          </Brand>
         </section>
       </Container>
     </footer>
