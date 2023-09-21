@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
     <Container>
       <Hr />
     </Container>
-    <footer className="mt-6 mb-20">
+    {/* <footer className="mt-6 mb-20">
       <Container>
         <section>
           <Brand>
@@ -25,7 +25,7 @@ const Layout = ({ children }) => (
           </Brand>
         </section>
       </Container>
-    </footer>
+    </footer> */}
   </>
 );
 

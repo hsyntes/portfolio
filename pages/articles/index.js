@@ -15,7 +15,7 @@ const ArticlesPage = ({ icons }) => {
         </title>
       </Head>
       <header
-        className="flex flex-col w-full items-center justify-center"
+        className="lg:grid lg:grid-cols-12"
         style={{
           height:
             typeof window !== "undefined" && window.innerWidth >= 992
@@ -26,44 +26,73 @@ const ArticlesPage = ({ icons }) => {
           backgroundSize: "cover",
         }}
       >
-        <h1 className="font-bold text-2xl lg:text-4xl !text-dark text-center mb-2">
-          LEARN
-          <br />
-          <MernText />
-          &nbsp;DEVELOPMENT
-        </h1>
-        <section className="grid grid-cols-12 gap-3 lg:gap-0 lg:w-1/3">
-          <section className="flex items-center col-span-4 justify-start">
-            <Image
-              src={icons[0].icon_link}
-              width={24}
-              height={24}
-              alt={icons[0].icon_name}
-            />
-            <p className="text-gray-600 text-sm ms-1">Tricks & Tips</p>
-          </section>
-          <section className="flex items-center justify-center col-span-4 my-1 lg:my-0">
-            <Image
-              src={icons[1].icon_link}
-              width={24}
-              height={24}
-              alt={icons[1].icon_name}
-            />
-            <p className="text-gray-600 text-sm ms-1">Experience</p>
-          </section>
-          <section className="flex items-center col-span-4 justify-end">
-            <Image
-              src={icons[2].icon_link}
-              width={24}
-              height={24}
-              alt={icons[2].icon_name}
-            />
-            <p className="text-gray-600 text-sm ms-1">Real Apps</p>
-          </section>
+        <section className="col-span-3 xl:col-span-4 hidden lg:flex items-center justify-evenly">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mongodb.png`}
+            width={52}
+            height={52}
+            alt="Mongodb"
+          />
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/express.png`}
+            width={128}
+            height={128}
+            alt="Expressjs"
+          />
         </section>
-        <Button type="button" variant="primary" className="!text-xs my-4">
-          See more
-        </Button>
+        <section className="col-span-6 xl:col-span-4 h-full flex flex-col items-center justify-center">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mern-dark.png`}
+            width={675}
+            height={234}
+            className="w-32 lg:hidden"
+            alt="MERN Development"
+          />
+          <h1 className="font-bold text-3xl lg:text-5xl !text-dark text-center mt-3 mb-2">
+            LEARN
+            <br />
+            <MernText />
+            &nbsp;DEVELOPMENT
+          </h1>
+          <section className="flex items-center justify-center">
+            {icons?.map((icon, index) => (
+              <section className="flex items-center col-span-4 mx-2">
+                <Image
+                  src={icon.icon_link}
+                  width={20}
+                  height={20}
+                  alt={icon.icon_name}
+                />
+                <p className="text-gray-600 text-sm lg:text-base ms-1">
+                  {icon.icon_name === "idea" && "Tricks & Tips"}
+                  {icon.icon_name === "experience" && "Experiences"}
+                  {icon.icon_name === "develop" && "Real Apps"}
+                </p>
+              </section>
+            ))}
+          </section>
+          <Button
+            type="button"
+            variant="primary"
+            className="!text-xs my-3 text-center"
+          >
+            See more
+          </Button>
+        </section>
+        <section className="col-span-3 xl:col-span-4 hidden lg:flex items-center justify-evenly">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/react.png`}
+            width={96}
+            height={96}
+            alt="React"
+          />
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/nodejs.png`}
+            width={84}
+            height={84}
+            alt="Nodejs"
+          />
+        </section>
       </header>
       <Container className="my-20"></Container>
     </>

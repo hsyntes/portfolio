@@ -23,14 +23,14 @@ const Brand = ({ onClick, children }) => (
       width={675}
       height={234}
       className="hidden dark:block w-20"
-      alt="Mern Stack"
+      alt="Mern Development"
     />
     <Image
       src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mern-dark.png`}
       width={675}
       height={234}
       className="block dark:hidden w-20"
-      alt="Mern Stack"
+      alt="Mern Development"
     />
   </div>
 );
