@@ -43,7 +43,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
                     />
                     <section className="ms-3">
                       <h1 className="font-bold">{project.project_name}</h1>
-                      <p className="text-gray-600 dark:text-gray-400 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-3 transition">
+                      <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-3 transition">
                         {project.project_description}
                       </p>
                     </section>
@@ -76,7 +76,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
                       />
                       <section className="ms-3">
                         <h1 className="font-bold">{article.article_title}</h1>
-                        <p className="text-gray-600 dark:text-gray-400 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-2 transition">
+                        <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-2 transition">
                           {article.article_description}
                         </p>
                       </section>
@@ -129,6 +129,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
       refetchOnWindowFocus: false,
     });
 
+  // * Set the device type based on the window size
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (window?.innerWidth >= 992) setDeviceType("desktop");
@@ -169,10 +170,10 @@ const Searchbar = ({ show, handleSearchBar }) => {
         <Offcanvas.Body>{content}</Offcanvas.Body>
         <Offcanvas.Footer>
           <h6 className="font-bold text-gray-500 text-sm mt-4">
-            <span className="me-2">
+            <FontAwesomeIcon icon={faGears} size="lg" />
+            <span className="ms-2">
               Powered with MongoDB Atlas Search Engine
             </span>
-            <FontAwesomeIcon icon={faGears} size="lg" />
           </h6>
         </Offcanvas.Footer>
       </Offcanvas>
@@ -200,10 +201,10 @@ const Searchbar = ({ show, handleSearchBar }) => {
         <Modal.Footer>
           <Brand />
           <h6 className="font-bold text-gray-500 mt-4">
-            <span className="me-2">
+            <FontAwesomeIcon icon={faGears} size="lg" />
+            <span className="ms-2">
               Powered with MongoDB Atlas Search Engine
             </span>
-            <FontAwesomeIcon icon={faGears} size="lg" />
           </h6>
         </Modal.Footer>
       </Modal>

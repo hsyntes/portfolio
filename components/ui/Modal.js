@@ -19,7 +19,7 @@ const Modal = ({ show, className, handleModal, children }) => {
 
   if (!show) return null;
 
-  const classes = `modal rounded border border-gray-300 dark:border-gray-700 shadow ${className}`;
+  const classes = `modal flex flex-col w-full rounded border border-gray-300 dark:border-gray-700 shadow ${className}`;
 
   // * Closing modal when clicked outside of the modal or
   // * pressed the ESC key
@@ -67,7 +67,7 @@ const ModalBody = ({ className, children }) => {
 };
 
 const ModalFooter = ({ className, children }) => {
-  const classes = `modal-footer bg-white dark:bg-black sticky bottom-0 px-8 py-4 ${className}`;
+  const classes = `modal-footer bg-white dark:bg-black sticky bottom-0 mt-auto px-8 py-4 ${className}`;
   return <div className={classes}>{children}</div>;
 };
 
