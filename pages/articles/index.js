@@ -20,7 +20,7 @@ const ArticlesPage = ({ icons }) => {
           height:
             typeof window !== "undefined" && window.innerWidth >= 992
               ? "40vh"
-              : "30vh",
+              : "35vh",
           backgroundImage: `url("${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/banner.png")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -37,7 +37,7 @@ const ArticlesPage = ({ icons }) => {
             src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/express.png`}
             width={128}
             height={128}
-            alt="Expressjs"
+            alt="Express"
           />
         </section>
         <section className="col-span-6 xl:col-span-4 h-full flex flex-col items-center justify-center">
@@ -45,7 +45,7 @@ const ArticlesPage = ({ icons }) => {
             src={`${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/icons/mern-dark.png`}
             width={675}
             height={234}
-            className="w-32 lg:hidden"
+            className="w-36 lg:hidden"
             alt="MERN Development"
           />
           <h1 className="font-bold text-3xl lg:text-5xl !text-dark text-center mt-3 mb-2">
@@ -56,7 +56,10 @@ const ArticlesPage = ({ icons }) => {
           </h1>
           <section className="flex items-center justify-center">
             {icons?.map((icon, index) => (
-              <section className="flex items-center col-span-4 mx-2">
+              <section
+                className="flex items-center justify-center col-span-4 px-2"
+                key={icon._id}
+              >
                 <Image
                   src={icon.icon_link}
                   width={20}
