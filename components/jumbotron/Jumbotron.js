@@ -139,7 +139,7 @@ const Jumbotron = ({ icons }) => {
               variant="primary"
               className="flex items-center mb-4 lg:mb-0 !px-6 !py-3"
             >
-              <FontAwesomeIcon icon={faFile} className="text-white !text-lg" />
+              <FontAwesomeIcon icon={faFile} className="text-white" />
               <span className="ms-2">Read the articles</span>
             </Button>
           </Link>
@@ -147,7 +147,7 @@ const Jumbotron = ({ icons }) => {
             <Button
               type="button"
               variant="link"
-              className="group relative flex items-center !text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
+              className="group relative flex items-center text-base lg:!text-lg mx-auto lg:mx-0 lg:ms-4 !pb-1"
             >
               <FontAwesomeIcon
                 icon={faProjectDiagram}
