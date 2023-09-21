@@ -20,7 +20,7 @@ const ErrorDialog = ({ show, errorMessage, handleErrorDialog }) => {
         {errorMessage}
       </Modal.Body>
       <Modal.Footer className="flex items-center justify-center !bg-white dark:!bg-dark">
-        <Button type="button" variant="link" onClick={handleErrorDialog}>
+        <Button type="button" variant="blue-link" onClick={handleErrorDialog}>
           Got it
         </Button>
       </Modal.Footer>

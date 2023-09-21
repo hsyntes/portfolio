@@ -3,8 +3,11 @@ import Article from "@/components/documentations/articles/Article";
 import MernText from "@/components/mern-text/MernText";
 import Button from "@/components/ui/Button";
 import fetchData from "@/utils/fetchData";
+import { faCode, faCodeFork } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 const ArticlesPage = ({ icons, articles }) => {
   return (
@@ -99,13 +102,34 @@ const ArticlesPage = ({ icons, articles }) => {
         </section>
       </header>
       <Container className="my-20">
-        <ul className="grid grid-cols-12 gap-6 lg:gap-12 xl:gap-24">
+        <ul>
           {articles?.map((article) => (
-            <li
-              key={article._id}
-              className="col-span-12 lg:col-span-4 group relative rounded overflow-hidden"
-            >
-              <Article article={article} />
+            <li className="flex items-start my-12" key={article._id}>
+              <Image
+                src={article.article_thumbnail}
+                width={1080}
+                height={1350}
+                className="w-28 rounded"
+                alt="Article Thumbnail"
+              />
+              <section className="flex flex-col ms-4 lg:ms-8">
+                <Link href={`/articles/${article._id}`} className="group">
+                  <h1 className="font-bold">{article.article_title}</h1>
+                  <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-4 lg:line-clamp-6 transition">
+                    {article.article_description}
+                  </p>
+                </Link>
+                <section className="mt-3">
+                  {article.article_related_repo && (
+                    <Link href={article.article_related_repo} target="_blank">
+                      <Button type="button" variant="blue-link">
+                        <span className="me-2">Related Repo</span>
+                        <FontAwesomeIcon icon={faCodeFork} />
+                      </Button>
+                    </Link>
+                  )}
+                </section>
+              </section>
             </li>
           ))}
         </ul>
