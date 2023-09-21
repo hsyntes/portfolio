@@ -28,7 +28,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
             <h6 className="font-bold text-lg mb-3">Projects</h6>
             <ul>
               {documents?.data.projects?.map((project) => (
-                <li key={project._id}>
+                <li className="group my-6" key={project._id}>
                   <Link
                     href={`/projects/${project._id}`}
                     className="flex items-start"
@@ -42,7 +42,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
                     />
                     <section className="ms-3">
                       <h1 className="font-bold">{project.project_name}</h1>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
+                      <p className="text-gray-600 dark:text-gray-400 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-3 transition">
                         {project.project_description}
                       </p>
                     </section>
@@ -60,7 +60,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
             <ul>
               {documents?.data.articles?.length >= 1 &&
                 documents?.data.articles?.map((article) => (
-                  <li className="my-4 last:mb-0" key={article._id}>
+                  <li className="group my-8" key={article._id}>
                     <Link
                       href={`/articles/${article._id}`}
                       className="flex items-start"
@@ -75,7 +75,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
                       />
                       <section className="ms-3">
                         <h1 className="font-bold">{article.article_title}</h1>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                        <p className="text-gray-600 dark:text-gray-400 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-2 transition">
                           {article.article_description}
                         </p>
                       </section>
