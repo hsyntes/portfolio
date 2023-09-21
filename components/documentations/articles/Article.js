@@ -57,10 +57,7 @@ const Article = ({ article }) => {
           </h1>
         </Card.Header>
         <Card.Body className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6">
-          <p className="block xl:hidden text-justify text-sm">
-            {article.article_description.slice(0, 240)}...
-          </p>
-          <p className="hidden xl:block text-justify text-base">
+          <p className="text-justify line-clamp-6">
             {article.article_description}
           </p>
         </Card.Body>

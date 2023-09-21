@@ -1,11 +1,12 @@
 import Container from "@/components/container/Container";
+import Article from "@/components/documentations/articles/Article";
 import MernText from "@/components/mern-text/MernText";
 import Button from "@/components/ui/Button";
 import fetchData from "@/utils/fetchData";
 import Head from "next/head";
 import Image from "next/image";
 
-const ArticlesPage = ({ icons }) => {
+const ArticlesPage = ({ icons, articles }) => {
   return (
     <>
       <Head>
@@ -74,13 +75,13 @@ const ArticlesPage = ({ icons }) => {
               </section>
             ))}
           </section>
-          <Button
+          {/* <Button
             type="button"
             variant="primary"
             className="!text-xs my-3 text-center"
           >
-            See more
-          </Button>
+            Get Apps
+          </Button> */}
         </section>
         <section className="col-span-3 xl:col-span-4 hidden lg:flex items-center justify-evenly">
           <Image
@@ -97,17 +98,33 @@ const ArticlesPage = ({ icons }) => {
           />
         </section>
       </header>
-      <Container className="my-20"></Container>
+      <Container className="my-20">
+        <ul className="grid grid-cols-12 gap-6 lg:gap-12 xl:gap-24">
+          {articles?.map((article) => (
+            <li
+              key={article._id}
+              className="col-span-12 lg:col-span-4 group relative rounded overflow-hidden"
+            >
+              <Article article={article} />
+            </li>
+          ))}
+        </ul>
+      </Container>
     </>
   );
 };
 
 export async function getServerSideProps() {
   const iconsData = await fetchData("icons");
+  const articlesData = await fetchData("articles");
+
+  const { icons } = iconsData.data;
+  const { articles } = articlesData.data;
 
   return {
     props: {
-      icons: iconsData.data.icons,
+      icons,
+      articles,
     },
   };
 }
