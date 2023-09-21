@@ -161,7 +161,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
             type="text"
             name="search"
             placeholder="Search documents"
-            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-secondary"
+            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-secondary placeholder:!text-white placeholder:dark:!text-black"
             value={search}
             onChange={handleSearchOnChange}
             autoFocus={true}
