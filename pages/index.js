@@ -16,7 +16,7 @@ export default function Home({ projects, articles, icons }) {
 
   return (
     <>
-      <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto">
+      <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto mt-20">
         <Jumbotron icons={icons} />
       </header>
       <section className="text-gray-500 lg:text-lg text-justify my-20 lg:my-40">
