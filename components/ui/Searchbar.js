@@ -175,7 +175,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
       <Modal
         show={show}
         handleModal={handleSearchBar}
-        className="backdrop-blur !bg-none w-3/4 xl:w-2/4 h-5/6 border border-gray-300 dark:border-gray-700 overflow-y-scroll"
+        className="backdrop-blur w-3/4 xl:w-2/4 h-5/6 overflow-y-scroll"
       >
         <Modal.Header handleModal={handleSearchBar}>
           <Input
@@ -188,7 +188,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
             autoFocus={true}
           />
         </Modal.Header>
-        <Modal.Body className="my-8 px-8">{content}</Modal.Body>
+        <Modal.Body>{content}</Modal.Body>
         <Modal.Footer>
           <h6 className="font-bold">
             <span className="me-2">

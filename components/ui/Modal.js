@@ -19,7 +19,7 @@ const Modal = ({ show, className, handleModal, children }) => {
 
   if (!show) return null;
 
-  const classes = `modal rounded shadow p-8 ${className}`;
+  const classes = `modal rounded border border-gray-300 dark:border-gray-700 shadow ${className}`;
 
   // * Closing modal when clicked outside of the modal or
   // * pressed the ESC key
@@ -47,14 +47,14 @@ const Modal = ({ show, className, handleModal, children }) => {
 };
 
 const ModalHeader = ({ className, handleModal, children }) => {
-  const classes = `modal-header relative flex items-center ${className}`;
+  const classes = `modal-header bg-white dark:bg-black relative sticky top-0 flex items-center px-8 py-4 ${className}`;
   return (
     <div className={classes}>
       {children}
       <FontAwesomeIcon
         icon={faTimes}
         size="lg"
-        className="text-gray-500 hover:text-dark hover:dark:text-white cursor-pointer absolute top-1/2 right-0 -translate-y-1/2"
+        className="text-gray-500 hover:text-dark hover:dark:text-white cursor-pointer absolute top-1/2 right-8 -translate-y-1/2"
         onClick={handleModal}
       />
     </div>
@@ -62,12 +62,12 @@ const ModalHeader = ({ className, handleModal, children }) => {
 };
 
 const ModalBody = ({ className, children }) => {
-  const classes = `modal-body ${className}`;
+  const classes = `modal-body px-8 my-6 ${className}`;
   return <div className={classes}>{children}</div>;
 };
 
 const ModalFooter = ({ className, children }) => {
-  const classes = `modal-footer ${className}`;
+  const classes = `modal-footer bg-white dark:bg-black sticky bottom-0 px-8 py-4 ${className}`;
   return <div className={classes}>{children}</div>;
 };
 
