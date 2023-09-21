@@ -169,7 +169,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
         </Offcanvas.Header>
         <Offcanvas.Body>{content}</Offcanvas.Body>
         <Offcanvas.Footer>
-          <h6 className="font-bold text-gray-500 text-sm mt-4">
+          <h6 className="font-bold text-gray-500 text-xs mt-4">
             <FontAwesomeIcon icon={faGears} size="lg" />
             <span className="ms-2">
               Powered with MongoDB Atlas Search Engine
@@ -184,7 +184,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
       <Modal
         show={show}
         handleModal={handleSearchBar}
-        className="backdrop-blur w-3/4 xl:w-2/4 h-5/6 overflow-y-scroll"
+        className="backdrop-blur lg:w-3/4 xl:w-2/4 h-5/6 overflow-y-scroll"
       >
         <Modal.Header handleModal={handleSearchBar}>
           <Input
