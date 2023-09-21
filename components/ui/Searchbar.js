@@ -9,6 +9,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Spinner from "./Spinner";
 import Modal from "./Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGears } from "@fortawesome/free-solid-svg-icons";
 
 const SearchLists = ({ documents, handleSearchBar }) => {
   if (documents.results === 0)
@@ -173,21 +175,28 @@ const Searchbar = ({ show, handleSearchBar }) => {
       <Modal
         show={show}
         handleModal={handleSearchBar}
-        className="backdrop-blur !bg-none w-3/4 xl:w-2/4 h-5/6 dark:border dark:border-gray-700 overflow-y-scroll"
+        className="backdrop-blur !bg-none w-3/4 xl:w-2/4 h-5/6 border border-gray-300 dark:border-gray-700 overflow-y-scroll"
       >
         <Modal.Header handleModal={handleSearchBar}>
           <Input
             type="text"
             name="search"
             placeholder="Search documents"
-            className="!bg-white dark:!bg-black !block !w-full text-sm focus:border-b-primary"
+            className="!bg-white dark:!bg-black !block !w-full text-sm placeholder:!text-white placeholder:dark:!text-black focus:border-b-primary"
             value={search}
             onChange={handleSearchOnChange}
             autoFocus={true}
           />
         </Modal.Header>
-        <Modal.Body className="my-8">{content}</Modal.Body>
-        <Modal.Footer></Modal.Footer>
+        <Modal.Body className="my-8 px-8">{content}</Modal.Body>
+        <Modal.Footer>
+          <h6 className="font-bold">
+            <span className="me-2">
+              Powered with MongoDB Atlas Search Engine
+            </span>
+            <FontAwesomeIcon icon={faGears} size="lg" />
+          </h6>
+        </Modal.Footer>
       </Modal>
     );
 };
