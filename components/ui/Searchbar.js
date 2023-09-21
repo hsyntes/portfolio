@@ -11,6 +11,7 @@ import Spinner from "./Spinner";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGears } from "@fortawesome/free-solid-svg-icons";
+import Brand from "./Brand";
 
 const SearchLists = ({ documents, handleSearchBar }) => {
   if (documents.results === 0)
@@ -165,8 +166,15 @@ const Searchbar = ({ show, handleSearchBar }) => {
             autoFocus={true}
           />
         </Offcanvas.Header>
-        <Offcanvas.Body> {content}</Offcanvas.Body>
-        <Offcanvas.Footer />
+        <Offcanvas.Body>{content}</Offcanvas.Body>
+        <Offcanvas.Footer>
+          <h6 className="font-bold text-gray-500 text-sm mt-4">
+            <span className="me-2">
+              Powered with MongoDB Atlas Search Engine
+            </span>
+            <FontAwesomeIcon icon={faGears} size="lg" />
+          </h6>
+        </Offcanvas.Footer>
       </Offcanvas>
     );
 
@@ -190,7 +198,8 @@ const Searchbar = ({ show, handleSearchBar }) => {
         </Modal.Header>
         <Modal.Body>{content}</Modal.Body>
         <Modal.Footer>
-          <h6 className="font-bold">
+          <Brand />
+          <h6 className="font-bold text-gray-500 mt-4">
             <span className="me-2">
               Powered with MongoDB Atlas Search Engine
             </span>

@@ -62,10 +62,11 @@ const OffcanvasBody = ({ children }) => (
   <div className="offcanvas-body px-6 my-2">{children}</div>
 );
 
-const OffcanvasFooter = () => (
+const OffcanvasFooter = ({ children }) => (
   <div className="offcanvas-footer mt-auto px-6 py-4">
     <Hr className="mb-4" />
     <Brand />
+    {children}
   </div>
 );
 
