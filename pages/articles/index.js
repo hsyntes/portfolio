@@ -17,13 +17,13 @@ const ArticlesPage = ({ icons }) => {
       <header
         className="flex flex-col w-full items-center justify-center"
         style={{
-          height: "35vh",
+          height: "30vh",
           backgroundImage: `url("${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/banner.png")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
       >
-        <h1 className="font-bold text-2xl lg:text-5xl !text-dark text-center mb-2">
+        <h1 className="font-bold text-2xl lg:text-4xl !text-dark text-center mb-2">
           LEARN
           <br />
           <MernText />
@@ -37,7 +37,7 @@ const ArticlesPage = ({ icons }) => {
               height={24}
               alt={icons[0].icon_name}
             />
-            <p className="text-gray-600 ms-1">Tricks & Tips</p>
+            <p className="text-gray-600 text-sm ms-1">Tricks & Tips</p>
           </section>
           <section className="flex items-center justify-center col-span-4 my-1 lg:my-0">
             <Image
@@ -46,7 +46,7 @@ const ArticlesPage = ({ icons }) => {
               height={24}
               alt={icons[1].icon_name}
             />
-            <p className="text-gray-600 ms-1">Experience</p>
+            <p className="text-gray-600 text-sm ms-1">Experience</p>
           </section>
           <section className="flex items-center col-span-4 justify-end">
             <Image
@@ -55,7 +55,7 @@ const ArticlesPage = ({ icons }) => {
               height={24}
               alt={icons[2].icon_name}
             />
-            <p className="text-gray-600 ms-1">Real Apps</p>
+            <p className="text-gray-600 text-sm ms-1">Real Apps</p>
           </section>
         </section>
         <Button type="button" variant="primary" className="!text-xs my-4">
