@@ -17,10 +17,7 @@ const ArticlesPage = ({ icons }) => {
       <header
         className="flex flex-col w-full items-center justify-center"
         style={{
-          height:
-            typeof window !== "undefined" && window.innerWidth >= 922
-              ? "35vh"
-              : "20vh",
+          height: "35vh",
           backgroundImage: `url("${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/banner.png")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -61,7 +58,7 @@ const ArticlesPage = ({ icons }) => {
             <p className="text-gray-600 ms-1">Real Apps</p>
           </section>
         </section>
-        <Button type="button" variant="primary" className="!text-xs my-6">
+        <Button type="button" variant="primary" className="!text-xs my-4">
           See more
         </Button>
       </header>
