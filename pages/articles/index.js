@@ -1,5 +1,6 @@
 import Container from "@/components/container/Container";
 import MernText from "@/components/mern-text/MernText";
+import Button from "@/components/ui/Button";
 import fetchData from "@/utils/fetchData";
 import Head from "next/head";
 import Image from "next/image";
@@ -60,6 +61,9 @@ const ArticlesPage = ({ icons }) => {
             <p className="text-gray-600 ms-1">Real Apps</p>
           </section>
         </section>
+        <Button type="button" variant="primary" className="!text-xs my-6">
+          See more
+        </Button>
       </header>
       <Container className="my-20"></Container>
     </>
