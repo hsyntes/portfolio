@@ -19,7 +19,7 @@ const Links = () =>
     <Link
       href={link.href}
       target="_blank"
-      className="text-gray-500 me-2 last:me-0"
+      className="text-gray-500 hover:text-black hover:dark:text-white me-2 last:me-0 transition"
       key={link.href}
     >
       <FontAwesomeIcon icon={link.icon} />
