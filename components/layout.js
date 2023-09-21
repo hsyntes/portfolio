@@ -20,9 +20,9 @@ const Layout = ({ children }) => (
     <footer className="mt-6 mb-20">
       <Container>
         <section>
-          <Brand>
+          {/* <Brand>
             <Links />
-          </Brand>
+          </Brand> */}
         </section>
       </Container>
     </footer>
