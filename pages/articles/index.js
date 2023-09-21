@@ -67,9 +67,9 @@ const ArticlesPage = ({ icons }) => {
                   alt={icon.icon_name}
                 />
                 <p className="text-gray-600 text-sm lg:text-base ms-1">
-                  {icon.icon_name === "idea" && "Tricks & Tips"}
-                  {icon.icon_name === "experience" && "Experiences"}
-                  {icon.icon_name === "develop" && "Real Apps"}
+                  {icon.icon_name === "idea" && "Tips"}
+                  {icon.icon_name === "experience" && "Knowledge"}
+                  {icon.icon_name === "develop" && "Apps"}
                 </p>
               </section>
             ))}
