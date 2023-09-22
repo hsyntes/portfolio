@@ -1,13 +1,13 @@
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/container/Container";
 import Article from "@/components/documentations/articles/Article";
 import MernText from "@/components/mern-text/MernText";
 import Button from "@/components/ui/Button";
-import fetchData from "@/utils/fetchData";
-import { faCode, faCodeFork } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import fetchData from "@/utils/fetchData";
 
 const ArticlesPage = ({ icons, articles }) => {
   return (
@@ -102,6 +102,7 @@ const ArticlesPage = ({ icons, articles }) => {
         </section>
       </header>
       <Container className="my-20">
+        <h1 className="font-bold text-2xl lg:text-4xl">Hi, I'm Huseyin Ates</h1>
         <ul>
           {articles?.map((article) => (
             <li className="flex items-start my-12" key={article._id}>
@@ -124,7 +125,7 @@ const ArticlesPage = ({ icons, articles }) => {
                     <Link href={article.article_related_repo} target="_blank">
                       <Button type="button" variant="blue-link">
                         <span className="me-2">Related Repo</span>
-                        <FontAwesomeIcon icon={faCodeFork} />
+                        <FontAwesomeIcon icon={faGithub} />
                       </Button>
                     </Link>
                   )}

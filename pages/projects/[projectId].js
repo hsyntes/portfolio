@@ -19,7 +19,7 @@ const ProjectDetailPage = ({ project }) => {
         />
         <title>{`${project_documentation.title} - ${project_documentation.description}`}</title>
       </Head>
-      <Container>
+      <Container className="mt-10">
         <section className="mb-10">
           <h1 className="font-bold text-2xl lg:text-4xl mb-4">
             {project_documentation.title}
