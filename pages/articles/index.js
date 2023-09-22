@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import fetchData from "@/utils/fetchData";
+import Summary from "@/components/summary/Summary";
 
 const ArticlesPage = ({ icons, articles }) => {
   return (
@@ -24,7 +25,7 @@ const ArticlesPage = ({ icons, articles }) => {
           height:
             typeof window !== "undefined" && window.innerWidth >= 992
               ? "40vh"
-              : "35vh",
+              : "25vh",
           backgroundImage: `url("${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}/banner.png")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -102,7 +103,10 @@ const ArticlesPage = ({ icons, articles }) => {
         </section>
       </header>
       <Container className="my-20">
-        <h1 className="font-bold text-2xl lg:text-4xl">Hi, I'm Huseyin Ates</h1>
+        <h1 className="font-bold text-xl lg:text-2xl mb-2">
+          Hi 👋 I'm Huseyin Ates
+        </h1>
+        <Summary />
         <ul>
           {articles?.map((article) => (
             <li className="flex items-start my-12" key={article._id}>
@@ -115,7 +119,7 @@ const ArticlesPage = ({ icons, articles }) => {
               />
               <section className="flex flex-col ms-4 lg:ms-8">
                 <Link href={`/articles/${article._id}`} className="group">
-                  <h1 className="font-bold">{article.article_title}</h1>
+                  <h1 className="font-bold mb-1">{article.article_title}</h1>
                   <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-4 lg:line-clamp-6 transition">
                     {article.article_description}
                   </p>

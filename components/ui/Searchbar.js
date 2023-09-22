@@ -42,7 +42,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
                       alt="Project"
                     />
                     <section className="ms-4">
-                      <h1 className="font-bold">{project.project_name}</h1>
+                      <h1 className="font-bold mb-1">{project.project_name}</h1>
                       <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-2 transition">
                         {project.project_description}
                       </p>
@@ -75,7 +75,9 @@ const SearchLists = ({ documents, handleSearchBar }) => {
                         alt="Article Thumbnail"
                       />
                       <section className="ms-4">
-                        <h1 className="font-bold">{article.article_title}</h1>
+                        <h1 className="font-bold mb-1">
+                          {article.article_title}
+                        </h1>
                         <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-3 transition">
                           {article.article_description}
                         </p>
