@@ -102,7 +102,7 @@ const ArticlesPage = ({ icons, articles }) => {
           />
         </section>
       </header>
-      <Container className="my-20">
+      <Container className="my-10">
         <h1 className="font-bold text-xl lg:text-2xl mb-2">
           Hi 👋 I'm Huseyin Ates
         </h1>
