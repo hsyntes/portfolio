@@ -2,13 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/container/Container";
-import Article from "@/components/documentations/articles/Article";
 import MernText from "@/components/mern-text/MernText";
 import Button from "@/components/ui/Button";
+import Summary from "@/components/summary/Summary";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import fetchData from "@/utils/fetchData";
-import Summary from "@/components/summary/Summary";
 
 const ArticlesPage = ({ icons, articles }) => {
   return (
@@ -120,7 +119,7 @@ const ArticlesPage = ({ icons, articles }) => {
               <section className="flex flex-col ms-4 lg:ms-8">
                 <Link href={`/articles/${article._id}`} className="group">
                   <h1 className="font-bold mb-1">{article.article_title}</h1>
-                  <p className="text-gray-500 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-4 lg:line-clamp-6 transition">
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-black group-hover:dark:text-white text-sm line-clamp-4 lg:line-clamp-6 transition">
                     {article.article_description}
                   </p>
                 </Link>
