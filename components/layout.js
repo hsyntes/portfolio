@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
     <Container>
       <Hr />
     </Container>
-    <footer className="mt-6 mb-20">
+    <footer className="my-6">
       <Container>
         <section>
           <Brand>

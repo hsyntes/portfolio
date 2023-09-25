@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const Article = ({ article }) => {
   // Set hoverend event
@@ -62,13 +63,15 @@ const Article = ({ article }) => {
           </p>
         </Card.Body>
         <Card.Footer className="absolute bottom-6 left-1/2 -translate-x-1/2 ">
-          <Button
-            type="button"
-            variant="none"
-            className="bg-dark text-white dark:bg-white dark:text-dark !text-xs"
-          >
-            Read More
-          </Button>
+          <Link href={`/articles/${article._id}`}>
+            <Button
+              type="button"
+              variant="none"
+              className="bg-dark text-white dark:bg-white dark:text-dark !text-xs"
+            >
+              Read More
+            </Button>
+          </Link>
         </Card.Footer>
       </motion.div>
     </>

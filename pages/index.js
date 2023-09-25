@@ -32,13 +32,13 @@ export default function Home({ projects, articles, icons }) {
 
 // * Fetch the backend data
 export async function getServerSideProps() {
-  const projectsData = await fetchData("projects");
-  const articlesData = await fetchData("articles/suggestions");
-  const iconsData = await fetchData("icons");
+  const projectsResponse = await fetchData("projects");
+  const articlesResponse = await fetchData("articles/suggestions");
+  const iconsResponse = await fetchData("icons");
 
-  const { projects } = projectsData.data;
-  const { articles } = articlesData.data;
-  const { icons } = iconsData.data;
+  const { projects } = projectsResponse.data;
+  const { articles } = articlesResponse.data;
+  const { icons } = iconsResponse.data;
 
   return {
     props: {

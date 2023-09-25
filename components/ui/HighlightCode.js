@@ -4,13 +4,15 @@ import "highlight.js/styles/github-dark.css";
 
 hljs.registerLanguage("javascript", javascript);
 
-const HighLightCode = ({ codeString }) => {
+const HighLightCode = ({ codeString, className }) => {
   const highLightedCode = hljs.highlight(codeString, {
     language: "javascript",
   }).value;
 
+  const classes = `bg-white dark:bg-dark rounded ${className} w-full overflow-hidden overflow-x-auto p-4`;
+
   return (
-    <pre>
+    <pre className={classes}>
       <code
         dangerouslySetInnerHTML={{
           __html: highLightedCode,

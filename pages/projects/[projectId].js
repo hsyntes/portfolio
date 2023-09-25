@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "@/components/container/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import fetchData from "@/utils/fetchData";
 
 const ProjectDetailPage = ({ project }) => {
   const { project_documentation } = project;
@@ -17,7 +18,7 @@ const ProjectDetailPage = ({ project }) => {
           name="keywords"
           content={project_documentation.keywords.join(", ")}
         />
-        <title>{`${project_documentation.title} - ${project_documentation.description}`}</title>
+        <title>{project_documentation.title}</title>
       </Head>
       <Container className="mt-10">
         <section className="mb-10">
@@ -106,15 +107,13 @@ const ProjectDetailPage = ({ project }) => {
 export async function getServerSideProps({ params }) {
   const { projectId } = params;
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API}/hsyntes/projects/id/${projectId}`
-  );
+  const response = await fetchData(`projects/id/${projectId}`);
 
-  const { data } = await response.json();
+  const { project } = response.data;
 
   return {
     props: {
-      project: data.project,
+      project,
     },
   };
 }

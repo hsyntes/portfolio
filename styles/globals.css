@@ -77,6 +77,6 @@ ul li {
   }
   #modal-overlay, #toast-overlay,
   #offcanvas-overlay {
-    background-color: rgba(var(--color-black), 0.9) !important;
+    background-color: rgba(var(--color-black), 0.8) !important;
   }
 }/*# sourceMappingURL=globals.css.map */
