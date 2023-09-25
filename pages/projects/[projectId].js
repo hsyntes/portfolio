@@ -60,7 +60,7 @@ const ProjectDetailPage = ({ project }) => {
         </Link>
         {headings?.map((heading, index) => {
           return (
-            <ul className="mb-16" key={index}>
+            <ul className="mb-16" key={heading._id}>
               <li key={heading._id}>
                 {heading.sub_title && (
                   <h2 className="font-bold text-xl lg:text-2xl mb-2">

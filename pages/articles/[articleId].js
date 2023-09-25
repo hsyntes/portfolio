@@ -60,6 +60,8 @@ const ArticleDetailPage = ({ article }) => {
   const { article_documentation } = article;
   const { headings } = article_documentation;
 
+  console.log(headings);
+
   return (
     <>
       <Head>
@@ -74,7 +76,7 @@ const ArticleDetailPage = ({ article }) => {
         <section>
           <Link href="/articles" scroll={false}>
             <FontAwesomeIcon icon={faAngleLeft} size="lg" />
-            <span className="font-bold text-lg ms-2">Back to the Articles</span>
+            <span className="font-bold text-lg ms-2">Articles</span>
           </Link>
         </section>
         <section className="my-10">
@@ -85,7 +87,7 @@ const ArticleDetailPage = ({ article }) => {
         </section>
         {headings?.map((heading, index) => {
           return (
-            <ul className="mb-12" key={index}>
+            <ul className="mb-12" key={heading._id}>
               <li key={heading._id}>
                 {heading.sub_title && (
                   <h2 className="font-bold text-xl lg:text-2xl mb-2">
@@ -110,8 +112,12 @@ const ArticleDetailPage = ({ article }) => {
                   <HighLightCode codeString={heading.code} className="my-4" />
                 )}
                 {heading.codes &&
-                  heading.codes.map((code) => (
-                    <HighLightCode codeString={code} className="my-2" />
+                  heading.codes.map((code, index) => (
+                    <HighLightCode
+                      codeString={code}
+                      className="my-3"
+                      key={index}
+                    />
                   ))}
                 {heading.image && (
                   <Image
