@@ -10,6 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const RelatedLinks = ({ article, className }) => {
+  if (!article.related_repo || !article.related_app) return null;
+
   const classes = `${className}`;
 
   let related_repo, related_app;
@@ -107,6 +109,10 @@ const ArticleDetailPage = ({ article }) => {
                 {heading.code && (
                   <HighLightCode codeString={heading.code} className="my-4" />
                 )}
+                {heading.codes &&
+                  heading.codes.map((code) => (
+                    <HighLightCode codeString={code} className="my-2" />
+                  ))}
                 {heading.image && (
                   <Image
                     src={heading.image.src}
