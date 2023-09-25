@@ -9,7 +9,7 @@ const HighLightCode = ({ codeString, className }) => {
     language: "javascript",
   }).value;
 
-  const classes = `bg-white dark:bg-dark rounded ${className} w-full overflow-hidden overflow-x-auto p-4`;
+  const classes = `bg-white dark:bg-dark shadow rounded ${className} w-full overflow-hidden overflow-x-auto p-4`;
 
   return (
     <pre className={classes}>

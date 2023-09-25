@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/container/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import fetchData from "@/utils/fetchData";
 
 const ProjectDetailPage = ({ project }) => {
@@ -21,7 +24,13 @@ const ProjectDetailPage = ({ project }) => {
         <title>{project_documentation.title}</title>
       </Head>
       <Container className="mt-10">
-        <section className="mb-10">
+        <section>
+          <Link href="/" scroll={false}>
+            <FontAwesomeIcon icon={faAngleLeft} size="lg" />
+            <span className="font-bold text-lg ms-2">Back</span>
+          </Link>
+        </section>
+        <section className="my-10">
           <h1 className="font-bold text-2xl lg:text-4xl mb-4">
             {project_documentation.title}
           </h1>
