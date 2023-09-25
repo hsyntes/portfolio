@@ -98,7 +98,7 @@ const ArticleDetailPage = ({ article }) => {
                 {heading.paragraphs &&
                   heading.paragraphs.map((paragraph, index) => (
                     <p
-                      className="text-gray-500 dark:text-gray-400 mb-1"
+                      className="text-gray-500 dark:text-gray-400 mb-1.5"
                       key={index}
                     >
                       {paragraph}
