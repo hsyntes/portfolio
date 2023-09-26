@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const Brand = ({ onClick, children }) => (
-  <div className="flex items-center justify-between" onClick={onClick}>
+  <div className="flex items-start justify-between" onClick={onClick}>
     <section className="flex items-start">
       <Image
         src="https://avatars.githubusercontent.com/u/69708483?v=4"
