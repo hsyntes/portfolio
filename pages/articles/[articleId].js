@@ -60,8 +60,6 @@ const ArticleDetailPage = ({ article }) => {
   const { article_documentation } = article;
   const { headings } = article_documentation;
 
-  console.log(headings);
-
   return (
     <>
       <Head>
