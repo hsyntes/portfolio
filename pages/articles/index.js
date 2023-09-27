@@ -78,13 +78,6 @@ const ArticlesPage = ({ icons, articles }) => {
               </section>
             ))}
           </section>
-          {/* <Button
-            type="button"
-            variant="primary"
-            className="!text-xs my-3 text-center"
-          >
-            Get Apps
-          </Button> */}
         </section>
         <section className="col-span-3 xl:col-span-4 hidden lg:flex items-center justify-evenly">
           <Image
@@ -113,7 +106,7 @@ const ArticlesPage = ({ icons, articles }) => {
                 src={article.article_thumbnail}
                 width={1080}
                 height={1350}
-                className="w-28 rounded"
+                className="w-28 rounded shadow"
                 alt="Article Thumbnail"
               />
               <section className="flex flex-col ms-4 lg:ms-8">
