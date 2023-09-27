@@ -35,9 +35,11 @@ ul {
   }
 }
 
-.modal {
+.modal,
+pre {
   &::-webkit-scrollbar {
     width: 3px;
+    height: 3px;
     scroll-padding: 1rem;
   }
 

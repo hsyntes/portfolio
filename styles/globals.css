@@ -26,11 +26,14 @@ ul li {
   margin: 0.5rem 0rem;
 }
 
-.modal::-webkit-scrollbar {
+.modal::-webkit-scrollbar,
+pre::-webkit-scrollbar {
   width: 3px;
+  height: 3px;
   scroll-padding: 1rem;
 }
-.modal::-webkit-scrollbar-thumb {
+.modal::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
   background-color: rgb(var(--color-primary));
   border-radius: 1rem;
 }
