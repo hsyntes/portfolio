@@ -51,6 +51,7 @@ const ArticlesPage = ({ icons, articles }) => {
             height={234}
             className="w-36 lg:hidden"
             alt="MERN Development"
+            loading="lazy"
           />
           <h1 className="font-bold text-3xl lg:text-5xl !text-dark text-center mt-3 mb-2">
             LEARN
