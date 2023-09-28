@@ -23,6 +23,8 @@ module.exports = {
       articles.forEach((article) =>
         dynamicRoutes.push(`/articles/${article._id}`)
       );
+
+      return dynamicRoutes;
     } catch (e) {
       console.error("Error fetching the data: ", e);
     }
