@@ -23,6 +23,8 @@ module.exports = {
       dynamicRoutes.push(`/articles/${article._id}`)
     );
 
+    console.log(dynamicRoutes);
+
     return dynamicRoutes;
   },
 };
