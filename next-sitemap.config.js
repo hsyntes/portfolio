@@ -9,24 +9,20 @@ module.exports = {
   async generateDynamicRoutes() {
     const dynamicRoutes = [];
 
-    try {
-      const projectsResponse = await fetchData("projects");
-      const articlesReponse = await fetchData("articles");
+    const projectsResponse = await fetchData("projects");
+    const articlesReponse = await fetchData("articles");
 
-      const { projects } = projectsResponse.data;
-      const { articles } = articlesReponse.data;
+    const { projects } = projectsResponse.data;
+    const { articles } = articlesReponse.data;
 
-      projects.forEach((project) =>
-        dynamicRoutes.push(`/projects/${project._id}`)
-      );
+    projects.forEach((project) =>
+      dynamicRoutes.push(`/projects/${project._id}`)
+    );
 
-      articles.forEach((article) =>
-        dynamicRoutes.push(`/articles/${article._id}`)
-      );
+    articles.forEach((article) =>
+      dynamicRoutes.push(`/articles/${article._id}`)
+    );
 
-      return dynamicRoutes;
-    } catch (e) {
-      console.error("Error fetching the data: ", e);
-    }
+    return dynamicRoutes;
   },
 };
