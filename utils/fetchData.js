@@ -9,4 +9,5 @@ const fetchData = async (param) => {
   return data;
 };
 
-export default fetchData;
+// export default fetchData;
+module.exports = fetchData;

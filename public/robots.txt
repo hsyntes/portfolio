@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://hsyntes.com
+
+# Sitemaps
+Sitemap: https://hsyntes.com/sitemap.xml
