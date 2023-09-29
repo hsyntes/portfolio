@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
         />
         <meta
           name="keywords"
-          content="Hüseyin Ateş, Huseyin Ates, hsyntes, Huseyin Ates Full-Stack Developer, Huseyin Ates Full Stack Developer, huseyin ates full stack developer, huseyin ates mern developer, Huseyin Ates Software Engineer, huseyin ates software engineer"
+          content="Hüseyin Ateş, Huseyin Ates, hsyntes, Huseyin Ates Full-Stack Developer, Huseyin Ates Full Stack Developer, huseyin ates full stack developer, huseyin ates mern developer, Huseyin Ates Full Stack MERN Developer, Huseyin Ates Software Engineer, huseyin ates software engineer, MERN Stack Development, mern stack development, learn mern, mern stack"
         />
         <title>
           Huseyin Ates @hsyntes - Software Engineer | Full Stack MERN Developer
