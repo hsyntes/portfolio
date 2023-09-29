@@ -21,7 +21,7 @@ module.exports = {
 
         dark: {
           DEFAULT: "rgb(var(--color-dark))",
-          darker: "rgb(32, 32, 32)",
+          darker: "rgb(25, 25, 25)",
         },
 
         black: "rgb(var(--color-black))",
