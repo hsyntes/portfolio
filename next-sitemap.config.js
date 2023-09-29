@@ -7,6 +7,7 @@ module.exports = {
   changefreq: "daily",
   priority: 0.7,
   async generateDynamicRoutes() {
+    console.log("generateDynamicRoutes function is executed"); // Add this line
     const dynamicRoutes = [];
 
     const projectsResponse = await fetchData("projects");
