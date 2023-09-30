@@ -42,7 +42,7 @@ const Sidebar = ({ show, handleSidebar }) => (
             </h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-sm line-clamp-2">
               Access the full code of my projects
             </p>
           </section>
@@ -62,7 +62,7 @@ const Sidebar = ({ show, handleSidebar }) => (
             </h6>
           </section>
           <section>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-sm line-clamp-2">
               Learn advanced MERN Stack Tricks & Tips
             </p>
           </section>
