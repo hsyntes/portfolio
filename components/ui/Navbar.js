@@ -33,9 +33,6 @@ const Navbar = () => {
     else dispatch(userSliceActions.setCurrentUser(null));
   }, [user, dispatch]);
 
-  console.log(currentUser);
-  console.log(user);
-
   return (
     <>
       <nav>
@@ -97,13 +94,15 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={faLinkedin} size="xl" />
               </Link>
             </li>
-            <li>
-              <Link href="/authentication?auth=signup">
-                <Button type="button" variant="primary">
-                  Sign up
-                </Button>
-              </Link>
-            </li>
+            {!currentUser && (
+              <li>
+                <Link href="/authentication?auth=signup">
+                  <Button type="button" variant="primary">
+                    Sign up
+                  </Button>
+                </Link>
+              </li>
+            )}
           </ul>
         </Container>
       </nav>
