@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 const Projects = ({ projects }) => (
   <section id="projects" className="my-20">
     <h6 className="font-bold text-2xl lg:text-4xl text-center">
-      You can see the full code of my projects and contribute them on&nbsp;
+      You can see the full code of my projects and contribute to them on&nbsp;
       <Link
         href="https://github.com/hsyntes"
         target="_blank"
