@@ -144,7 +144,7 @@ const Sidebar = ({ show, handleSidebar }) => (
           </span>
         </h6>
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-          Hello! I'm delighted that you want to reach out to me. I'am here to
+          Hello! I'm delighted that you want to reach out to me. I amm here to
           hear from you for any questions you may have. Whether it's feedback,
           collaboration opportunities, or simply to say hello, please feel free
           to contact me. 🤗
