@@ -8,13 +8,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Searchbar from "./Searchbar";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [searchbar, setSearchbar] = useState(false);
   const [sidebar, setSidebar] = useState(false);
+  const currentUserState = useSelector((state) => state.currentUser);
 
   const handleSearchBar = () => setSearchbar(!searchbar);
   const handleSidebar = () => setSidebar(!sidebar);
+
+  const { currentUser } = currentUserState;
+  console.log(currentUser);
 
   return (
     <>
