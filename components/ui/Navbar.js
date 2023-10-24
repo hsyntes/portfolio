@@ -33,7 +33,7 @@ const Navbar = () => {
     else dispatch(userSliceActions.setCurrentUser(null));
   }, [user, dispatch]);
 
-  console.log(currentUserState);
+  console.log(currentUser);
   console.log(user);
 
   return (
