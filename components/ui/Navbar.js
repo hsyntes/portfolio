@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../container/Container";
 import Button from "./Button";
 import Sidebar from "./Sidebar";
@@ -8,18 +8,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Searchbar from "./Searchbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useQuery } from "react-query";
+import getCurrentUser from "@/utils/getCurrentUser";
+import { userSliceActions } from "@/store/user-slice/user-slice";
 
 const Navbar = () => {
   const [searchbar, setSearchbar] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const currentUserState = useSelector((state) => state.currentUser);
+  const dispatch = useDispatch();
+
+  const { data: user } = useQuery("getCurrentUser", {
+    queryFn: getCurrentUser,
+  });
 
   const handleSearchBar = () => setSearchbar(!searchbar);
   const handleSidebar = () => setSidebar(!sidebar);
 
   const { currentUser } = currentUserState;
-  console.log(currentUser);
+
+  useEffect(() => {
+    if (user) dispatch(userSliceActions.setCurrentUser(user));
+    else dispatch(userSliceActions.setCurrentUser(null));
+  }, [user, dispatch]);
+
+  console.log(currentUserState);
+  console.log(user);
 
   return (
     <>
