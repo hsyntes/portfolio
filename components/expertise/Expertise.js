@@ -10,7 +10,7 @@ const Expertise = ({ icons }) => (
       {icons?.map((icon, index) => (
         <motion.li
           style={{ opacity: 0 }}
-          whileInView={{ opacity: [0, 1] }}
+          whileInView={{ opacity: 1 }}
           transition={{
             ease: "easeOut",
             duration: 0.5,

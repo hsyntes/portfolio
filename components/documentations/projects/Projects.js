@@ -24,7 +24,8 @@ const Projects = ({ projects }) => (
     <ul className="lg:mx-auto">
       {projects?.map((project) => (
         <motion.li
-          whileInView={{ opacity: [0, 1], y: [150, 0] }}
+          style={{ opacity: 0, y: 150 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
           className="grid grid-cols-12 gap-2 lg:gap-4 xl:gap-0 rounded hover:bg-white hover:dark:bg-dark-darker hover:shadow p-4 my-12 lg:my-24 transition"
