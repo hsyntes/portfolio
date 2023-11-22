@@ -23,11 +23,11 @@ const Jumbotron = ({ icons }) => {
   return (
     <>
       <motion.div
-        animate={{ opacity: [0, 1] }}
+        animate={{ opacity: 1 }}
         style={
           typeof window !== "undefined" && window.innerWidth <= 992
             ? { scale, opacity }
-            : undefined
+            : { opacity: 0 }
         }
         transition={{ ease: "easeOut", delay: 0.75, duration: 0.25 }}
         className="text-center"
@@ -43,7 +43,8 @@ const Jumbotron = ({ icons }) => {
       </motion.div>
       <ul className="flex items-center justify-center lg:hidden my-3 mt-6">
         <motion.li
-          animate={{ opacity: [0, 1], scale: [0.75, 1] }}
+          style={{ opacity: 0, scale: 0.75 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ ease: "easeOut", delay: 1, duration: 0.35 }}
           className="mx-1.5"
         >
@@ -56,7 +57,8 @@ const Jumbotron = ({ icons }) => {
           </Link>
         </motion.li>
         <motion.li
-          animate={{ opacity: [0, 1], scale: [0.75, 1] }}
+          style={{ opacity: 0, scale: 0.75 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ ease: "easeOut", delay: 1.25, duration: 0.35 }}
           className="mx-1.5"
         >
@@ -72,7 +74,8 @@ const Jumbotron = ({ icons }) => {
       <section className="order-last lg:order-first">
         <h1 className="text-center lg:text-start">
           <motion.span
-            animate={{ opacity: [0, 1] }}
+            style={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ ease: "easeOut", delay: 1.5, duration: 0.25 }}
             className="block text-gray-500 text-lg lg:text-2xl xl:text-3xl mb-1"
           >
@@ -96,7 +99,8 @@ const Jumbotron = ({ icons }) => {
             ))}
           </span>
           <motion.span
-            animate={{ opacity: [0, 1] }}
+            style={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
               ease: "easeInOut",
               delay: 1.9,
