@@ -17,6 +17,7 @@ import {
   faEnvelope,
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
+import SendEmail from "../links/SendEmail";
 
 const Sidebar = ({ show, handleSidebar }) => (
   <Offcanvas show={show} handleSidebar={handleSidebar}>
@@ -149,19 +150,7 @@ const Sidebar = ({ show, handleSidebar }) => (
           collaboration opportunities, or simply to say hello, please feel free
           to contact me. 🤗
         </p>
-        <Link
-          href={"mailto:se.hsyntes@gmail.com"}
-          target="_blank"
-          className="block text-blue-500 underline"
-        >
-          <Badge variant="primary" className="inline-block">
-            Send me an email now!
-          </Badge>
-          <div className="block">
-            <FontAwesomeIcon icon={faEnvelope} />
-            <span className="ms-2">se.hsyntes@gmail.com</span>
-          </div>
-        </Link>
+        <SendEmail />
         <Link
           href="https://twitter.com/hsyntes"
           target="_blank"
@@ -173,10 +162,18 @@ const Sidebar = ({ show, handleSidebar }) => (
         <Link
           href="https://instagram.com/hsyntes"
           target="_blank"
-          className="block text-gray-600 dark:text-gray-400"
+          className="block text-gray-600 dark:text-gray-400 my-1"
         >
           <FontAwesomeIcon icon={faInstagram} />
           <span className="ms-2">Instagram</span>
+        </Link>
+        <Link
+          href="https://linkedin.com/in/hsyntes"
+          target="_blank"
+          className="block text-gray-600 dark:text-gray-400 my-1"
+        >
+          <FontAwesomeIcon icon={faLinkedin} />
+          <span className="ms-2">LinkedIn</span>
         </Link>
       </section>
     </Offcanvas.Body>

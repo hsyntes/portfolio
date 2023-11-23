@@ -5,6 +5,7 @@ import Articles from "@/components/documentations/articles/Articles";
 import Summary from "@/components/summary/Summary";
 import Expertise from "@/components/expertise/Expertise";
 import fetchData from "@/utils/fetchData";
+import SendEmail from "@/components/links/SendEmail";
 
 export default function Home({ projects, articles, icons }) {
   return (
@@ -12,9 +13,12 @@ export default function Home({ projects, articles, icons }) {
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto mt-20">
         <Jumbotron icons={icons} />
       </header>
-      <section className="text-gray-500 lg:text-lg text-justify my-20 lg:my-40">
+      <section className="text-gray-500 lg:text-lg text-justify my-20">
         <Summary />
       </section>
+      <center>
+        <SendEmail />
+      </center>
       <Projects projects={projects} />
       <Expertise icons={icons} />
       <Articles articles={articles} />

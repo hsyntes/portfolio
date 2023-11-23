@@ -5,7 +5,7 @@ const MernText = () => {
     { letter: "M", color: "text-green-500" },
     { letter: "E", color: "text-gray-500" },
     { letter: "R", color: "text-blue-500" },
-    { letter: "N", color: "text-greent-700" },
+    { letter: "N", color: "text-green-700" },
   ];
 
   return MERN.map((value, index) => (
