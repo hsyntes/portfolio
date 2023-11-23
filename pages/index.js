@@ -13,7 +13,7 @@ export default function Home({ projects, articles, icons }) {
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto mt-20">
         <Jumbotron icons={icons} />
       </header>
-      <section className="text-gray-500 lg:text-lg text-justify my-20">
+      <section className="text-gray-500 lg:text-lg text-justify my-20 lg:my-40">
         <Summary />
       </section>
       <center>
