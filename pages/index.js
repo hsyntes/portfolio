@@ -16,7 +16,7 @@ export default function Home({ projects, articles, icons }) {
       <section className="text-gray-500 lg:text-lg text-justify my-20 lg:my-40">
         <Summary />
       </section>
-      <center className="my-20">
+      <center className="my-20 lg:my-40">
         <SendEmail />
       </center>
       <Projects projects={projects} />
