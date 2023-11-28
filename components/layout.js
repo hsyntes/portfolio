@@ -7,7 +7,7 @@ import Links from "./links/Links";
 // * Root layout
 const Layout = ({ children }) => (
   <>
-    <header className="bg-light dark:bg-black sticky top-0 py-2 lg:py-4 z-10">
+    <header className="sticky top-0 py-2 lg:py-4 z-10">
       <Navbar />
     </header>
     <main>
