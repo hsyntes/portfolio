@@ -6,7 +6,7 @@ import Brand from "./Brand";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const Offcanvas = ({ show, handleOffcanvas, children }) => {
+const Offcanvas = ({ show, handleOffcanvas, children, style }) => {
   // * Disable page scrolling when offcanvas is opened
   useEffect(() => {
     const body = document.querySelector("body");
@@ -32,8 +32,14 @@ const Offcanvas = ({ show, handleOffcanvas, children }) => {
     if (e.key === "Escape") handleOffcanvas();
   });
 
+  console.log(style);
+
   return createPortal(
-    <div id="offcanvas-overlay" className="z-20" style={{ height: "100vh" }}>
+    <div
+      id="offcanvas-overlay"
+      className="z-20"
+      style={{ height: "100vh", ...style }}
+    >
       <motion.div
         animate={{ y: [100, 0], opacity: [0, 1] }}
         transition={{ ease: "easeOut", duration: 0.25 }}

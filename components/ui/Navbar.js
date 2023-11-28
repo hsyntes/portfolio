@@ -12,11 +12,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import getCurrentUser from "@/utils/getCurrentUser";
 import { userSliceActions } from "@/store/user-slice/user-slice";
+import { themeSliceActions } from "@/store/theme-slice/theme-slice";
 
 const Navbar = () => {
   const [searchbar, setSearchbar] = useState(false);
+  const [backdropColor, setBackdropColor] = useState("");
   const [sidebar, setSidebar] = useState(false);
   const currentUserState = useSelector((state) => state.currentUser);
+  const themeState = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const { data: user } = useQuery("getCurrentUser", {
@@ -27,11 +30,41 @@ const Navbar = () => {
   const handleSidebar = () => setSidebar(!sidebar);
 
   const { currentUser } = currentUserState;
+  const { theme } = themeState;
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleToggle = () => {
+    setIsChecked((prev) => !prev);
+    dispatch(themeSliceActions.switchTheme(isChecked ? "dark" : "light"));
+  };
+
+  useEffect(() => {
+    if (theme === "dark") setIsChecked(true);
+    else setIsChecked(false);
+  }, [theme]);
 
   useEffect(() => {
     if (user) dispatch(userSliceActions.setCurrentUser(user));
     else dispatch(userSliceActions.setCurrentUser(null));
   }, [user, dispatch]);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (theme === "dark")
+        setBackdropColor(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--color-black"
+          )
+        );
+      else
+        setBackdropColor(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--color-light"
+          )
+        );
+    }
+  }, [theme]);
 
   return (
     <>
@@ -76,6 +109,31 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="col-span-2 lg:col-span-3 items-center ms-auto hidden lg:flex">
+            <li className="me-4">
+              <label className="flex items-center cursor-pointer">
+                <div
+                  className={`relative w-12 h-6 bg-gray-300 rounded-full cursor-pointer transition duration-300 ${
+                    isChecked ? "bg-primary" : "bg-gray-300"
+                  }`}
+                  onClick={handleToggle}
+                >
+                  <input
+                    type="checkbox"
+                    className="hidden"
+                    checked={isChecked}
+                    onChange={handleToggle}
+                  />
+                  <div
+                    className={`toggle__dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 transition-transform ${
+                      isChecked
+                        ? "transform translate-x-8"
+                        : "transform translate-x-0"
+                    }`}
+                  ></div>
+                </div>
+                <div className="ms-3">{isChecked ? "🌙" : "🌞"}</div>
+              </label>
+            </li>
             <li>
               <Link
                 href="https://github.com/hsyntes"
@@ -106,8 +164,16 @@ const Navbar = () => {
           </ul>
         </Container>
       </nav>
-      <Sidebar show={sidebar} handleSidebar={handleSidebar} />
-      <Searchbar show={searchbar} handleSearchBar={handleSearchBar} />
+      <Sidebar
+        show={sidebar}
+        handleSidebar={handleSidebar}
+        backdropColor={backdropColor}
+      />
+      <Searchbar
+        show={searchbar}
+        handleSearchBar={handleSearchBar}
+        backdropColor={backdropColor}
+      />
     </>
   );
 };

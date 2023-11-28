@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
-const Modal = ({ show, className, handleModal, children }) => {
+const Modal = ({ show, className, handleModal, children, style }) => {
   // * Disable page scrolling when modal is opened
   useEffect(() => {
     const body = document.querySelector("body");
@@ -33,7 +33,7 @@ const Modal = ({ show, className, handleModal, children }) => {
 
   // * Creating portal
   return createPortal(
-    <div id="modal-overlay" className="z-50">
+    <div id="modal-overlay" className="z-50" style={style}>
       <motion.div
         animate={{ scale: [1.1, 1], opacity: [0.75, 1] }}
         transition={{ ease: "easeOut", duration: 0.15 }}

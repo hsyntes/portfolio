@@ -93,7 +93,7 @@ const SearchLists = ({ documents, handleSearchBar }) => {
   );
 };
 
-const Searchbar = ({ show, handleSearchBar }) => {
+const Searchbar = ({ show, handleSearchBar, backdropColor }) => {
   const [deviceType, setDeviceType] = useState();
 
   // * Showing different component for searching
@@ -157,7 +157,11 @@ const Searchbar = ({ show, handleSearchBar }) => {
 
   if (deviceType === "mobile")
     return (
-      <Offcanvas show={show} handleOffcanvas={handleSearchBar}>
+      <Offcanvas
+        show={show}
+        handleOffcanvas={handleSearchBar}
+        style={{ backgroundColor: `rgba(${backdropColor}, 0.8)` }}
+      >
         <Offcanvas.Header handleOffcanvas={handleSearchBar}>
           <Input
             type="text"
@@ -187,6 +191,7 @@ const Searchbar = ({ show, handleSearchBar }) => {
         show={show}
         handleModal={handleSearchBar}
         className="backdrop-blur lg:w-3/4 xl:w-2/4 h-5/6 overflow-y-scroll"
+        style={{ backgroundColor: `rgba(${backdropColor}, 0.8)` }}
       >
         <Modal.Header handleModal={handleSearchBar}>
           <Input

@@ -48,7 +48,6 @@ pre::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(var(--color-white), 0.75);
 }
 
 #toast-overlay {
@@ -65,7 +64,6 @@ pre::-webkit-scrollbar-thumb {
   left: 0;
   display: flex;
   justify-content: flex-end;
-  background-color: rgba(var(--color-white), 0.75);
 }
 
 #projects,
@@ -77,9 +75,5 @@ pre::-webkit-scrollbar-thumb {
   :root {
     --foreground-rgb: var(--color-white);
     --background-rgb: var(--color-black);
-  }
-  #modal-overlay, #toast-overlay,
-  #offcanvas-overlay {
-    background-color: rgba(var(--color-black), 0.8) !important;
   }
 }/*# sourceMappingURL=globals.css.map */
