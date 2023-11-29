@@ -18,7 +18,7 @@ const Certifications = ({ certifications }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ ease: "easeOut", delay: 0.25, duration: 0.5 }}
             viewport={{ once: true }}
-            className="col-span-12 grid grid-cols-12 lg:col-span-4 items-start gap-4 lg:gap-8 py-6 my-3 lg:my-0"
+            className="col-span-12 grid grid-cols-12 lg:col-span-4 items-start gap-4 lg:gap-8 py-8 my-3 lg:my-0"
             key={certification._id}
           >
             <section className="col-span-3 lg:col-span-4">
