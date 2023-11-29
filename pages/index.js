@@ -9,8 +9,9 @@ import SendEmail from "@/components/links/SendEmail";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { themeSliceActions } from "@/store/theme-slice/theme-slice";
+import Certifications from "@/components/certifications/Certifications";
 
-export default function Home({ projects, articles, icons }) {
+export default function Home({ projects, certifications, articles, icons }) {
   return (
     <Container>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto mt-20">
@@ -23,6 +24,7 @@ export default function Home({ projects, articles, icons }) {
         <SendEmail />
       </center>
       <Projects projects={projects} />
+      <Certifications certifications={certifications} />
       <Expertise icons={icons} />
       <Articles articles={articles} />
     </Container>
@@ -32,16 +34,19 @@ export default function Home({ projects, articles, icons }) {
 // * Fetch the backend data
 export async function getServerSideProps() {
   const projectsResponse = await fetchData("projects");
+  const certificationsResponse = await fetchData("certifications");
   const articlesResponse = await fetchData("articles/suggestions");
   const iconsResponse = await fetchData("icons");
 
   const { projects } = projectsResponse.data;
+  const { certifications } = certificationsResponse.data;
   const { articles } = articlesResponse.data;
   const { icons } = iconsResponse.data;
 
   return {
     props: {
       projects,
+      certifications,
       articles,
       icons,
     },

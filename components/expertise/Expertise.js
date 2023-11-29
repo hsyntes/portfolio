@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Expertise = ({ icons }) => (
-  <section className="my-20">
+  <section className="my-20 lg:my-40">
     <h6 className="font-bold text-2xl lg:text-4xl text-center">
       Sharing my knowledge and experiences in Full Stack MERN Development
     </h6>

@@ -40,9 +40,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <header className="bg-light dark:bg-black sticky top-0 py-2 lg:py-4 z-10">
+      {/* <header className="bg-light dark:bg-black sticky top-0 py-2 lg:py-4 z-10">
         <Navbar />
-      </header>
+      </header> */}
       <main>
         {/* The pages */}
         {children}
@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
       <Container>
         <Hr />
       </Container>
-      <footer className="my-6">
+      {/* <footer className="my-6">
         <Container>
           <section>
             <Brand>
@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
             </Brand>
           </section>
         </Container>
-      </footer>
+      </footer> */}
     </>
   );
 };
