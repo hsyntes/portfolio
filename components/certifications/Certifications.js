@@ -8,7 +8,7 @@ const Certifications = ({ certifications }) => {
   console.log(certifications);
   return (
     <section className="my-20 lg:my-40">
-      <h6 className="font-bold text-2xl lg:text-4xl text-center lg:text-start my-12 lg:my-24">
+      <h6 className="font-bold text-2xl lg:text-4xl text-center lg:text-start my-6 lg:my-24">
         Licenses & Certifications
       </h6>
       <ul className="grid grid-cols-12">
