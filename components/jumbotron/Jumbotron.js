@@ -23,7 +23,7 @@ const Jumbotron = ({ icons }) => {
   return (
     <>
       <motion.div
-        animate={{ opacity: 1 }}
+        animate={{ opacity: [0, 1] }}
         style={
           typeof window !== "undefined" && window.innerWidth <= 992
             ? { scale, opacity }
