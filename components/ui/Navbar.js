@@ -16,10 +16,9 @@ import { themeSliceActions } from "@/store/theme-slice/theme-slice";
 
 const Navbar = () => {
   const [searchbar, setSearchbar] = useState(false);
-  const [backdropColor, setBackdropColor] = useState("");
   const [sidebar, setSidebar] = useState(false);
-  const currentUserState = useSelector((state) => state.currentUser);
   const themeState = useSelector((state) => state.theme);
+  const currentUserState = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
 
   const { data: user } = useQuery("getCurrentUser", {
@@ -48,23 +47,6 @@ const Navbar = () => {
     if (user) dispatch(userSliceActions.setCurrentUser(user));
     else dispatch(userSliceActions.setCurrentUser(null));
   }, [user, dispatch]);
-
-  useEffect(() => {
-    if (typeof document !== "undefined") {
-      if (theme === "dark")
-        setBackdropColor(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--color-black"
-          )
-        );
-      else
-        setBackdropColor(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--color-light"
-          )
-        );
-    }
-  }, [theme]);
 
   return (
     <>
@@ -164,16 +146,8 @@ const Navbar = () => {
           </ul>
         </Container>
       </nav>
-      <Sidebar
-        show={sidebar}
-        handleSidebar={handleSidebar}
-        backdropColor={backdropColor}
-      />
-      <Searchbar
-        show={searchbar}
-        handleSearchBar={handleSearchBar}
-        backdropColor={backdropColor}
-      />
+      <Sidebar show={sidebar} handleSidebar={handleSidebar} />
+      <Searchbar show={searchbar} handleSearchBar={handleSearchBar} />
     </>
   );
 };

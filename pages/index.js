@@ -11,33 +11,6 @@ import { useEffect } from "react";
 import { themeSliceActions } from "@/store/theme-slice/theme-slice";
 
 export default function Home({ projects, articles, icons }) {
-  const themeState = useSelector((state) => state.theme);
-  const dispatch = useDispatch();
-
-  const { theme } = themeState;
-
-  if (typeof window !== "undefined")
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) =>
-        dispatch(themeSliceActions.switchTheme(e.matches ? "dark" : "light"))
-      );
-
-  useEffect(() => {
-    const [html, body] = [
-      document.querySelector("html"),
-      document.querySelector("body"),
-    ];
-
-    if (theme === "dark") {
-      html.classList.add("dark");
-      body.className = "!bg-black !text-white";
-    } else {
-      html.classList.remove("dark");
-      body.className = "!bg-light !text-dark";
-    }
-  }, [theme]);
-
   return (
     <Container>
       <header className="flex flex-col lg:flex-row lg:items-center lg:justify-between mx-auto mt-20">

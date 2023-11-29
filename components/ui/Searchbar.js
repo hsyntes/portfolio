@@ -12,6 +12,7 @@ import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGears } from "@fortawesome/free-solid-svg-icons";
 import Brand from "./Brand";
+import { useDispatch, useSelector } from "react-redux";
 
 const SearchLists = ({ documents, handleSearchBar }) => {
   if (documents.results === 0)
@@ -93,8 +94,10 @@ const SearchLists = ({ documents, handleSearchBar }) => {
   );
 };
 
-const Searchbar = ({ show, handleSearchBar, backdropColor }) => {
+const Searchbar = ({ show, handleSearchBar }) => {
   const [deviceType, setDeviceType] = useState();
+  const [backdropColor, setBackdropColor] = useState("");
+  const themeState = useSelector((state) => state.theme);
 
   // * Showing different component for searching
   // * based on the device type
@@ -131,6 +134,8 @@ const Searchbar = ({ show, handleSearchBar, backdropColor }) => {
       refetchOnWindowFocus: false,
     });
 
+  const { theme } = themeState;
+
   // * Set the device type based on the window size
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -138,6 +143,23 @@ const Searchbar = ({ show, handleSearchBar, backdropColor }) => {
       else setDeviceType("mobile");
     }
   }, [deviceType]);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (theme === "dark")
+        setBackdropColor(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--color-black"
+          )
+        );
+      else
+        setBackdropColor(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--color-light"
+          )
+        );
+    }
+  }, [theme]);
 
   let content;
 

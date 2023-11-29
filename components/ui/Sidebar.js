@@ -22,9 +22,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { themeSliceActions } from "@/store/theme-slice/theme-slice";
 
-const Sidebar = ({ show, handleSidebar, backdropColor }) => {
-  const themeState = useSelector((state) => state.theme);
+const Sidebar = ({ show, handleSidebar }) => {
+  const [backdropColor, setBackdropColor] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const themeState = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const { theme } = themeState;
@@ -37,6 +38,23 @@ const Sidebar = ({ show, handleSidebar, backdropColor }) => {
   useEffect(() => {
     if (theme === "dark") setIsChecked(true);
     else setIsChecked(false);
+  }, [theme]);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (theme === "dark")
+        setBackdropColor(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--color-black"
+          )
+        );
+      else
+        setBackdropColor(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--color-light"
+          )
+        );
+    }
   }, [theme]);
 
   return (
